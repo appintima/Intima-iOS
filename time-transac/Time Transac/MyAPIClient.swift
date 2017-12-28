@@ -14,6 +14,7 @@ import FirebaseDatabase
 
 class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     
+    var customer_id: String!
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
     static let sharedClient = MyAPIClient()
     var baseURLString: String? = "https://us-central1-intima-227c4.cloudfunctions.net/"
@@ -41,23 +42,20 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
         let url = self.baseURL.appendingPathComponent("ephemeral_keys")
-        var customer = appdelegate.customer
-        if customer == nil{
+        if customer_id == nil{
             let customerID = Database.database().reference().child("Users").child(MD5(string: (Auth.auth().currentUser?.email)!)).child("customer_id")
             customerID.observeSingleEvent(of: .value) { (snapshot) in
                 if let cu_ID = snapshot.value as? String{
                     print(cu_ID,"Customer ID printed")
-                    customer = cu_ID
-                    self.appdelegate.customer = cu_ID
+                    self.customer_id = cu_ID
+                    
                 }
             }
         }
-        print(url)
-        print(apiVersion)
-        print(customer!)
+        
         Alamofire.request(url, method: .post, parameters: [
             "api_version": apiVersion,
-            "customerID": customer!
+            "customerID": customer_id
             ])
             .validate(statusCode: 200..<300)
             .responseJSON { responseJSON in
@@ -78,20 +76,20 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     
     func completeCharge(amount: Int,
                         completion: @escaping STPErrorBlock) {
-        var customer = appdelegate.customer
-        if customer == nil{
+        
+        if customer_id == nil{
             let customerID = Database.database().reference().child("Users").child(MD5(string: (Auth.auth().currentUser?.email)!)).child("customer_id")
             customerID.observeSingleEvent(of: .value) { (snapshot) in
                 if let cu_ID = snapshot.value as? String{
                     print(cu_ID,"Customer ID printed")
-                    customer = cu_ID
-                    self.appdelegate.customer = cu_ID
+                    self.customer_id = cu_ID
+                    
                 }
             }
         }
         let url = self.baseURL.appendingPathComponent("charges")
         let params: [String: Any] = [
-            "customerID": customer!,
+            "customerID": self.customer_id,
             "amount": amount,
             "currency": "CAD"
         ]
@@ -108,20 +106,19 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     }
     
     func getCurrentCustomer(completion: @escaping STPJSONResponseCompletionBlock) {
-        var customer = appdelegate.customer
-        if customer == nil{
+        if customer_id == nil{
             let customerID = Database.database().reference().child("Users").child(MD5(string: (Auth.auth().currentUser?.email)!)).child("customer_id")
             customerID.observeSingleEvent(of: .value) { (snapshot) in
                 if let cu_ID = snapshot.value as? String{
                     print(cu_ID,"Customer ID printed")
-                    customer = cu_ID
-                    self.appdelegate.customer = cu_ID
+                    self.customer_id = cu_ID
+                    
                 }
             }
         }
         let url = self.baseURL.appendingPathComponent("getCustomer")
         let params: [String: Any] = [
-            "customerID": customer!
+            "customerID": customer_id
         ]
         
         Alamofire.request(url, method: .post, parameters: params)
@@ -138,20 +135,19 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     }
     
     func updateCustomerDefaultSource(id source_id: String, completion: @escaping STPErrorBlock) {
-        var customer = appdelegate.customer
-        if customer == nil{
+        if customer_id == nil{
             let customerID = Database.database().reference().child("Users").child(MD5(string: (Auth.auth().currentUser?.email)!)).child("customer_id")
             customerID.observeSingleEvent(of: .value) { (snapshot) in
                 if let cu_ID = snapshot.value as? String{
                     print(cu_ID,"Customer ID printed")
-                    customer = cu_ID
-                    self.appdelegate.customer = cu_ID
+                    self.customer_id = cu_ID
+                    
                 }
             }
         }
         let url = self.baseURL.appendingPathComponent("updateStripeCustomerDefaultSource")
         let params: [String: Any] = [
-            "customerID": customer!,
+            "customerID": customer_id,
             "source": source_id
         ]
         Alamofire.request(url, method: .post, parameters: params)
@@ -179,20 +175,19 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     }
     
     func addPaymentSource(id source_id: String, completion: @escaping STPErrorBlock) {
-        var customer = appdelegate.customer
-        if customer == nil{
+        if customer_id == nil{
             let customerID = Database.database().reference().child("Users").child(MD5(string: (Auth.auth().currentUser?.email)!)).child("customer_id")
             customerID.observeSingleEvent(of: .value) { (snapshot) in
                 if let cu_ID = snapshot.value as? String{
                     print(cu_ID,"Customer ID printed")
-                    customer = cu_ID
-                    self.appdelegate.customer = cu_ID
+                    self.customer_id = cu_ID
+                    
                 }
             }
         }
         let url = self.baseURL.appendingPathComponent("addPaymentSource2")
         let params: [String: Any] = [
-            "customerID": customer!,
+            "customerID": customer_id,
             "sourceID": source_id
         ]
         Alamofire.request(url, method: .post, parameters: params)
