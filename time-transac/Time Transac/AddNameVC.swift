@@ -20,7 +20,6 @@ class AddNameVC: UIViewController {
     @IBOutlet weak var checkViewName: UIView!
     let errorName = LOTAnimationView(name: "error")
     let checkName = LOTAnimationView(name: "check")
-    var newUser: User2!
     @IBOutlet weak var gradientView: PastelView!
     
     override func viewDidLoad() {

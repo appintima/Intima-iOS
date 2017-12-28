@@ -11,6 +11,7 @@ import Lottie
 import Pastel
 import Firebase
 import Material
+import PopupDialog
 
 class EmailVerifyVC: UIViewController {
 
@@ -23,8 +24,14 @@ class EmailVerifyVC: UIViewController {
     var lastName: String!
     var dbRef : DatabaseReference!
     var newUserUID: String!
+    var checkEmail = LOTAnimationView()
+    var loadingAnimation = LOTAnimationView()
+    var user: User?
+    var emailPopup: PopupDialog?
     
     override func viewDidLoad() {
+        checkEmail = self.view.returnHandledAnimation(filename: "check", subView: emailCheckAnimation, tagNum: 1)
+        
         super.viewDidLoad()
         super.viewDidAppear(true)
         dbRef = Database.database().reference()
@@ -33,6 +40,7 @@ class EmailVerifyVC: UIViewController {
         gradientView.animationDuration = 3.0
         gradientView.setColors([#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),#colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)])
         self.hideKeyboardWhenTappedAround()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,58 +64,48 @@ class EmailVerifyVC: UIViewController {
         
         if (emailTF?.text?.isEmpty != true && passwordTF?.text?.isEmpty != true){
 
-            let checkEmail = self.view.returnHandledAnimation(filename: "check", subView: emailCheckAnimation, tagNum: 1)
-            let loadingAnimation = self.view.returnHandledAnimation(filename: "loading", subView: emailCheckAnimation, tagNum: 2)
-            self.continueButtonEmail.makeButtonDissapear()
-            loadingAnimation.play()
-            loadingAnimation.loopAnimation = true
-            Auth.auth().createUser(withEmail: emailTF.text!, password: passwordTF.text!, completion: { (user, error) in
-                if (error != nil){
-                    
-                    self.emailCheckAnimation.makeAnimationDissapear(tag: 2)
-                    let errorEmail = self.view.returnHandledAnimation(filename: "error", subView: self.emailCheckAnimation, tagNum: 3)
-                    errorEmail.play()
-                    let when = DispatchTime.now() + 2
-                    DispatchQueue.main.asyncAfter(deadline: when){
-                        self.emailCheckAnimation.makeAnimationDissapear(tag: 3)
-                        self.continueButtonEmail.makeButtonAppear()
+            Auth.auth().currentUser?.delete(completion: { (err) in
+                if let error = err{
+                    print(error.localizedDescription)
+                }
+                self.loadingAnimation = self.view.returnHandledAnimation(filename: "loading", subView: self.emailCheckAnimation, tagNum: 2)
+                self.continueButtonEmail.makeButtonDissapear()
+                self.loadingAnimation.play()
+                self.loadingAnimation.loopAnimation = true
+                Auth.auth().createUser(withEmail: self.emailTF.text!, password: self.passwordTF.text!, completion: { (user, error) in
+                    if (error != nil){
+                        
+                        self.emailCheckAnimation.makeAnimationDissapear(tag: 2)
+                        let errorEmail = self.view.returnHandledAnimation(filename: "error", subView: self.emailCheckAnimation, tagNum: 3)
+                        errorEmail.play()
+                        let when = DispatchTime.now() + 2
+                        DispatchQueue.main.asyncAfter(deadline: when){
+                            self.emailCheckAnimation.makeAnimationDissapear(tag: 3)
+                            self.continueButtonEmail.makeButtonAppear()
+                        }
+                        print(error as Any)
+                        return
                     }
-                    print(error as Any)
-                    return
-                }
-                else{
-                    self.emailCheckAnimation.makeAnimationDissapear(tag: 2)
-                    self.addNewUserToDBJson()
-                    user?.sendEmailVerification()
-                    let profile = user?.createProfileChangeRequest()
-                    profile?.displayName = "\(self.firstName!) \(self.lastName!)"
-                    profile?.commitChanges(completion: { (error2) in
-                        if (error2 != nil){
-                            let errorEmail = self.view.returnHandledAnimation(filename: "error", subView: self.emailCheckAnimation, tagNum: 3)
-                            errorEmail.play()
-                            let when = DispatchTime.now() + 2
-                            DispatchQueue.main.asyncAfter(deadline: when){
-                                self.emailCheckAnimation.makeAnimationDissapear(tag: 3)
-                                self.continueButtonEmail.makeButtonAppear()
+                    else{
+                        self.user = user
+                        user?.sendEmailVerification(completion: { (err) in
+                            if let error = err {
+                                print(error.localizedDescription)
                             }
-                            print(error as Any)
-                            return
-                        }
-                        else{
-                            self.emailCheckAnimation.handledAnimation(Animation: checkEmail)
-                            self.continueButtonEmail.makeButtonDissapear()
-                            checkEmail.play()
-                            let when = DispatchTime.now() + 2
-                            DispatchQueue.main.asyncAfter(deadline: when){
-                                checkEmail.stop()
-                                self.performSegue(withIdentifier: "ToEmailCodeVC", sender: self)
-                                
-                            }
-                        }
-                    })
-                }
+                        })
+                        self.emailPopup = self.prepareEmailVerifyPopup(user: user!)
+                        
+                        self.present(self.emailPopup!, animated: true, completion: {
+                            self.loadingAnimation.stop()
+                            self.loadingAnimation.makeAnimationDissapear(tag: 2)
+                            self.continueButtonEmail.makeButtonAppear()
+                        })
+                        
+                    }
+                })
             })
         }
+            
         else{
             let errorEmail = self.view.returnHandledAnimation(filename: "error", subView: emailCheckAnimation, tagNum: 3)
             self.continueButtonEmail.isHidden = true
@@ -119,17 +117,9 @@ class EmailVerifyVC: UIViewController {
                 
             }
         }
+            
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "ToEmailCodeVC"){
-            if let destination = segue.destination as? EmailCodeVC{
-                destination.firstName = firstName
-                destination.lastName = lastName
-                destination.email = emailTF.text
-                destination.password = passwordTF.text
-            }
-        }
-    }
+
     
     func prepareTitleTextField(){
         
@@ -148,6 +138,60 @@ class EmailVerifyVC: UIViewController {
         
         
     }
+    
+    func prepareEmailVerifyPopup(user: User) -> PopupDialog{
+        
+        let title = "Verify your email"
+        let message = "Please check your email for a verification link, then press continue after verifying"
+        let emailVerifyPopup = PopupDialog(title: title, message: message)
+        let continueButton = DefaultButton(title: "Continue", dismissOnTap: false){
+            
+            user.reload(completion: { (err) in
+                if let error = err{
+                    print(error.localizedDescription)
+                    return
+                }
+                if user.isEmailVerified{
+                    emailVerifyPopup.dismiss()
+                    self.emailCheckAnimation.makeAnimationDissapear(tag: 2)
+                    self.addNewUserToDBJson()
+                    let profile = user.createProfileChangeRequest()
+                    profile.displayName = "\(self.firstName!) \(self.lastName!)"
+                    profile.commitChanges(completion: { (error2) in
+                        if (error2 != nil){
+                            let errorEmail = self.view.returnHandledAnimation(filename: "error", subView: self.emailCheckAnimation, tagNum: 3)
+                            errorEmail.play()
+                            let when = DispatchTime.now() + 2
+                            DispatchQueue.main.asyncAfter(deadline: when){
+                                self.emailCheckAnimation.makeAnimationDissapear(tag: 3)
+                                self.continueButtonEmail.makeButtonAppear()
+                            }
+                            print(error2 as Any)
+                            return
+                        }
+                        else{
+                            self.emailCheckAnimation.handledAnimation(Animation: self.checkEmail)
+                            self.continueButtonEmail.makeButtonDissapear()
+                            self.checkEmail.play()
+                            let when = DispatchTime.now() + 2
+                            DispatchQueue.main.asyncAfter(deadline: when){
+                                self.checkEmail.stop()
+                                self.performSegue(withIdentifier: "endSignUp", sender: self)
+                                
+                            }
+                        }
+                    })
+                }
+                else{
+                    emailVerifyPopup.shake()
+                }
+            })
+        }
+        emailVerifyPopup.addButton(continueButton)
+        
+        return emailVerifyPopup
+    }
+    
     
     func MD5(string: String) -> String {
         let messageData = string.data(using:.utf8)!

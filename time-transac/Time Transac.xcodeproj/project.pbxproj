@@ -22,7 +22,6 @@
 		3B71C5041EE6836800746DEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B71C5031EE6836800746DEE /* Assets.xcassets */; };
 		3B71C5121EE6836800746DEE /* Time_TransacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5111EE6836800746DEE /* Time_TransacTests.swift */; };
 		3B71C51D1EE6836800746DEE /* Time_TransacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C51C1EE6836800746DEE /* Time_TransacUITests.swift */; };
-		3B71C5B41EF0456900746DEE /* User2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5B31EF0456900746DEE /* User2.swift */; };
 		3B71C5B81EF1ED9700746DEE /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5B71EF1ED9700746DEE /* Job.swift */; };
 		3B71C5BC1EF35D8300746DEE /* AllJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5BB1EF35D8300746DEE /* AllJobs.swift */; };
 		3B71C5C01EF3C22900746DEE /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5BF1EF3C22900746DEE /* Skill.swift */; };
@@ -42,7 +41,6 @@
 		F330344E1FEF80A4004C9C30 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F330344D1FEF80A4004C9C30 /* Buttons.swift */; };
 		F33034511FEF80F3004C9C30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F330344F1FEF80F2004C9C30 /* SettingsViewController.swift */; };
 		F33034521FEF80F3004C9C30 /* PaymentContextFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */; };
-		F333D2CA1F37EDE100D95EA6 /* EmailCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333D2C91F37EDE100D95EA6 /* EmailCodeVC.swift */; };
 		F33C83921F6B8220003157B7 /* endSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C83911F6B8220003157B7 /* endSignUpVC.swift */; };
 		F34760D21F32A726001C24A5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34760D11F32A726001C24A5 /* Launch Screen.storyboard */; };
 		F357C2E21F35622900963A35 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F357C2DE1F35622900963A35 /* loading.json */; };
@@ -121,7 +119,6 @@
 		3B71C5181EE6836800746DEE /* Time TransacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Time TransacUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B71C51C1EE6836800746DEE /* Time_TransacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_TransacUITests.swift; sourceTree = "<group>"; };
 		3B71C51E1EE6836800746DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B71C5B31EF0456900746DEE /* User2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User2.swift; sourceTree = "<group>"; };
 		3B71C5B71EF1ED9700746DEE /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		3B71C5BB1EF35D8300746DEE /* AllJobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllJobs.swift; sourceTree = "<group>"; };
 		3B71C5BF1EF3C22900746DEE /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
@@ -149,7 +146,6 @@
 		F330344D1FEF80A4004C9C30 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		F330344F1FEF80F2004C9C30 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentContextFooterView.swift; sourceTree = "<group>"; };
-		F333D2C91F37EDE100D95EA6 /* EmailCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailCodeVC.swift; sourceTree = "<group>"; };
 		F33C83911F6B8220003157B7 /* endSignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = endSignUpVC.swift; sourceTree = "<group>"; };
 		F34760D11F32A726001C24A5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F357C2DE1F35622900963A35 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
@@ -306,7 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				3B71C5BB1EF35D8300746DEE /* AllJobs.swift */,
-				3B71C5B31EF0456900746DEE /* User2.swift */,
 				3B71C5B71EF1ED9700746DEE /* Job.swift */,
 				3B71C5BF1EF3C22900746DEE /* Skill.swift */,
 				3B1EC3001EFC888A00182029 /* ServiceCalls.swift */,
@@ -361,7 +356,6 @@
 				F330344F1FEF80F2004C9C30 /* SettingsViewController.swift */,
 				F30136F71F2D04CB0023828A /* Lgsupage.swift */,
 				F3CD40911F37DA08001DE153 /* EmailVerifyVC.swift */,
-				F333D2C91F37EDE100D95EA6 /* EmailCodeVC.swift */,
 				F3110CD31F3A7AF900BACAE9 /* ApplicationTabsController.swift */,
 				F305C7071F68C90700D8C296 /* navigationBarViewController.swift */,
 				F3138B5B1FE6B3A300E690AB /* ProfilePicture.swift */,
@@ -791,13 +785,11 @@
 				F35EE16F1F8D3F38007C08E7 /* PopUpJobViewVC.swift in Sources */,
 				F3DD81F91FC3BD35000826F8 /* AppSnackbarController.swift in Sources */,
 				F3A2006A1FF32824005F7286 /* CustomAPIAdapter.swift in Sources */,
-				F333D2CA1F37EDE100D95EA6 /* EmailCodeVC.swift in Sources */,
 				F33034521FEF80F3004C9C30 /* PaymentContextFooterView.swift in Sources */,
 				F3D9ED141F76EA9D00332237 /* CustomUIButton.swift in Sources */,
 				F30137121F2D479E0023828A /* CustomUIBorderControls.swift in Sources */,
 				F33034511FEF80F3004C9C30 /* SettingsViewController.swift in Sources */,
 				3B0FC4031F203E5B00ED88C6 /* BuyVC.swift in Sources */,
-				3B71C5B41EF0456900746DEE /* User2.swift in Sources */,
 				3B71C4FF1EE6836800746DEE /* AddNameVC.swift in Sources */,
 				F3CA7CD51FEC52CD00862F7A /* HomeViewController.swift in Sources */,
 				3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */,

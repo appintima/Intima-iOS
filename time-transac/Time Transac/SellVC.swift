@@ -41,7 +41,6 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var pointAnnotations : [MGLPointAnnotation] = []
     var allAvailableJobs: [Job] = []
     var newJob: Job?
-    var currentUser: User2!
     let service = ServiceCalls()
     var menuShowing = false
     var hamburgerAnimation: LOTAnimationView!

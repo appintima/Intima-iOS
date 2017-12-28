@@ -306,105 +306,12 @@
                         <outlet property="emailTF" destination="CU9-d7-Kbf" id="YZd-9a-WbZ"/>
                         <outlet property="gradientView" destination="LgM-HO-cgv" id="9qK-sg-LI7"/>
                         <outlet property="passwordTF" destination="Xxz-fQ-0kB" id="4Ql-b0-PXN"/>
-                        <segue destination="juZ-JM-jrc" kind="show" identifier="ToEmailCodeVC" id="HTE-CJ-Myb"/>
+                        <segue destination="oOl-Ny-ZFv" kind="show" identifier="endSignUp" id="ZvO-yE-bac"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cId-Cf-VSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2266" y="644"/>
-        </scene>
-        <!--Email CodeVC-->
-        <scene sceneID="mwu-aZ-vOq">
-            <objects>
-                <viewController id="juZ-JM-jrc" customClass="EmailCodeVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dQ7-Vn-ku2"/>
-                        <viewControllerLayoutGuide type="bottom" id="k3B-9E-KHx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mXc-JL-lQW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKk-5F-xF2" userLabel="gradientView" customClass="PastelView" customModule="Pastel">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.47450980539999998" green="0.8392156959" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm your email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ykt-0b-Eut">
-                                <rect key="frame" x="46.5" y="89" width="282" height="37"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your Email for an activation link. You will be unable to login without verifying your email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="323-bh-erj">
-                                <rect key="frame" x="78" y="146" width="219" height="180"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Llt-YV-kb7" userLabel="AnimationViewFour">
-                                <rect key="frame" x="113" y="355" width="150" height="150"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC2-WM-2sa" customClass="RaisedButton" customModule="Material">
-                                <rect key="frame" x="66" y="410.5" width="243.5" height="40"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
-                                        <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Continue"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                        <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="continueClicked:" destination="juZ-JM-jrc" eventType="touchUpInside" id="ZAO-eX-qQg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="323-bh-erj" firstAttribute="height" secondItem="mXc-JL-lQW" secondAttribute="height" multiplier="0.269865" id="14w-3Y-GZ2"/>
-                            <constraint firstItem="k3B-9E-KHx" firstAttribute="top" secondItem="qKk-5F-xF2" secondAttribute="bottom" id="2XU-Fe-FWw"/>
-                            <constraint firstItem="vC2-WM-2sa" firstAttribute="top" secondItem="323-bh-erj" secondAttribute="bottom" constant="84.5" id="3rY-Tv-cMJ"/>
-                            <constraint firstItem="323-bh-erj" firstAttribute="top" secondItem="ykt-0b-Eut" secondAttribute="bottom" constant="20" id="9tv-w2-q4V"/>
-                            <constraint firstItem="ykt-0b-Eut" firstAttribute="width" secondItem="mXc-JL-lQW" secondAttribute="width" multiplier="0.752" id="AFU-y7-V8s"/>
-                            <constraint firstItem="ykt-0b-Eut" firstAttribute="centerX" secondItem="mXc-JL-lQW" secondAttribute="centerX" id="AuF-gq-Xch"/>
-                            <constraint firstItem="Llt-YV-kb7" firstAttribute="width" secondItem="mXc-JL-lQW" secondAttribute="width" multiplier="0.4" id="FJM-eB-bv1"/>
-                            <constraint firstItem="qKk-5F-xF2" firstAttribute="leading" secondItem="mXc-JL-lQW" secondAttribute="leading" id="N5Q-eo-Aj5"/>
-                            <constraint firstItem="Llt-YV-kb7" firstAttribute="centerY" secondItem="vC2-WM-2sa" secondAttribute="centerY" id="OT5-O0-e4F"/>
-                            <constraint firstItem="Llt-YV-kb7" firstAttribute="centerX" secondItem="vC2-WM-2sa" secondAttribute="centerX" id="Vlj-YD-tiT"/>
-                            <constraint firstItem="vC2-WM-2sa" firstAttribute="height" secondItem="mXc-JL-lQW" secondAttribute="height" multiplier="0.06" id="W3O-qk-eSg"/>
-                            <constraint firstItem="vC2-WM-2sa" firstAttribute="centerX" secondItem="mXc-JL-lQW" secondAttribute="centerX" id="aZ1-70-rvy"/>
-                            <constraint firstItem="323-bh-erj" firstAttribute="centerX" secondItem="mXc-JL-lQW" secondAttribute="centerX" id="f2F-a4-Bno"/>
-                            <constraint firstItem="qKk-5F-xF2" firstAttribute="top" secondItem="mXc-JL-lQW" secondAttribute="top" id="fV4-eT-ahg"/>
-                            <constraint firstItem="323-bh-erj" firstAttribute="width" secondItem="mXc-JL-lQW" secondAttribute="width" multiplier="0.584" id="kGn-jA-IXV"/>
-                            <constraint firstAttribute="trailing" secondItem="qKk-5F-xF2" secondAttribute="trailing" id="ldO-JT-7Xh"/>
-                            <constraint firstItem="ykt-0b-Eut" firstAttribute="height" secondItem="mXc-JL-lQW" secondAttribute="height" multiplier="0.0554723" id="oFR-qt-LGl"/>
-                            <constraint firstItem="Llt-YV-kb7" firstAttribute="height" secondItem="mXc-JL-lQW" secondAttribute="height" multiplier="0.224888" id="oVD-wH-iwf"/>
-                            <constraint firstItem="vC2-WM-2sa" firstAttribute="width" secondItem="mXc-JL-lQW" secondAttribute="width" multiplier="0.65" id="rOo-Ha-eRv"/>
-                            <constraint firstItem="ykt-0b-Eut" firstAttribute="top" secondItem="dQ7-Vn-ku2" secondAttribute="bottom" constant="25" id="roD-ut-t8S"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="continueAnimation" destination="Llt-YV-kb7" id="Zq9-jR-hEu"/>
-                        <outlet property="continueButton" destination="vC2-WM-2sa" id="G68-2d-v8a"/>
-                        <outlet property="gradientView" destination="qKk-5F-xF2" id="Deq-dN-sr8"/>
-                        <segue destination="oOl-Ny-ZFv" kind="show" identifier="goToAllSet" id="vwn-Cn-6QD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ko2-Vg-dW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1516" y="644"/>
         </scene>
         <!--Profile Picture-->
         <scene sceneID="tyO-Fe-8tT">
@@ -609,10 +516,10 @@
             </objects>
             <point key="canvasLocation" x="734" y="-101"/>
         </scene>
-        <!--End Sign UpVC-->
+        <!--endSignUp-->
         <scene sceneID="4sJ-20-vxY">
             <objects>
-                <viewController id="oOl-Ny-ZFv" customClass="endSignUpVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="endSignUp" id="oOl-Ny-ZFv" customClass="endSignUpVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cF4-n7-XOW"/>
                         <viewControllerLayoutGuide type="bottom" id="Zzx-kR-Aye"/>
@@ -681,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83q-XA-7Dw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-751" y="644"/>
+            <point key="canvasLocation" x="-1562" y="644"/>
         </scene>
         <!--BuyVC-->
         <scene sceneID="XYB-tF-5sV">
@@ -999,7 +906,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="continueClicked:" destination="juZ-JM-jrc" eventType="touchUpInside" id="GUe-A6-giE"/>
                                             <action selector="postJobPressed:" destination="edh-TT-NGu" eventType="touchUpInside" id="ZrW-Z5-N5u"/>
                                         </connections>
                                     </button>
