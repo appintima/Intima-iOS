@@ -55,36 +55,57 @@ class ServiceCalls{
     
     func getJobFromFirebase(completion: @escaping ([Job],[MGLPointAnnotation])->()){
 
-//        jobsRef.observe(.childAdded, with: { (snapshot) in
-//            let job = Job(snapshot: snapshot as! DataSnapshot)
-//            print(job.jobOwnerEmailHash)
-//        })
-//
+        var newJobs : [Job] = []
+        var annotations = [MGLPointAnnotation]()
         jobsRef.observe(.childAdded, with: { (snapshot) in
-
-            print(snapshot)
-            var newJobs : [Job] = []
-            var annotations = [MGLPointAnnotation]()
-
-            let job = Job(snapshot: snapshot)
+            
+            let job = Job(snapshot: snapshot as! DataSnapshot)
             self.userRef.observe(.value, with: { (snapshot2) in
                 let userIDs = snapshot2.value as! [String : AnyObject]
                 job.jobOwnerRating = userIDs[job.jobOwnerEmailHash]!["Rating"] as! Float
+
                 if job.jobOwnerEmailHash != self.MD5(string: (Auth.auth().currentUser?.email)!){
                     newJobs.append(job)
+                    
                     let point = MGLPointAnnotation()
                     point.coordinate = job.location.coordinate
                     point.title = job.title
                     point.subtitle = ("$"+"\(job.wage_per_hour)"+"/Hour")
                     annotations.append(point)
                 }
-
-                completion(newJobs,annotations)
-                self.userRef.removeAllObservers()
-                self.jobsRef.removeAllObservers()
+                
+                
+                print(newJobs, job.title)
+                completion(newJobs, annotations)
             })
-
+            
         })
+//
+//        jobsRef.observe(.childAdded, with: { (snapshot) in
+//
+//            print(snapshot)
+//            var newJobs : [Job] = []
+//            var annotations = [MGLPointAnnotation]()
+//
+//            let job = Job(snapshot: snapshot)
+//            self.userRef.observe(.value, with: { (snapshot2) in
+//                let userIDs = snapshot2.value as! [String : AnyObject]
+//                job.jobOwnerRating = userIDs[job.jobOwnerEmailHash]!["Rating"] as! Float
+//                if job.jobOwnerEmailHash != self.MD5(string: (Auth.auth().currentUser?.email)!){
+//                    newJobs.append(job)
+//                    let point = MGLPointAnnotation()
+//                    point.coordinate = job.location.coordinate
+//                    point.title = job.title
+//                    point.subtitle = ("$"+"\(job.wage_per_hour)"+"/Hour")
+//                    annotations.append(point)
+//                }
+//
+//                completion(newJobs,annotations)
+//                self.userRef.removeAllObservers()
+//                self.jobsRef.removeAllObservers()
+//            })
+//
+//        })
     }
     
     
