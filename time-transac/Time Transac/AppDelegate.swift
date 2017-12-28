@@ -36,14 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         else{
             let providerData = Auth.auth().currentUser?.providerData
-            for userInfo in providerData! {
-                if userInfo.providerID == "facebook.com" {
-                    self.setLoginAsRoot()
-                }
-                else{
-                    self.setLogoutAsRoot()
+            if providerData != nil{
+                for userInfo in providerData! {
+                    if userInfo.providerID == "facebook.com" {
+                        self.setLoginAsRoot()
+                    }
+                    else{
+                        self.setLogoutAsRoot()
+                    }
                 }
             }
+            
         }
         if #available(iOS 10.0, *){
             UNUserNotificationCenter.current().delegate = self

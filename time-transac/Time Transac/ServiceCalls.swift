@@ -40,82 +40,55 @@ class ServiceCalls{
         let latitude = locationCoord.latitude
         let longitude = locationCoord.longitude
         
+        let jobDict: [String:Any] = ["latitude":latitude, "longitude":longitude, "JobOwner":jobOwnerEmailHash, "JobTitle":jobTitle, "JobDescription":jobDetails, "Price":pricePerHour, "Time":numberOfHours, "isOccupied":false, "isCompleted":false, "Full Name":(user?.displayName)!]
+        self.jobsRef.child(newJobID).updateChildValues(jobDict)
         
-        self.jobsRef.child(newJobID).child("longitude").setValue(longitude)
-        self.jobsRef.child(newJobID).child("latitude").setValue(latitude)
-        self.jobsRef.child(newJobID).child("JobOwner").setValue(jobOwnerEmailHash)
-        self.jobsRef.child(newJobID).child("JobTitle").setValue(jobTitle)
-        self.jobsRef.child(newJobID).child("JobDescription").setValue(jobDetails)
-        self.jobsRef.child(newJobID).child("Price").setValue(pricePerHour)
-        self.jobsRef.child(newJobID).child("Time").setValue(numberOfHours)
-        self.jobsRef.child(newJobID).child("isOccupied").setValue(false)
-        self.jobsRef.child(newJobID).child("isCompleted").setValue(false)
-        self.jobsRef.child(newJobID).child("Full Name").setValue(user?.displayName)
+        
         
         // adding job to the user who posted list of posted jobs
         let userPostedRef = self.userRef.child(self.MD5(string: (user?.email)!)).child("PostedJobs")
-        userPostedRef.child(newJobID).child("longitude").setValue(longitude)
-        userPostedRef.child(newJobID).child("latitude").setValue(latitude)
-        userPostedRef.child(newJobID).child("JobOwner").setValue(jobOwnerEmailHash)
-        userPostedRef.child(newJobID).child("JobTitle").setValue(jobTitle)
-        userPostedRef.child(newJobID).child("JobDescription").setValue(jobDetails)
-        userPostedRef.child(newJobID).child("Price").setValue(pricePerHour)
-        userPostedRef.child(newJobID).child("Time").setValue(numberOfHours)
-        userPostedRef.child(newJobID).child("isOccupied").setValue(false)
-        userPostedRef.child(newJobID).child("isCompleted").setValue(false)
-        userPostedRef.child(newJobID).child("Full Name").setValue(user?.displayName)
+        userPostedRef.child(newJobID).updateChildValues(jobDict)
+        
     }
     
     
     
     func getJobFromFirebase(completion: @escaping ([Job],[MGLPointAnnotation])->()){
 
-        jobsRef.observe(.value, with: { (snapshot) in
-
-            var newJobs : [Job] = []
-            var annotations = [MGLPointAnnotation]()
-            
-            for item in snapshot.children{
-
-                let job = Job(snapshot: item as! DataSnapshot)
-                self.userRef.observe(.value, with: { (snapshot2) in
-                    let userIDs = snapshot2.value as! [String : AnyObject]
-                    job.jobOwnerRating = userIDs[job.jobOwnerEmailHash]!["Rating"] as! Float
-                    if job.jobOwnerEmailHash != self.MD5(string: (Auth.auth().currentUser?.email)!){
-                        newJobs.append(job)
-                        let point = MGLPointAnnotation()
-                        point.coordinate = job.location.coordinate
-                        point.title = job.title
-                        point.subtitle = ("$"+"\(job.wage_per_hour)"+"/Hour")
-                        annotations.append(point)
-                    }
-                    
-                    completion(newJobs,annotations)
-                    self.userRef.removeAllObservers()
-                    self.jobsRef.removeAllObservers()
-                })
-        
-            }
+        jobsRef.observe(.childAdded, with: { (snapshot) in
+            let job = Job(snapshot: snapshot as! DataSnapshot)
+            print(job.jobOwnerEmailHash)
         })
+        
+//        jobsRef.observe(.value, with: { (snapshot) in
+//
+//            var newJobs : [Job] = []
+//            var annotations = [MGLPointAnnotation]()
+//
+//            for item in snapshot.children{
+//
+//                let job = Job(snapshot: item as! DataSnapshot)
+//                self.userRef.observe(.value, with: { (snapshot2) in
+//                    let userIDs = snapshot2.value as! [String : AnyObject]
+//                    job.jobOwnerRating = userIDs[job.jobOwnerEmailHash]!["Rating"] as! Float
+//                    if job.jobOwnerEmailHash != self.MD5(string: (Auth.auth().currentUser?.email)!){
+//                        newJobs.append(job)
+//                        let point = MGLPointAnnotation()
+//                        point.coordinate = job.location.coordinate
+//                        point.title = job.title
+//                        point.subtitle = ("$"+"\(job.wage_per_hour)"+"/Hour")
+//                        annotations.append(point)
+//                    }
+//
+//                    completion(newJobs,annotations)
+//                    self.userRef.removeAllObservers()
+//                    self.jobsRef.removeAllObservers()
+//                })
+//
+//            }
+//        })
     }
     
-    func updateViewWithNewJobs(completion: @escaping ([Job], [MGLPointAnnotation]) -> ()) {
-        
-        jobsRef.observe(.childAdded, with: { (snapshot) in
-            
-            var annotations = [MGLPointAnnotation]()
-            
-            for item in snapshot.children{
-                
-                let job = Job(snapshot: item as! DataSnapshot)
-                let point = MGLPointAnnotation()
-                point.coordinate = job.location.coordinate
-                point.title = job.title
-                point.subtitle = ("$"+"\(job.wage_per_hour)"+"/Hour")
-                annotations.append(point)
-            }
-        })
-    }
     
     func acceptPressed(job: Job, user: User, completion: @escaping (String)->()){
         let applicantRef = self.needConfirmRef.child(job.jobID!).child("Applicants")

@@ -135,7 +135,7 @@ class BuyVC: UIViewController{
         
             else{   // add job things to firebase
             
-                self.addJobToFirebase()
+//                self.addJobToFirebase()
                 
                 jobPriceConstraint.constant = 800
                 print(jobPriceConstraint.constant)

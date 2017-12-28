@@ -40,7 +40,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var dbRef: DatabaseReference!
     var pointAnnotations : [MGLPointAnnotation] = []
     var allAvailableJobs: [Job] = []
-    var newJob: Job?
+//    var newJob: Job?
     let service = ServiceCalls()
     var menuShowing = false
     var hamburgerAnimation: LOTAnimationView!
@@ -79,7 +79,8 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
     override func viewDidLoad() {
         
-        
+        self.MapView.delegate = self
+        MapView.compassView.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
         prepareCancelButtons()
         dbRef = Database.database().reference()
@@ -90,6 +91,14 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         prepareJobForm()
         prepareViewButton()
         prepareMap()
+        
+//        let jobref = Database.database().reference().child("AllJobs")
+//        var lst: [DataSnapshot] = []
+//        
+//        jobref.observe(.childAdded, with: { (snapshot) in
+//            lst.append(snapshot)
+//            
+//        })
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -99,8 +108,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
     //Prepares the map by adding annotations for jobs from firebase, and setting the mapview.
     @objc func prepareMap(){
-        self.MapView.delegate = self
-        MapView.compassView.isHidden = true
+        
         print("RELOADED")
         service.getJobFromFirebase { newJobs, annotations  in
             let annotationsWithoutCurrentUser = annotations
@@ -366,17 +374,20 @@ extension SellVC {
                     self.present(errorPopup, animated: true)
                 }
                 else{
-                    print("Sucessfully posted job")
+                    
                     self.service.addJobToFirebase(jobTitle: self.jobTitleTF.text!, jobDetails: self.jobDetailsTF.text!, pricePerHour: self.pricePerHour.text!, numberOfHours: self.numberOfHoursTF.text!, locationCoord: self.currentLocation)
+                    
                     self.jobPriceViewConstraint.constant = 1600
                     UIView.animate(withDuration: 1, animations: {self.view.layoutIfNeeded()})
                     self.postJobButton.isHidden = false
                     self.resetTextFields()
                     self.prepareSnackbarForJobPost()
                     self.animateSnackbar()
+                    print("Sucessfully posted job")
                 }
             })
         }
+        
         let cancelButton = CancelButton(title: "Cancel") {
             print("Job cancelled")
         }
