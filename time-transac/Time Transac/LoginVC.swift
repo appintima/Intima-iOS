@@ -92,8 +92,7 @@ class LoginVC: UIViewController {
             loadingAnim.loopAnimation = true
             Auth.auth().signIn(withEmail: emailTF.text!, password: passwordTF.text!, completion: { (user, error) in
                 // do some error checking
-                if error != nil{
-                    
+                if (error != nil || !(user?.isEmailVerified)!){
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
                         loadingAnim.stop()
@@ -110,8 +109,10 @@ class LoginVC: UIViewController {
                     return
                 }
                     
-                else if (error == nil){
+                else if (error == nil && (user?.isEmailVerified)!){
+                    
                     // else perform segue
+                    
                     let ref = Database.database().reference().child("Users").child(self.MD5(string: (user?.email)!))
                     let token = ["currentDevice": AppDelegate.DEVICEID]
                     ref.updateChildValues(token)

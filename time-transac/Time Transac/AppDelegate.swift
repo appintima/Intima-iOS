@@ -30,13 +30,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FirebaseApp.configure()
         STPPaymentConfiguration.shared().publishableKey = "pk_test_K45gbx2IXkVSg4pfmoq9SIa9"
         STPPaymentConfiguration.shared().appleMerchantIdentifier = "merchant.online.intima"
-        if Auth.auth().currentUser != nil && (Auth.auth().currentUser?.isEmailVerified)!{
+
+        if (Auth.auth().currentUser != nil && (Auth.auth().currentUser?.isEmailVerified)!){
             self.setLoginAsRoot()
         }
         else{
-            self.setLogoutAsRoot()
+            let providerData = Auth.auth().currentUser?.providerData
+            for userInfo in providerData! {
+                if userInfo.providerID == "facebook.com" {
+                    self.setLoginAsRoot()
+                }
+                else{
+                    self.setLogoutAsRoot()
+                }
+            }
         }
-        
         if #available(iOS 10.0, *){
             UNUserNotificationCenter.current().delegate = self
             let option : UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -59,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func setLogoutAsRoot(){
         
-        customer = ""
         window = UIWindow(frame: Screen.bounds)
         window!.rootViewController = AppSnackbarController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootViewController"))
         window?.makeKeyAndVisible()
