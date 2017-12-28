@@ -63,9 +63,10 @@ class EmailVerifyVC: UIViewController {
         
         
         if (emailTF?.text?.isEmpty != true && passwordTF?.text?.isEmpty != true){
-
+            print("hve normal fiwlds")
             Auth.auth().currentUser?.delete(completion: { (err) in
                 if let error = err{
+
                     print(error.localizedDescription)
                 }
                 self.loadingAnimation = self.view.returnHandledAnimation(filename: "loading", subView: self.emailCheckAnimation, tagNum: 2)
@@ -74,7 +75,7 @@ class EmailVerifyVC: UIViewController {
                 self.loadingAnimation.loopAnimation = true
                 Auth.auth().createUser(withEmail: self.emailTF.text!, password: self.passwordTF.text!, completion: { (user, error) in
                     if (error != nil){
-                        
+                        print("error when creating user")
                         self.emailCheckAnimation.makeAnimationDissapear(tag: 2)
                         let errorEmail = self.view.returnHandledAnimation(filename: "error", subView: self.emailCheckAnimation, tagNum: 3)
                         errorEmail.play()
@@ -87,6 +88,7 @@ class EmailVerifyVC: UIViewController {
                         return
                     }
                     else{
+                        print("error with popup")
                         self.user = user
                         user?.sendEmailVerification(completion: { (err) in
                             if let error = err {
@@ -104,20 +106,44 @@ class EmailVerifyVC: UIViewController {
                     }
                 })
             })
-        }
             
-        else{
-            let errorEmail = self.view.returnHandledAnimation(filename: "error", subView: emailCheckAnimation, tagNum: 3)
-            self.continueButtonEmail.isHidden = true
-            errorEmail.play()
-            let when = DispatchTime.now() + 2
-            DispatchQueue.main.asyncAfter(deadline: when){
-                self.emailCheckAnimation.makeAnimationDissapear(tag: 3)
-                self.continueButtonEmail.isHidden = false
-                
-            }
+            self.loadingAnimation = self.view.returnHandledAnimation(filename: "loading", subView: self.emailCheckAnimation, tagNum: 2)
+            self.continueButtonEmail.makeButtonDissapear()
+            self.loadingAnimation.play()
+            self.loadingAnimation.loopAnimation = true
+            Auth.auth().createUser(withEmail: self.emailTF.text!, password: self.passwordTF.text!, completion: { (user, error) in
+                if (error != nil){
+                    print("error when creating user")
+                    self.emailCheckAnimation.makeAnimationDissapear(tag: 2)
+                    let errorEmail = self.view.returnHandledAnimation(filename: "error", subView: self.emailCheckAnimation, tagNum: 3)
+                    errorEmail.play()
+                    let when = DispatchTime.now() + 2
+                    DispatchQueue.main.asyncAfter(deadline: when){
+                        self.emailCheckAnimation.makeAnimationDissapear(tag: 3)
+                        self.continueButtonEmail.makeButtonAppear()
+                    }
+                    print(error as Any)
+                    return
+                }
+                else{
+                    print("error with popup")
+                    self.user = user
+                    user?.sendEmailVerification(completion: { (err) in
+                        if let error = err {
+                            print(error.localizedDescription)
+                        }
+                    })
+                    self.emailPopup = self.prepareEmailVerifyPopup(user: user!)
+                    
+                    self.present(self.emailPopup!, animated: true, completion: {
+                        self.loadingAnimation.stop()
+                        self.loadingAnimation.makeAnimationDissapear(tag: 2)
+                        self.continueButtonEmail.makeButtonAppear()
+                    })
+                    
+                }
+            })
         }
-            
     }
 
     

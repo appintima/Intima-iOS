@@ -83,8 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.window!.rootViewController = AppSnackbarController(rootViewController: AppFABMenuController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootAfterLogin")))
         self.window?.makeKeyAndVisible()
         let customerID = Database.database().reference().child("Users").child(MD5(string: (Auth.auth().currentUser?.email)!)).child("customer_id")
-        print(customerID)
-        
         customerID.observeSingleEvent(of: .value) { (snapshot) in
             if let cu_ID = snapshot.value as? String{
                 print(cu_ID,"error printing")

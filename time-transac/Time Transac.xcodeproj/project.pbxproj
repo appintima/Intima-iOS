@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3B0FC3FE1F182DDF00ED88C6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FC3FC1F182DDF00ED88C6 /* CustomTableViewCell.swift */; };
 		3B0FC3FF1F182DDF00ED88C6 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B0FC3FD1F182DDF00ED88C6 /* CustomTableViewCell.xib */; };
-		3B0FC4031F203E5B00ED88C6 /* BuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FC4021F203E5B00ED88C6 /* BuyVC.swift */; };
 		3B0FC4051F2043FE00ED88C6 /* SellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FC4041F2043FE00ED88C6 /* SellVC.swift */; };
 		3B0FC4081F2477AC00ED88C6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FC4071F2477AB00ED88C6 /* LocationManager.swift */; };
 		3B0FC40B1F247F7B00ED88C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0FC40A1F247F7B00ED88C6 /* MapKit.framework */; };
@@ -100,7 +99,6 @@
 		3B0FA97B1FED934600DD2556 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		3B0FC3FC1F182DDF00ED88C6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3B0FC3FD1F182DDF00ED88C6 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		3B0FC4021F203E5B00ED88C6 /* BuyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyVC.swift; sourceTree = "<group>"; };
 		3B0FC4041F2043FE00ED88C6 /* SellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellVC.swift; sourceTree = "<group>"; };
 		3B0FC4071F2477AB00ED88C6 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3B0FC40A1F247F7B00ED88C6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -349,7 +347,6 @@
 				F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */,
 				3B71C4FE1EE6836800746DEE /* AddNameVC.swift */,
 				3B1EC3021EFC915700182029 /* LoginVC.swift */,
-				3B0FC4021F203E5B00ED88C6 /* BuyVC.swift */,
 				3B0FC4041F2043FE00ED88C6 /* SellVC.swift */,
 				F330344D1FEF80A4004C9C30 /* Buttons.swift */,
 				F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */,
@@ -789,7 +786,6 @@
 				F3D9ED141F76EA9D00332237 /* CustomUIButton.swift in Sources */,
 				F30137121F2D479E0023828A /* CustomUIBorderControls.swift in Sources */,
 				F33034511FEF80F3004C9C30 /* SettingsViewController.swift in Sources */,
-				3B0FC4031F203E5B00ED88C6 /* BuyVC.swift in Sources */,
 				3B71C4FF1EE6836800746DEE /* AddNameVC.swift in Sources */,
 				F3CA7CD51FEC52CD00862F7A /* HomeViewController.swift in Sources */,
 				3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */,
