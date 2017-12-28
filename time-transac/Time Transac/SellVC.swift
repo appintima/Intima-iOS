@@ -86,9 +86,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         dbRef = Database.database().reference()
         self.hideKeyboardWhenTappedAround()
         prepareTitleTextField()
-        self.navigationController?.navigationBar.isHidden = true
-        postJobButton.image = Icon.cm.pen
-        postJobButton.cornerRadius = postJobButton.frame.height/2
+        preparePostJobButton()
         useCurrentLocations()
         prepareJobForm()
         prepareViewButton()
@@ -161,6 +159,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         }
     }
     
+    //When submit is pressed after the job price form
     @IBAction func submitJob(_ sender: Any) {
         
         if (CLLocationManager.locationServicesEnabled()){
@@ -184,6 +183,8 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         }
         
     }
+    
+    //When you cancel the details, the view is animated here
     @IBAction func cancelDetailsPressed(_ sender: Any) {
         self.resetTextFields()
         jobDetailsConstraint.constant = 800
@@ -191,6 +192,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         postJobButton.isHidden = false
     }
     
+    //When you cancel price by pressing back, the view is animated here
     @IBAction func cancelPricePressed(_ sender: Any) {
 
         jobPriceViewConstraint.constant = 1600
@@ -200,16 +202,14 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         
     }
     
-
+    //Loads the bouncing animation for the map annotation
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         // This example is only concerned with point annotations.
         guard annotation is MGLPointAnnotation else {
             return nil
         }
-        
         let annotationView = CustomAnnotationView()
         annotationView.frame = CGRect(x: 0, y: 0, width: 40, height: 40 )
-        
         let locationAnimation = annotationView.returnHandledAnimationScaleToFill(filename: "bouncy_mapmaker", subView: annotationView, tagNum: 1)
         locationAnimation.loopAnimation = true
         annotationView.addSubview(locationAnimation)
@@ -218,6 +218,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         return annotationView
     }
     
+    //Prepares custom textfields for the job form
     func prepareTitleTextField(){
         
         self.pricePerHour.font = UIFont(name: "Century Gothic", size: 17)
@@ -242,14 +243,20 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         self.jobTitleTF.detailLabel.text = "A short title for your job"
         self.jobTitleTF.detailColor = Color.white
         self.jobTitleTF.placeholderNormalColor = Color.white
-        
     }
     
+    
+    //Prepares the post job button
+    func preparePostJobButton(){
+        postJobButton.image = Icon.cm.pen
+        postJobButton.cornerRadius = postJobButton.frame.height/2
+    }
     
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
     }
-
+    
+    //Loads a rating animation using the users rating, and puts this when the map annotation is clicked
     func mapView(_ mapView: MGLMapView, leftCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
         
         let animation = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
@@ -260,16 +267,18 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
             if Job.title == annotation.title!!{
                 rating = CGFloat(Job.jobOwnerRating/5)
             }
-            
         }
         ratingAnimation.play(toProgress: rating, withCompletion: nil)
         return animation
     }
     
+    
+    //Loads a button for pressing on a job annotations to display more information
     func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
         return UIButton(type: .detailDisclosure)
     }
-
+    
+    //Loads logic for what happens when the button to display more inforamation is pressed
     func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
         
         for Job in allAvailableJobs{
@@ -280,19 +289,19 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         }
     }
     
+    //Prepares a snackbar for when a job has been successfully posted and paid for
     @objc func prepareSnackbarForJobPost() {
         guard let snackbar2 = snackbarController?.snackbar else {
             return
         }
-        
         snackbar2.text = "Your Job has been successfully posted"
     }
     
+    //Prepares a snackbar for when a job has been accepted by a user
     @objc func prepareSnackbar() {
         guard let snackbar = snackbarController?.snackbar else {
             return
         }
-        
         snackbar.text = "Awaiting confirmation from Job owner"
         snackbar.rightViews = [viewJobButton]
     }
@@ -327,7 +336,6 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        
     }
     
     func prepareCancelButtons(){
@@ -353,15 +361,14 @@ extension SellVC {
         
         let continueButton = DefaultButton(title: "Continue", dismissOnTap: true) {
             MyAPIClient.sharedClient.completeCharge(amount: priceForStripe, completion: { (error) in
+                //If error occurs for paying
                 if error != nil{
                     let errorPopup = PopupDialog(title: "Error processing payment.", message:"Your payment method has failed, or none has been added. Please check your payment methods by tapping on the menu, and selecting payment methods.")
                     self.present(errorPopup, animated: true)
                 }
                 else{
                     print("Sucessfully posted job")
-                    
                     self.service.addJobToFirebase(jobTitle: self.jobTitleTF.text!, jobDetails: self.jobDetailsTF.text!, pricePerHour: self.pricePerHour.text!, numberOfHours: self.numberOfHoursTF.text!, locationCoord: self.currentLocation)
-                    
                     self.jobPriceViewConstraint.constant = 1600
                     UIView.animate(withDuration: 1, animations: {self.view.layoutIfNeeded()})
                     self.postJobButton.isHidden = false
@@ -371,13 +378,10 @@ extension SellVC {
                 }
             })
         }
-        
         let cancelButton = CancelButton(title: "Cancel") {
             print("Job cancelled")
         }
-        
         popup.addButtons([continueButton,cancelButton])
-        
         return popup
     }
     
@@ -421,11 +425,7 @@ extension SellVC {
         let viewCandidatesButton = DefaultButton(title: "View users who accepted your job", dismissOnTap: true) {
             print("View Users")
         }
-        
-        // Add buttons to dialog
-        // Alternatively, you can use popup.addButton(buttonOne)
-        // to add a single button
-        
+
         if job.jobOwnerEmailHash != self.service.MD5(string: (Auth.auth().currentUser?.email)!){
             popup.addButtons([buttonTwo, buttonOne])
         }
@@ -438,7 +438,7 @@ extension SellVC {
         return popup
     }
     
-
+    //Resets text fields on job form after it is no longer needed.
     func resetTextFields(){
         pricePerHour.text! = ""
         numberOfHoursTF.text = ""
@@ -449,7 +449,7 @@ extension SellVC {
 }
 
 extension SellVC {
-
+    
     fileprivate func prepareViewButton() {
         viewJobButton = FlatButton(title: "View", titleColor: Color.yellow.base)
         viewJobButton.pulseAnimation = .backing
