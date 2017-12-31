@@ -16,9 +16,9 @@ import Mapbox
 import PopupDialog
 import Alamofire
 import Stripe
+import SHSearchBar
 
-
-class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, STPPaymentContextDelegate {
+class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, STPPaymentContextDelegate, SHSearchBarDelegate {
     
     @IBOutlet weak var jobDetailsView: UIView!
     @IBOutlet weak var jobPriceView: UIView!
@@ -33,6 +33,8 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     @IBOutlet weak var postJobButton: RaisedButton!
     @IBOutlet weak var MapView: MGLMapView!
     fileprivate var viewJobButton: FlatButton!
+    var rasterSize: CGFloat = 11.0
+    var viewConstraints: [NSLayoutConstraint]?
     let cardHeight: CGFloat = 600
     let cardWidth: CGFloat = 300
     var yPosition:CGFloat = 45
@@ -53,7 +55,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     let appleMerchantID: String? = nil
     let companyName = "Intima"
     var timer : Timer!
-    
+    var searchBar: SHSearchBar!
     
     ///////////////////////// Functions that enable stripe payments go here /////////////////////////////
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
@@ -91,14 +93,9 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         prepareJobForm()
         prepareViewButton()
         prepareMap()
+        prepareSearchBar()
         
-//        let jobref = Database.database().reference().child("AllJobs")
-//        var lst: [DataSnapshot] = []
-//        
-//        jobref.observe(.childAdded, with: { (snapshot) in
-//            lst.append(snapshot)
-//            
-//        })
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -118,6 +115,16 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
             print(annotationsWithoutCurrentUser)
             self.MapView.addAnnotations(annotationsWithoutCurrentUser)
         }//end of closure
+    }
+    
+    func prepareSearchBar(){
+    
+        let searchGlassIconTemplate = UIImage(named: "icon-search")!.withRenderingMode(.alwaysTemplate)
+        let leftView1 = imageViewWithIcon(searchGlassIconTemplate, rasterSize: rasterSize)
+        searchBar = defaultSearchBar(withRasterSize: rasterSize, leftView: leftView1, rightView: nil, delegate: self)
+        view.addSubview(searchBar)
+        self.setupLayoutConstraints()
+
     }
     
     //Sets the camera for the mapview and sets current location to users current locations
@@ -223,6 +230,19 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         locationAnimation.play()
         annotationView.isUserInteractionEnabled = true
         return annotationView
+    }
+    
+    
+    //Search feature to filter jobs by title, needs additional work to be used properly
+    func searchBarDidEndEditing(_ searchBar: SHSearchBar) {
+        let searchText = searchBar.text
+        if !(searchText?.isEmpty)!{
+            for job in allAvailableJobs {
+                if (job.title.lowercased().range(of: searchText!.lowercased()) != nil) {
+                    print("Found a job")
+                }
+            }
+        }
     }
     
     //Prepares custom textfields for the job form
@@ -456,6 +476,77 @@ extension SellVC {
         jobDetailsTF.text = ""
     }
     
+}
+
+extension SellVC: Constrainable {
+    
+    func setupLayoutConstraints() {
+        let searchbarHeight: CGFloat = 44.0
+        
+        // Deactivate old constraints
+        viewConstraints?.forEach { $0.isActive = false }
+        
+        let constraints = [
+            searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            searchBar.leadingAnchor.constraint(equalTo:
+                view.leadingAnchor, constant: 20),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
+            searchBar.heightAnchor.constraint(equalToConstant: searchbarHeight),
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+        
+        if viewConstraints != nil {
+            UIView.animate(withDuration: 0.25) {
+                self.view.layoutIfNeeded()
+            }
+        }
+        
+        viewConstraints = constraints
+    }
+}
+
+
+
+// MARK: - Helper Functions
+func defaultSearchBar(withRasterSize rasterSize: CGFloat, leftView: UIView?, rightView: UIView?, delegate: SHSearchBarDelegate, useCancelButton: Bool = false) -> SHSearchBar {
+    var config = defaultSearchBarConfig(rasterSize)
+    config.leftView = leftView
+    config.rightView = rightView
+    config.useCancelButton = useCancelButton
+    
+    if leftView != nil {
+        config.leftViewMode = .always
+    }
+    
+    if rightView != nil {
+        config.rightViewMode = .unlessEditing
+    }
+    
+    let bar = SHSearchBar(config: config)
+    bar.delegate = delegate
+    bar.placeholder = NSLocalizedString("Filter Jobs", comment: "")
+    bar.updateBackgroundImage(withRadius: 6, corners: [.allCorners], color: UIColor.white)
+    bar.layer.shadowColor = UIColor.black.cgColor
+    bar.layer.shadowOffset = CGSize(width: 0, height: 3)
+    bar.layer.shadowRadius = 5
+    bar.layer.shadowOpacity = 0.25
+    return bar
+}
+
+func defaultSearchBarConfig(_ rasterSize: CGFloat) -> SHSearchBarConfig {
+    var config: SHSearchBarConfig = SHSearchBarConfig()
+    config.rasterSize = rasterSize
+    config.textAttributes = [.foregroundColor : UIColor.gray]
+    return config
+}
+
+func imageViewWithIcon(_ icon: UIImage, rasterSize: CGFloat) -> UIImageView {
+    let imgView = UIImageView(image: icon)
+    imgView.frame = CGRect(x: 0, y: 0, width: icon.size.width + rasterSize * 2.0, height: icon.size.height)
+    imgView.contentMode = .center
+    imgView.tintColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1)
+    return imgView
 }
 
 extension SellVC {

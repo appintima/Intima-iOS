@@ -14,7 +14,7 @@ import FirebaseDatabase
 
 class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     
-    var customer_id: String!
+    var customer_id: String?
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
     static let sharedClient = MyAPIClient()
     var baseURLString: String? = "https://us-central1-intima-227c4.cloudfunctions.net/"
@@ -55,7 +55,7 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
         
         Alamofire.request(url, method: .post, parameters: [
             "api_version": apiVersion,
-            "customerID": customer_id
+            "customerID": customer_id!
             ])
             .validate(statusCode: 200..<300)
             .responseJSON { responseJSON in
@@ -87,9 +87,10 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
                 }
             }
         }
+
         let url = self.baseURL.appendingPathComponent("charges")
         let params: [String: Any] = [
-            "customerID": self.customer_id,
+            "customerID": self.customer_id!,
             "amount": amount,
             "currency": "CAD"
         ]
@@ -118,7 +119,7 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
         }
         let url = self.baseURL.appendingPathComponent("getCustomer")
         let params: [String: Any] = [
-            "customerID": customer_id
+            "customerID": customer_id!
         ]
         
         Alamofire.request(url, method: .post, parameters: params)
@@ -147,7 +148,7 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
         }
         let url = self.baseURL.appendingPathComponent("updateStripeCustomerDefaultSource")
         let params: [String: Any] = [
-            "customerID": customer_id,
+            "customerID": customer_id!,
             "source": source_id
         ]
         Alamofire.request(url, method: .post, parameters: params)
@@ -187,7 +188,7 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
         }
         let url = self.baseURL.appendingPathComponent("addPaymentSource2")
         let params: [String: Any] = [
-            "customerID": customer_id,
+            "customerID": customer_id!,
             "sourceID": source_id
         ]
         Alamofire.request(url, method: .post, parameters: params)

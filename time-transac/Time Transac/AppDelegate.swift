@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     var window: UIWindow?
     var counter = 60
-    var customer: String!
+    var customer: String?
     static let NOTIFICATION_URL = "https://fcm.googleapis.com/fcm/send"
     static var DEVICEID = String()
     static let SERVERKEY = "AAAAMKQNFt8:APA91bGmSGBZeJMHDwqGOTSIAfYVb0aRxlG_e5Vey5DmFCdbTGYN_POi1CkprPV9mEn8rg7XLCuMUP4YgK-TuepamLbX0TOaGq9LAAWeml0A-4qK4A4WP15jAMgZlLgdf0JPq-kZ_kd3"
@@ -70,6 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func setLogoutAsRoot(){
         
+        self.customer = nil
+        print(self.customer)
         window = UIWindow(frame: Screen.bounds)
         window!.rootViewController = AppSnackbarController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootViewController"))
         window?.makeKeyAndVisible()
@@ -87,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if let cu_ID = snapshot.value as? String{
                 print(cu_ID,"error printing")
                 self.customer = cu_ID
+                print(self.customer)
 
             }
         }

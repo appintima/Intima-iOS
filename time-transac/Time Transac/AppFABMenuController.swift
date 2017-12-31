@@ -112,7 +112,6 @@ extension AppFABMenuController {
             facebookLoginManager.logOut()
             print("Logged out")
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.customer = nil
             appDelegate.setLogoutAsRoot()
             self.navigationController?.popViewController(animated: true)
         } catch let signOutError as NSError {
