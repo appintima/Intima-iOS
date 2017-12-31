@@ -23,12 +23,12 @@ class UnconfirmedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
-        service.loadUncomfirmedJobs { (unconfirmedJobs) in
-            for job in unconfirmedJobs{
-                self.loadAndAddCardToScrollView(job: job)
-            }
-            self.resetCardAttributesValues()
-        }
+//        service.loadUncomfirmedJobs { (unconfirmedJobs) in
+//            for job in unconfirmedJobs{
+//                self.loadAndAddCardToScrollView(job: job)
+//            }
+//            self.resetCardAttributesValues()
+//        }
     }
 
     override func didReceiveMemoryWarning() {

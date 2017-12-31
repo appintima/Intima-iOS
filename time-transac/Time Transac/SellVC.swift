@@ -112,7 +112,6 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
             self.MapView.addAnnotations(annotationsWithoutCurrentUser)
             self.allAvailableJobs = newJobs
 
-            print(annotationsWithoutCurrentUser)
             self.MapView.addAnnotations(annotationsWithoutCurrentUser)
         }//end of closure
     }
