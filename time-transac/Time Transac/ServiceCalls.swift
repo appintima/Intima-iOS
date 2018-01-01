@@ -20,6 +20,7 @@ class ServiceCalls{
     private let jobsRef: DatabaseReference!
     private let userRef: DatabaseReference!
     var availableJobs: [Job] = []
+    let emailHash = HelperFunctions().MD5(string: (Auth.auth().currentUser?.email)!)
     
     init() {
         fireBaseRef = Database.database().reference()
@@ -28,11 +29,10 @@ class ServiceCalls{
     }
     
     
-    func addJobToFirebase(jobTitle: String, jobDetails: String, pricePerHour: String, numberOfHours: String, locationCoord: CLLocationCoordinate2D){
+    func addJobToFirebase(jobTitle: String, jobDetails: String, pricePerHour: String, numberOfHours: String, locationCoord: CLLocationCoordinate2D, chargeID: String){
         
         let user = Auth.auth().currentUser
         let newJobID = self.jobsRef.childByAutoId().key
-        let jobOwnerEmailHash = self.MD5(string: (Auth.auth().currentUser?.email)!)
         let latitude = locationCoord.latitude
         let longitude = locationCoord.longitude
         
@@ -47,16 +47,16 @@ class ServiceCalls{
         let second = calendar.component(.second, from: date)
         let fullDate = "\(day)-\(month)-\(year) \(hour):\(minute):\(second)"
         
-        let jobDict: [String:Any] = ["latitude":latitude, "longitude":longitude, "JobOwner":jobOwnerEmailHash, "JobTitle":jobTitle, "JobDescription":jobDetails, "Price":pricePerHour, "Time":numberOfHours, "isOccupied":false, "isCompleted":false, "Full Name":(user?.displayName)!]
+        let jobDict: [String:Any] = ["latitude":latitude, "longitude":longitude, "JobOwner":self.emailHash, "JobTitle":jobTitle, "JobDescription":jobDetails, "Price":pricePerHour, "Time":numberOfHours, "isOccupied":false, "isCompleted":false, "Full Name":(user?.displayName)!]
         self.jobsRef.child(newJobID).updateChildValues(jobDict)
         
         // adding job to the user who posted list of posted jobs
-        let userPostedRef = self.userRef.child(self.MD5(string: (user?.email)!)).child("PostedJobs")
+        let userPostedRef = self.userRef.child(self.emailHash).child("PostedJobs")
         userPostedRef.child(newJobID).updateChildValues(jobDict)
         
         //add charges to user reference
-        let userChargesRef = self.userRef.child(self.MD5(string: (user?.email)!)).child("Charges")
-        let keyByDate = "Charge-\(fullDate)"
+        let userChargesRef = self.userRef.child(self.emailHash).child("Charges")
+        let keyByDate = chargeID
         userChargesRef.child(keyByDate).child("Time").setValue(fullDate)
         userChargesRef.child(keyByDate).child(newJobID).updateChildValues(jobDict)
         
@@ -68,6 +68,7 @@ class ServiceCalls{
 
         var newJobs : [Job] = []
         var annotations = [MGLPointAnnotation]()
+        print(jobsRef)
         jobsRef.observe(.childAdded, with: { (snapshot) in
             
             let job = Job(snapshot: snapshot)
@@ -75,7 +76,7 @@ class ServiceCalls{
                 let userIDs = snapshot2.value as! [String : AnyObject]
                 job.jobOwnerRating = userIDs[job.jobOwnerEmailHash]!["Rating"] as! Float
 
-                if job.jobOwnerEmailHash != self.MD5(string: (Auth.auth().currentUser?.email)!){
+                if job.jobOwnerEmailHash != self.emailHash{
                     newJobs.append(job)
                     
                     let point = MGLPointAnnotation()
@@ -94,7 +95,7 @@ class ServiceCalls{
     
     
     func acceptPressed(job: Job, user: User, completion: @escaping (String)->()){
-        let userAcceptedRef = self.userRef.child(self.MD5(string: user.email!)).child("AcceptedJobs")
+        let userAcceptedRef = self.userRef.child(self.emailHash).child("AcceptedJobs")
 
         
         let jobDict: [String:Any] = ["latitude":job.latitude, "longitude":job.longitude, "JobOwner":job.jobOwnerEmailHash, "JobTitle":job.title, "JobDescription":job.description, "Price":job.wage_per_hour, "Time":job.maxTime, "isOccupied":false, "isCompleted":false,
@@ -118,35 +119,14 @@ class ServiceCalls{
         
     }
     
-    
-//    func loadUncomfirmedJobs(completion: @escaping ([Job])->()) {
-//        needConfirmRef.observe(.value, with: { (snapshot) in
-//            var uncomfirmedJobs: [Job] = []
-//            for item in snapshot.children{
-//                let job = Job(snapshot: item as! DataSnapshot)
-//                if job.jobOwnerEmailHash == self.MD5(string: (Auth.auth().currentUser?.email)!){
-//                    uncomfirmedJobs.append(job)
-//                }
-//
-//            }
-//
-//            completion(uncomfirmedJobs)
-//            self.needConfirmRef.removeAllObservers()
-//        })
-//    }
-    
-    
-    func MD5(string: String) -> String {
-        let messageData = string.data(using:.utf8)!
-        var digestData = Data(count: Int(CC_MD5_DIGEST_LENGTH))
+    func getCustomerID(completion: @escaping (String) -> ()){
         
-        _ = digestData.withUnsafeMutableBytes {digestBytes in
-            messageData.withUnsafeBytes {messageBytes in
-                CC_MD5(messageBytes, CC_LONG(messageData.count), digestBytes)
-            }
-        }
-        
-        return digestData.map { String(format: "%02hhx", $0) }.joined()
+        userRef.observe(.value, with: { (snapshot) in
+            let userDict = snapshot.value as! [String: AnyObject]
+            let customer = userDict[self.emailHash]!["customer_id"]! as! String
+            completion(customer)
+            self.userRef.removeAllObservers()
+        })
     }
     
 }

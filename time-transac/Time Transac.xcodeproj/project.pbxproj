@@ -34,10 +34,10 @@
 		F30281C71F944C670062093C /* 5_stars.json in Resources */ = {isa = PBXBuildFile; fileRef = F30281C41F9445FE0062093C /* 5_stars.json */; };
 		F303373C1F36119C00A4E499 /* Check2.json in Resources */ = {isa = PBXBuildFile; fileRef = F303373B1F36119C00A4E499 /* Check2.json */; };
 		F305C7081F68C90800D8C296 /* navigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F305C7071F68C90700D8C296 /* navigationBarViewController.swift */; };
+		F30C07DD1FF9AA57009FC572 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C07DC1FF9AA56009FC572 /* HelperFunctions.swift */; };
 		F3110CD41F3A7AF900BACAE9 /* ApplicationTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3110CD31F3A7AF900BACAE9 /* ApplicationTabsController.swift */; };
 		F3138B5C1FE6B3A300E690AB /* ProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3138B5B1FE6B3A300E690AB /* ProfilePicture.swift */; };
 		F33034481FEF4D1A004C9C30 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33034471FEF4D1A004C9C30 /* MyAPIClient.swift */; };
-		F330344E1FEF80A4004C9C30 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F330344D1FEF80A4004C9C30 /* Buttons.swift */; };
 		F33034511FEF80F3004C9C30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F330344F1FEF80F2004C9C30 /* SettingsViewController.swift */; };
 		F33034521FEF80F3004C9C30 /* PaymentContextFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */; };
 		F33C83921F6B8220003157B7 /* endSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C83911F6B8220003157B7 /* endSignUpVC.swift */; };
@@ -60,7 +60,6 @@
 		F375B3151F65ACA5002F5538 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F375B3141F65ACA5002F5538 /* GoogleService-Info.plist */; };
 		F3837F821FEE1F0A00EC67DB /* bouncy_mapmaker.json in Resources */ = {isa = PBXBuildFile; fileRef = F3837F811FEE1F0A00EC67DB /* bouncy_mapmaker.json */; };
 		F3938E2D1F6A45A3006634E2 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3938E2C1F6A45A3006634E2 /* GradientView.swift */; };
-		F3A200681FF1F391005F7286 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A200671FF1F38E005F7286 /* CheckoutRowView.swift */; };
 		F3A2006A1FF32824005F7286 /* CustomAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */; };
 		F3CA7AF21FEB43F800862F7A /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */; };
 		F3CA7AF61FEB5DD900862F7A /* AppFABMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */; };
@@ -139,10 +138,10 @@
 		F30281C41F9445FE0062093C /* 5_stars.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 5_stars.json; sourceTree = "<group>"; };
 		F303373B1F36119C00A4E499 /* Check2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Check2.json; sourceTree = "<group>"; };
 		F305C7071F68C90700D8C296 /* navigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navigationBarViewController.swift; sourceTree = "<group>"; };
+		F30C07DC1FF9AA56009FC572 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		F3110CD31F3A7AF900BACAE9 /* ApplicationTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTabsController.swift; sourceTree = "<group>"; };
 		F3138B5B1FE6B3A300E690AB /* ProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicture.swift; sourceTree = "<group>"; };
 		F33034471FEF4D1A004C9C30 /* MyAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
-		F330344D1FEF80A4004C9C30 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		F330344F1FEF80F2004C9C30 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentContextFooterView.swift; sourceTree = "<group>"; };
 		F33C83911F6B8220003157B7 /* endSignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = endSignUpVC.swift; sourceTree = "<group>"; };
@@ -165,7 +164,6 @@
 		F375B3141F65ACA5002F5538 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3837F811FEE1F0A00EC67DB /* bouncy_mapmaker.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bouncy_mapmaker.json; sourceTree = "<group>"; };
 		F3938E2C1F6A45A3006634E2 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		F3A200671FF1F38E005F7286 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
 		F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAPIAdapter.swift; sourceTree = "<group>"; };
 		F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
 		F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFABMenuController.swift; sourceTree = "<group>"; };
@@ -306,6 +304,7 @@
 				3B71C5BF1EF3C22900746DEE /* Skill.swift */,
 				3B1EC3001EFC888A00182029 /* ServiceCalls.swift */,
 				3B0FC4071F2477AB00ED88C6 /* LocationManager.swift */,
+				F30C07DC1FF9AA56009FC572 /* HelperFunctions.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -345,12 +344,10 @@
 			isa = PBXGroup;
 			children = (
 				F3DD81F81FC3BD34000826F8 /* AppSnackbarController.swift */,
-				F3A200671FF1F38E005F7286 /* CheckoutRowView.swift */,
 				F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */,
 				3B71C4FE1EE6836800746DEE /* AddNameVC.swift */,
 				3B1EC3021EFC915700182029 /* LoginVC.swift */,
 				3B0FC4041F2043FE00ED88C6 /* SellVC.swift */,
-				F330344D1FEF80A4004C9C30 /* Buttons.swift */,
 				F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */,
 				F330344F1FEF80F2004C9C30 /* SettingsViewController.swift */,
 				F30136F71F2D04CB0023828A /* Lgsupage.swift */,
@@ -797,13 +794,13 @@
 				3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */,
 				3B71C5B81EF1ED9700746DEE /* Job.swift in Sources */,
 				F3138B5C1FE6B3A300E690AB /* ProfilePicture.swift in Sources */,
-				F330344E1FEF80A4004C9C30 /* Buttons.swift in Sources */,
 				F30136F81F2D04CB0023828A /* Lgsupage.swift in Sources */,
 				3B0FC3FE1F182DDF00ED88C6 /* CustomTableViewCell.swift in Sources */,
 				F3E9176F1F5B4B0E009DCB0F /* ShadowsToButtons.swift in Sources */,
 				F33034481FEF4D1A004C9C30 /* MyAPIClient.swift in Sources */,
 				F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */,
 				F3CD40921F37DA08001DE153 /* EmailVerifyVC.swift in Sources */,
+				F30C07DD1FF9AA57009FC572 /* HelperFunctions.swift in Sources */,
 				F3D9ED1A1F76FD2C00332237 /* ConfirmPageVC.swift in Sources */,
 				3B71C5C01EF3C22900746DEE /* Skill.swift in Sources */,
 				F35EE16B1F8355AC007C08E7 /* customShadowView.swift in Sources */,
@@ -814,7 +811,6 @@
 				F3D9ED221F77016300332237 /* AnnotationViewVC.swift in Sources */,
 				F3CA7CDD1FEC95DC00862F7A /* CustomAnnotationView.swift in Sources */,
 				3B71C5BC1EF35D8300746DEE /* AllJobs.swift in Sources */,
-				F3A200681FF1F391005F7286 /* CheckoutRowView.swift in Sources */,
 				F3E55F7B1F30033E003D3338 /* TapScreenToCloseKeyboardViewController.swift in Sources */,
 				F33C83921F6B8220003157B7 /* endSignUpVC.swift in Sources */,
 				F3CA7AF21FEB43F800862F7A /* AppTabsController.swift in Sources */,

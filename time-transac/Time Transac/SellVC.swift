@@ -386,15 +386,10 @@ extension SellVC {
         let popup = PopupDialog(title: title, message: message)
         
         let continueButton = DefaultButton(title: "Continue", dismissOnTap: true) {
-            MyAPIClient.sharedClient.completeCharge(amount: priceForStripe, completion: { (error) in
-                //If error occurs for paying
-                if error != nil{
-                    let errorPopup = PopupDialog(title: "Error processing payment.", message:"Your payment method has failed, or none has been added. Please check your payment methods by tapping on the menu, and selecting payment methods.")
-                    self.present(errorPopup, animated: true)
-                }
-                else{
-                    
-                    self.service.addJobToFirebase(jobTitle: self.jobTitleTF.text!, jobDetails: self.jobDetailsTF.text!, pricePerHour: self.pricePerHour.text!, numberOfHours: self.numberOfHoursTF.text!, locationCoord: self.currentLocation)
+            MyAPIClient.sharedClient.completeCharge(amount: priceForStripe, completion: { charge_id in
+                //If no error when paying
+                if charge_id != nil{
+                    self.service.addJobToFirebase(jobTitle: self.jobTitleTF.text!, jobDetails: self.jobDetailsTF.text!, pricePerHour: self.pricePerHour.text!, numberOfHours: self.numberOfHoursTF.text!, locationCoord: self.currentLocation, chargeID: charge_id!)
                     
                     self.jobPriceViewConstraint.constant = 1600
                     UIView.animate(withDuration: 1, animations: {self.view.layoutIfNeeded()})
@@ -403,6 +398,11 @@ extension SellVC {
                     self.prepareSnackbarForJobPost()
                     self.animateSnackbar()
                     print("Sucessfully posted job")
+                }
+                //If error when paying
+                else{
+                    let errorPopup = PopupDialog(title: "Error processing payment.", message:"Your payment method has failed, or none has been added. Please check your payment methods by tapping on the menu, and selecting payment methods.")
+                    self.present(errorPopup, animated: true)
                 }
             })
         }
@@ -445,25 +445,13 @@ extension SellVC {
                     print(response)
                 })
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "acceptedNotification"), object: nil)
+                self.prepareSnackbar()
                 self.animateSnackbar()
                 
             }
             print("Accepted Job")
         }
-        
-        let viewCandidatesButton = DefaultButton(title: "View users who accepted your job", dismissOnTap: true) {
-            print("View Users")
-        }
-
-        if job.jobOwnerEmailHash != self.service.MD5(string: (Auth.auth().currentUser?.email)!){
-            popup.addButtons([buttonTwo, buttonOne])
-        }
-        
-        else{
-            popup.addButton(viewCandidatesButton)
-        }
-        
-        
+        popup.addButtons([buttonTwo, buttonOne])
         return popup
     }
     
