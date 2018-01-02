@@ -191,7 +191,7 @@ class SettingsViewController: UITableViewController {
             for cookie in cookieStore.cookies ?? [] {
                 cookieStore.deleteCookie(cookie)
             }
-        case .Session:
+        case .Session: break
             print("yes")
         }
         tableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: .automatic)

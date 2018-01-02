@@ -63,7 +63,6 @@
 		F3A2006A1FF32824005F7286 /* CustomAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */; };
 		F3CA7AF21FEB43F800862F7A /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */; };
 		F3CA7AF61FEB5DD900862F7A /* AppFABMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */; };
-		F3CA7CD51FEC52CD00862F7A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7CD41FEC52CD00862F7A /* HomeViewController.swift */; };
 		F3CA7CD91FEC93D500862F7A /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = F3CA7CD81FEC93D500862F7A /* location.json */; };
 		F3CA7CDD1FEC95DC00862F7A /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7CDC1FEC95DC00862F7A /* CustomAnnotationView.swift */; };
 		F3CD40921F37DA08001DE153 /* EmailVerifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD40911F37DA08001DE153 /* EmailVerifyVC.swift */; };
@@ -167,7 +166,6 @@
 		F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAPIAdapter.swift; sourceTree = "<group>"; };
 		F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
 		F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFABMenuController.swift; sourceTree = "<group>"; };
-		F3CA7CD41FEC52CD00862F7A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3CA7CD81FEC93D500862F7A /* location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location.json; sourceTree = "<group>"; };
 		F3CA7CDC1FEC95DC00862F7A /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		F3CD40911F37DA08001DE153 /* EmailVerifyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailVerifyVC.swift; sourceTree = "<group>"; };
@@ -361,7 +359,6 @@
 				F35EE16E1F8D3F38007C08E7 /* PopUpJobViewVC.swift */,
 				3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */,
 				F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */,
-				F3CA7CD41FEC52CD00862F7A /* HomeViewController.swift */,
 				F33034471FEF4D1A004C9C30 /* MyAPIClient.swift */,
 				F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */,
 			);
@@ -789,7 +786,6 @@
 				F30137121F2D479E0023828A /* CustomUIBorderControls.swift in Sources */,
 				F33034511FEF80F3004C9C30 /* SettingsViewController.swift in Sources */,
 				3B71C4FF1EE6836800746DEE /* AddNameVC.swift in Sources */,
-				F3CA7CD51FEC52CD00862F7A /* HomeViewController.swift in Sources */,
 				3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */,
 				3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */,
 				3B71C5B81EF1ED9700746DEE /* Job.swift in Sources */,

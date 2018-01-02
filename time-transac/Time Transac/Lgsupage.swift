@@ -186,7 +186,6 @@ class Lgsupage: UIViewController {
                             }else{
                                 let emailHash = self.MD5(string: (user?.email)!)
                                 self.dbRef.child("Users").child(emailHash).child("photoURL").setValue(url?.absoluteString)
-                                print("COMMITTED")
                             }
                         })
                         

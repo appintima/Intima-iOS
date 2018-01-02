@@ -20,6 +20,8 @@ import SHSearchBar
 
 class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, STPPaymentContextDelegate, SHSearchBarDelegate {
     
+    @IBOutlet weak var scheduleJob: TextField!
+    @IBOutlet weak var submitJobButton: RaisedButton!
     @IBOutlet weak var jobDetailsView: UIView!
     @IBOutlet weak var jobPriceView: UIView!
     @IBOutlet weak var cancelPrice: RaisedButton!
@@ -106,7 +108,6 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     //Prepares the map by adding annotations for jobs from firebase, and setting the mapview.
     @objc func prepareMap(){
         
-        print("RELOADED")
         service.getJobFromFirebase { newJobs, annotations  in
             let annotationsWithoutCurrentUser = annotations
             self.MapView.addAnnotations(annotationsWithoutCurrentUser)
@@ -191,6 +192,8 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
             
         }
         else{
+            let locationServicesPopup = PopupDialog(title: "Error", message: "Please enable location services to allow us to determine the location for your job")
+            self.present(locationServicesPopup, animated: true)
             print("Location not enabled")
             return
         }
@@ -258,7 +261,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         self.numberOfHoursTF.detailColor = Color.white
         self.numberOfHoursTF.placeholderNormalColor = Color.white
         self.jobTitleTF.placeholderLabel.font = UIFont(name: "Century Gothic", size: 17)
-        self.jobDetailsTF.placeholder = "Job description"
+        self.jobDetailsTF.placeholder = "Enter a job description; here is where you can be clear and concise with the full details of your job"
         self.jobDetailsTF.placeholderColor = Color.white
         self.jobDetailsTF.font = UIFont(name: "Century Gothic", size: 17)
         self.jobDetailsTF.textColor = Color.white
@@ -269,6 +272,11 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         self.jobTitleTF.detailLabel.text = "A short title for your job"
         self.jobTitleTF.detailColor = Color.white
         self.jobTitleTF.placeholderNormalColor = Color.white
+        self.scheduleJob.font = UIFont(name: "Century Gothic", size: 17)
+        self.scheduleJob.textColor = Color.white
+        self.scheduleJob.placeholderActiveColor = Color.white
+        self.scheduleJob.detailColor = Color.white
+        self.scheduleJob.placeholderNormalColor = Color.white
     }
     
     
@@ -386,6 +394,9 @@ extension SellVC {
         let popup = PopupDialog(title: title, message: message)
         
         let continueButton = DefaultButton(title: "Continue", dismissOnTap: true) {
+            
+            //Attempt to charge a payment
+            self.submitJobButton.isHidden = true
             MyAPIClient.sharedClient.completeCharge(amount: priceForStripe, completion: { charge_id in
                 //If no error when paying
                 if charge_id != nil{
@@ -398,6 +409,7 @@ extension SellVC {
                     self.prepareSnackbarForJobPost()
                     self.animateSnackbar()
                     print("Sucessfully posted job")
+                    self.submitJobButton.isHidden = true
                 }
                 //If error when paying
                 else{
@@ -406,7 +418,7 @@ extension SellVC {
                 }
             })
         }
-        
+
         let cancelButton = CancelButton(title: "Cancel") {
             print("Job cancelled")
         }
@@ -442,7 +454,6 @@ extension SellVC {
                 let notification = ["to":"\(device)", "notification":["body":body, "title":title, "badge":1, "sound":"default"]] as [String : Any]
                 
                 Alamofire.request(AppDelegate.NOTIFICATION_URL as URLConvertible, method: .post as HTTPMethod, parameters: notification, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { (response) in
-                    print(response)
                 })
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "acceptedNotification"), object: nil)
                 self.prepareSnackbar()

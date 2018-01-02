@@ -63,7 +63,6 @@ class EmailVerifyVC: UIViewController {
         
         
         if (emailTF?.text?.isEmpty != true && passwordTF?.text?.isEmpty != true){
-            print("hve normal fiwlds")
             Auth.auth().currentUser?.delete(completion: { (err) in
                 if let error = err{
 

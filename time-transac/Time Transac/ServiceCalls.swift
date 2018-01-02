@@ -68,7 +68,6 @@ class ServiceCalls{
 
         var newJobs : [Job] = []
         var annotations = [MGLPointAnnotation]()
-        print(jobsRef)
         jobsRef.observe(.childAdded, with: { (snapshot) in
             
             let job = Job(snapshot: snapshot)

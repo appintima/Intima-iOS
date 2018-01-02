@@ -142,7 +142,7 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     func addPaymentSource(id source_id: String, completion: @escaping STPErrorBlock) {
         service.getCustomerID { (customer) in
             self.customer_id = customer
-            let url = self.baseURL.appendingPathComponent("addPaymentSource2")
+            let url = self.baseURL.appendingPathComponent("addNewPaymentSource")
             let params: [String: Any] = [
                 "customerID": self.customer_id!,
                 "sourceID": source_id
