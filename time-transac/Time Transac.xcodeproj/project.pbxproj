@@ -15,6 +15,7 @@
 		3B0FC40D1F24804300ED88C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */; };
 		3B1EC3011EFC888A00182029 /* ServiceCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3001EFC888A00182029 /* ServiceCalls.swift */; };
 		3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3021EFC915700182029 /* LoginVC.swift */; };
+		3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */; };
 		3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */; };
 		3B71C4FD1EE6836800746DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C4FC1EE6836800746DEE /* AppDelegate.swift */; };
 		3B71C4FF1EE6836800746DEE /* AddNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C4FE1EE6836800746DEE /* AddNameVC.swift */; };
@@ -104,6 +105,7 @@
 		3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3B1EC3001EFC888A00182029 /* ServiceCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCalls.swift; sourceTree = "<group>"; };
 		3B1EC3021EFC915700182029 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantsVC.swift; sourceTree = "<group>"; };
 		3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnconfirmedVC.swift; sourceTree = "<group>"; };
 		3B71C4F91EE6836800746DEE /* Time Transac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Transac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B71C4FC1EE6836800746DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */,
 				F33034471FEF4D1A004C9C30 /* MyAPIClient.swift */,
 				F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */,
+				3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				F30136F21F2CF3590023828A /* RootPageViewController.swift in Sources */,
 				3B71C4FD1EE6836800746DEE /* AppDelegate.swift in Sources */,
 				F3938E2D1F6A45A3006634E2 /* GradientView.swift in Sources */,
+				3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */,
 				F3110CD41F3A7AF900BACAE9 /* ApplicationTabsController.swift in Sources */,
 				F3619A241F3793EB00FCA94B /* CustomAnimationHandler.swift in Sources */,
 			);

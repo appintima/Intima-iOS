@@ -58,6 +58,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     let companyName = "Intima"
     var timer : Timer!
     var searchBar: SHSearchBar!
+    var unconfirmedLst:[Job] = []
     
     ///////////////////////// Functions that enable stripe payments go here /////////////////////////////
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
@@ -97,6 +98,9 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         prepareMap()
         prepareSearchBar()
         
+        service.getUserUnconfirmedJobs { (jobs) in
+            self.unconfirmedLst = jobs
+        }
 
     }
     
@@ -104,6 +108,13 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         super.viewDidDisappear(animated)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToUnconfirmed"{
+            if let tbvc = segue.destination as? UnconfirmedVC{
+                tbvc.unconfirmedLst = self.unconfirmedLst
+            }
+        }
+    }
     
     //Prepares the map by adding annotations for jobs from firebase, and setting the mapview.
     @objc func prepareMap(){

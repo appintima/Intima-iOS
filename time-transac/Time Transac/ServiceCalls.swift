@@ -20,12 +20,14 @@ class ServiceCalls{
     private let jobsRef: DatabaseReference!
     private let userRef: DatabaseReference!
     var availableJobs: [Job] = []
+    let helper = HelperFunctions()
     let emailHash = HelperFunctions().MD5(string: (Auth.auth().currentUser?.email)!)
     
     init() {
         fireBaseRef = Database.database().reference()
         jobsRef = fireBaseRef.child("AllJobs")
         userRef = fireBaseRef.child("Users")
+        
     }
     
     
@@ -92,12 +94,19 @@ class ServiceCalls{
 
     }
     
-    
+/**
+    When you accept a job, a device token is stored for notification.
+     
+     - parameter job: The job being accepted.
+     - parameter user: The user who accepted the job.
+     - parameter completion: The completion block where device token is stored.
+     - returns: Void
+*/
     func acceptPressed(job: Job, user: User, completion: @escaping (String)->()){
         let userAcceptedRef = self.userRef.child(self.emailHash).child("AcceptedJobs")
 
         
-        let jobDict: [String:Any] = ["latitude":job.latitude, "longitude":job.longitude, "JobOwner":job.jobOwnerEmailHash, "JobTitle":job.title, "JobDescription":job.description, "Price":job.wage_per_hour, "Time":job.maxTime, "isOccupied":false, "isCompleted":false,
+        let jobDict: [String:Any] = ["latitude":job.latitude, "longitude":job.longitude, "JobOwner":job.jobOwnerEmailHash, "JobTitle":job.title, "JobDescription":job.description, "Price":"\(job.wage_per_hour)", "Time":"\(job.maxTime)", "isOccupied":false, "isCompleted":false,
                                      "Full Name":(job.jobOwnerFullName)!]
 
         userAcceptedRef.child(job.jobID).updateChildValues(jobDict)
@@ -109,7 +118,7 @@ class ServiceCalls{
             // add the job to job poster's reference in database
             self.userRef.child(jobOwnerEmailHash).child("UnconfirmedJobs").child(job.jobID)
             .updateChildValues(jobDict)
-        self.userRef.child(jobOwnerEmailHash).child("UnconfirmedJobs").child(job.jobID).child("Applicants").child(user.uid).setValue((user.displayName)!)
+            self.userRef.child(jobOwnerEmailHash).child("UnconfirmedJobs").child(job.jobID).child("Applicants").child(self.helper.MD5(string: user.email!)).setValue((user.displayName)!)
             
             guard let deviceToken = userValues[jobOwnerEmailHash]!["currentDevice"]! as? String else{return}
             completion(deviceToken)
@@ -125,6 +134,48 @@ class ServiceCalls{
             let customer = userDict[self.emailHash]!["customer_id"]! as! String
             completion(customer)
             self.userRef.removeAllObservers()
+        })
+    }
+    
+    
+/**
+     
+ */
+    func getUserUnconfirmedJobs(completion: @escaping ([Job])->()){
+        let currentUserUnconfirmRef = userRef.child(emailHash).child("UnconfirmedJobs")
+        var unconfirmedJobsLst:[Job] = []
+        currentUserUnconfirmRef.observe(.childAdded, with: { (snapshot) in
+            let job = Job(snapshot: snapshot)
+            unconfirmedJobsLst.append(job)
+            completion(unconfirmedJobsLst)
+            currentUserUnconfirmRef.removeAllObservers()
+        })
+    }
+    
+/**
+     
+*/
+    func getApplicants(job: Job, completion: @escaping ([String:String])->()){
+        let jobApplicantsRef = userRef.child(emailHash).child("UnconfirmedJobs").child(job.jobID).child("Applicants")
+        var applicantsDict:[String:String] = [:]
+        
+        jobApplicantsRef.observe(.value, with: { (snapshot) in
+            applicantsDict = snapshot.value as! [String:String]
+            completion(applicantsDict)
+            jobApplicantsRef.removeAllObservers()
+        })
+        
+    }
+    
+/**
+     
+*/
+    func getUserFullName(Emailhash: String, completion: @escaping (String)->(UITableViewCell)){
+        userRef.child(Emailhash).observe(.value, with: { (snapshot) in
+            let dict = snapshot.value as! [String:AnyObject]
+            let name = dict["Name"] as! String
+            completion(name)
+            self.userRef.child(Emailhash).removeAllObservers()
         })
     }
     
