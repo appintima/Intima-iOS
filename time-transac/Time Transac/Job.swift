@@ -36,6 +36,7 @@ class Job {
 
 
 
+
     init(snapshot: DataSnapshot) {
         self.jobID = snapshot.key
         let jobValues = snapshot.value as! [String: AnyObject]
@@ -76,111 +77,9 @@ class Job {
     func setJobTaker(user: User){
         
     }
-    
-
-
-
-
-
-
-
-//    init(title: String, description: String, wage_per_hour: Float, maxTime: Int) {
-//        self.description = description
-//        self.title = title
-//        self.wage_per_hour = wage_per_hour
-//        self.maxTime = maxTime
-//        self.jobOwner = nil
-//        self.occupied = false
-//        self.completed = false
-//        self.jobTaker = nil
-//        self.jobID = nil
-//        self.location = nil
-//        
-//    }
-//    
-//    func setLocation(location: CLLocation){
-//        self.location = location
-//    }
-//    
-//    func getLocation()->CLLocation{
-//        return self.location
-//    }
-//    
-//    func setJobID(){
-//        self.jobID = generateID()
-//    }
-//    
-//    func getJobID()->String{
-//        return self.jobID
-//    }
-//    
-//    func setJobTaker(jobTaker: User){
-//        self.jobTaker = jobTaker
-//    }
-//    
-//    func getJobTaker()-> User!{
-//        return self.jobTaker
-//    }
-//    
-//    
-//    func getDescription()-> String{
-//        return self.description
-//    }
-//    
-//    func getWage()->Float{
-//        return self.wage_per_hour
-//    }
-//    
-//    func getMaxTime()->Int{
-//        return self.maxTime
-//    }
-//    
-//    func getJobOwner() -> User {
-//        return self.jobOwner
-//    }
-//    
-//    func setJobOwner(poster: User){
-//        self.jobOwner = poster
-//    }
-//    
-//    func setOccupied(){
-//        self.occupied = true
-//    }
-//    
-//    func setNotOccupied(){
-//        self.occupied = false
-//        self.completed = false
-//        self.jobTaker = nil
-//    }
-//    
-//    func isOccupied() -> Bool {
-//        return self.occupied
-//    }
-//    
-//    func setCompleted(){
-//        self.completed = true
-//    }
-//    
-//    func setTitle(title: String){
-//        self.title = title
-//    }
-//    
-//    func getTitle()-> String{
-//        return self.title
-//    }
-//    
-
-//
-//
-//
-//
-//
-//
-//func ==(lhs: Job, rhs: Job) -> Bool {
-//    return lhs.getJobID() == rhs.getJobID()
-//}
 
 }
+
 
 
 
