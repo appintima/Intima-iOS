@@ -124,7 +124,9 @@ class ServiceCalls{
             self.userRef.child(jobOwnerEmailHash).child("UnconfirmedJobs").child(job.jobID)
             .updateChildValues(jobDict)
             self.userRef.child(jobOwnerEmailHash).child("UnconfirmedJobs").child(job.jobID).child("Applicants").child(self.helper.MD5(string: user.email!)).setValue((user.displayName)!)
-            
+            self.userRef.child(jobOwnerEmailHash).child("PostHistory").child(job.jobID).updateChildValues(jobDict)
+            let ref = self.userRef.child(jobOwnerEmailHash).child("LastPost")
+            ref.setValue(nil)
             guard let deviceToken = userValues[jobOwnerEmailHash]!["currentDevice"]! as? String else{return}
             completion(deviceToken)
             self.userRef.removeAllObservers()
