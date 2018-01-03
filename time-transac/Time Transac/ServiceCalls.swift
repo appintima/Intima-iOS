@@ -30,6 +30,9 @@ class ServiceCalls{
         
     }
     
+/**
+     Add a job to Firebase Database
+ */
     
     func addJobToFirebase(jobTitle: String, jobDetails: String, pricePerHour: String, numberOfHours: String, locationCoord: CLLocationCoordinate2D, chargeID: String){
         
@@ -50,11 +53,13 @@ class ServiceCalls{
         let fullDate = "\(day)-\(month)-\(year) \(hour):\(minute):\(second)"
         
         let jobDict: [String:Any] = ["latitude":latitude, "longitude":longitude, "JobOwner":self.emailHash, "JobTitle":jobTitle, "JobDescription":jobDetails, "Price":pricePerHour, "Time":numberOfHours, "isOccupied":false, "isCompleted":false, "Full Name":(user?.displayName)!]
-        self.jobsRef.child(newJobID).updateChildValues(jobDict)
         
-        // adding job to the user who posted list of posted jobs
-        let userPostedRef = self.userRef.child(self.emailHash).child("PostedJobs")
-        userPostedRef.child(newJobID).updateChildValues(jobDict)
+        
+        // adding job to the user who posted list of last post
+        let lastPostedRef = self.userRef.child(self.emailHash).child("LastPost")
+        
+        self.jobsRef.child(newJobID).updateChildValues(jobDict)
+        lastPostedRef.child(newJobID).updateChildValues(jobDict)
         
         //add charges to user reference
         let userChargesRef = self.userRef.child(self.emailHash).child("Charges")
@@ -170,7 +175,7 @@ class ServiceCalls{
 /**
      
 */
-    func getUserFullName(Emailhash: String, completion: @escaping (String)->(UITableViewCell)){
+    func getUserFullName(Emailhash: String, completion: @escaping (String)->()){
         userRef.child(Emailhash).observe(.value, with: { (snapshot) in
             let dict = snapshot.value as! [String:AnyObject]
             let name = dict["Name"] as! String
@@ -179,6 +184,22 @@ class ServiceCalls{
         })
     }
     
+    
+/**
+ 
+ */
+    func checkUserLastPost(completion: @escaping (Bool)->()){
+        
+        let lastPostedRef = self.userRef.child(self.emailHash).child("LastPost")
+        lastPostedRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if !(snapshot.hasChildren()){
+                completion(false)
+            }else{
+                completion(true)
+            }
+            lastPostedRef.removeAllObservers()
+        })
+    }
 }
 
 

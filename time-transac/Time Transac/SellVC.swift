@@ -166,9 +166,16 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     //When the postJob red button is pressed
     @IBAction func postJobPressed(_ sender: Any) {
     
-        postJobButton.isHidden = true
-        jobDetailsConstraint.constant = 77
-        UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
+        self.service.checkUserLastPost { (bool) in
+            if !bool{
+                self.postJobButton.isHidden = true
+                self.jobDetailsConstraint.constant = 77
+                UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
+            }else{
+                //DO SOME POP UP HERE
+            }
+        }
+        
         
     }
     
@@ -407,7 +414,7 @@ extension SellVC {
         let continueButton = DefaultButton(title: "Continue", dismissOnTap: true) {
             
             //Attempt to charge a payment
-            self.submitJobButton.isHidden = true
+            self.submitJobButton.isHidden = false
             MyAPIClient.sharedClient.completeCharge(amount: priceForStripe, completion: { charge_id in
                 //If no error when paying
                 if charge_id != nil{

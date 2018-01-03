@@ -16,6 +16,7 @@
 		3B1EC3011EFC888A00182029 /* ServiceCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3001EFC888A00182029 /* ServiceCalls.swift */; };
 		3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3021EFC915700182029 /* LoginVC.swift */; };
 		3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */; };
+		3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41E1FFC7303006F7F83 /* AppError.swift */; };
 		3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */; };
 		3B71C4FD1EE6836800746DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C4FC1EE6836800746DEE /* AppDelegate.swift */; };
 		3B71C4FF1EE6836800746DEE /* AddNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C4FE1EE6836800746DEE /* AddNameVC.swift */; };
@@ -106,6 +107,7 @@
 		3B1EC3001EFC888A00182029 /* ServiceCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCalls.swift; sourceTree = "<group>"; };
 		3B1EC3021EFC915700182029 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantsVC.swift; sourceTree = "<group>"; };
+		3B4DE41E1FFC7303006F7F83 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnconfirmedVC.swift; sourceTree = "<group>"; };
 		3B71C4F91EE6836800746DEE /* Time Transac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Transac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B71C4FC1EE6836800746DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				3B1EC3001EFC888A00182029 /* ServiceCalls.swift */,
 				3B0FC4071F2477AB00ED88C6 /* LocationManager.swift */,
 				F30C07DC1FF9AA56009FC572 /* HelperFunctions.swift */,
+				3B4DE41E1FFC7303006F7F83 /* AppError.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */,
 				3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */,
 				3B71C5B81EF1ED9700746DEE /* Job.swift in Sources */,
+				3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */,
 				F3138B5C1FE6B3A300E690AB /* ProfilePicture.swift in Sources */,
 				F30136F81F2D04CB0023828A /* Lgsupage.swift in Sources */,
 				3B0FC3FE1F182DDF00ED88C6 /* CustomTableViewCell.swift in Sources */,
