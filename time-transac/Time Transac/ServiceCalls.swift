@@ -93,6 +93,8 @@ class ServiceCalls{
                 }
                 
                 completion(newJobs, annotations)
+                self.jobsRef.removeAllObservers()
+                self.userRef.removeAllObservers()
             })
             
         })
@@ -202,6 +204,21 @@ class ServiceCalls{
             lastPostedRef.removeAllObservers()
         })
     }
+    
+    
+/**
+     
+ */
+    func getApplicantProfile(emailHash: String, completion: @escaping ([String:AnyObject])->()){
+        
+        userRef.observe(.value, with: { (snapshot) in
+            let allInfo = snapshot.value as! [String:AnyObject]
+            let applicantInfo = allInfo[emailHash] as! [String: AnyObject]
+            completion(applicantInfo)
+            self.userRef.removeAllObservers()
+        })
+    }
+    
 }
 
 

@@ -13,6 +13,7 @@ class ApplicantsVC: UITableViewController {
     var applicantsDict: [String:String]!
     var applicantsEHashArr:[String]!
     
+    var clickedApplicantInfo: [String:AnyObject]!
     let service = ServiceCalls()
 
     override func viewDidLoad() {
@@ -47,5 +48,20 @@ class ApplicantsVC: UITableViewController {
         return cell
     }
    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let eHash = applicantsEHashArr[indexPath.row]
+        self.service.getApplicantProfile(emailHash: eHash) { (applicantInfo) in
+            self.clickedApplicantInfo = applicantInfo
+            self.performSegue(withIdentifier: "goToProfile", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToProfile"{
+            if let dest = segue.destination as? ConfirmProfilePageVC{
+                dest.applicantInfo = self.clickedApplicantInfo
+            }
+        }
+    }
 
 }

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Century Gothic.ttf">
+        <array key="911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf">
             <string>CenturyGothic</string>
         </array>
         <array key="CenturyGothicBold.ttf">
@@ -386,10 +386,10 @@
             </objects>
             <point key="canvasLocation" x="-1361" y="-921"/>
         </scene>
-        <!--Confirm PageVC-->
+        <!--Confirm Profile PageVC-->
         <scene sceneID="Qjd-V9-b2R">
             <objects>
-                <viewController id="P95-eq-Mey" customClass="ConfirmPageVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="P95-eq-Mey" customClass="ConfirmProfilePageVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bID-J7-k6x"/>
                         <viewControllerLayoutGuide type="bottom" id="Mvy-Gw-0zp"/>
@@ -402,15 +402,6 @@
                                 <rect key="frame" x="-1" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01H-cB-5CO">
-                                        <rect key="frame" x="125" y="318" width="124" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Confirm Application"/>
-                                        <connections>
-                                            <action selector="confirmclicked:" destination="P95-eq-Mey" eventType="touchUpInside" id="C3L-kg-fZC"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erp-Re-rfB">
                                         <rect key="frame" x="16" y="243" width="343" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -613,7 +604,7 @@
                                             <action selector="postJobPressed:" destination="edh-TT-NGu" eventType="touchUpInside" id="ZrW-Z5-N5u"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVh-A1-1fk" userLabel="unconfrm">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVh-A1-1fk" userLabel="unconfrm">
                                         <rect key="frame" x="139" y="94" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
@@ -983,10 +974,13 @@
                             <outlet property="delegate" destination="l7p-YY-qLp" id="gx4-Ye-RuW"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="P95-eq-Mey" kind="show" identifier="goToProfile" id="X5V-ez-5bH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3B-KK-V1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="-101"/>
+            <point key="canvasLocation" x="106" y="-42"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="JQI-6l-Wre">
@@ -1393,6 +1387,6 @@
         <image name="Sell Time" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vvf-Y4-dVk"/>
+        <segue reference="X5V-ez-5bH"/>
     </inferredMetricsTieBreakers>
 </document>

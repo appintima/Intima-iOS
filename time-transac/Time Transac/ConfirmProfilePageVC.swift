@@ -10,9 +10,9 @@
 import UIKit
 import Firebase
 
-class ConfirmPageVC: UIViewController {
+class ConfirmProfilePageVC: UIViewController {
     
-    
+    var applicantInfo: [String:AnyObject]!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
@@ -23,6 +23,8 @@ class ConfirmPageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.fullNameLabel.text = (applicantInfo["Name"] as! String)
+        self.ratingsLabel.text = "\((applicantInfo["Rating"] as! Double))"
         let session = URLSession(configuration: .default)
         
         //creating a dataTask

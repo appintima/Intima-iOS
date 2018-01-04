@@ -70,7 +70,7 @@
 		F3CD40921F37DA08001DE153 /* EmailVerifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD40911F37DA08001DE153 /* EmailVerifyVC.swift */; };
 		F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CE9C111FF8506A007E5C4A /* Constrainable.swift */; };
 		F3D9ED141F76EA9D00332237 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED131F76EA9D00332237 /* CustomUIButton.swift */; };
-		F3D9ED1A1F76FD2C00332237 /* ConfirmPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED191F76FD2C00332237 /* ConfirmPageVC.swift */; };
+		F3D9ED1A1F76FD2C00332237 /* ConfirmProfilePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED191F76FD2C00332237 /* ConfirmProfilePageVC.swift */; };
 		F3D9ED201F77008D00332237 /* PopUpJobView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D9ED1F1F77008D00332237 /* PopUpJobView.xib */; };
 		F3D9ED221F77016300332237 /* AnnotationViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED211F77016300332237 /* AnnotationViewVC.swift */; };
 		F3DD81F91FC3BD35000826F8 /* AppSnackbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DD81F81FC3BD34000826F8 /* AppSnackbarController.swift */; };
@@ -175,7 +175,7 @@
 		F3CD40911F37DA08001DE153 /* EmailVerifyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailVerifyVC.swift; sourceTree = "<group>"; };
 		F3CE9C111FF8506A007E5C4A /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
 		F3D9ED131F76EA9D00332237 /* CustomUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
-		F3D9ED191F76FD2C00332237 /* ConfirmPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPageVC.swift; sourceTree = "<group>"; };
+		F3D9ED191F76FD2C00332237 /* ConfirmProfilePageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmProfilePageVC.swift; sourceTree = "<group>"; };
 		F3D9ED1F1F77008D00332237 /* PopUpJobView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpJobView.xib; sourceTree = "<group>"; };
 		F3D9ED211F77016300332237 /* AnnotationViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewVC.swift; sourceTree = "<group>"; };
 		F3DD81F81FC3BD34000826F8 /* AppSnackbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSnackbarController.swift; sourceTree = "<group>"; };
@@ -359,7 +359,7 @@
 				F305C7071F68C90700D8C296 /* navigationBarViewController.swift */,
 				F3138B5B1FE6B3A300E690AB /* ProfilePicture.swift */,
 				F33C83911F6B8220003157B7 /* endSignUpVC.swift */,
-				F3D9ED191F76FD2C00332237 /* ConfirmPageVC.swift */,
+				F3D9ED191F76FD2C00332237 /* ConfirmProfilePageVC.swift */,
 				F3D9ED211F77016300332237 /* AnnotationViewVC.swift */,
 				F35EE16E1F8D3F38007C08E7 /* PopUpJobViewVC.swift */,
 				3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */,
@@ -804,7 +804,7 @@
 				F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */,
 				F3CD40921F37DA08001DE153 /* EmailVerifyVC.swift in Sources */,
 				F30C07DD1FF9AA57009FC572 /* HelperFunctions.swift in Sources */,
-				F3D9ED1A1F76FD2C00332237 /* ConfirmPageVC.swift in Sources */,
+				F3D9ED1A1F76FD2C00332237 /* ConfirmProfilePageVC.swift in Sources */,
 				3B71C5C01EF3C22900746DEE /* Skill.swift in Sources */,
 				F35EE16B1F8355AC007C08E7 /* customShadowView.swift in Sources */,
 				3B0FC4051F2043FE00ED88C6 /* SellVC.swift in Sources */,
