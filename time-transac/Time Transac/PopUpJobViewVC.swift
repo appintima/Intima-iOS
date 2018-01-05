@@ -16,19 +16,12 @@ import Material
 
 class PopUpJobViewVC: UIView, CLLocationManagerDelegate {
     
-    @IBOutlet weak var acceptButton: FlatButton!
+    @IBOutlet weak var hireButton: FlatButton!
     @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var jobDescriptionLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-
     @IBOutlet weak var rating: UIView!
-    @IBOutlet weak var map: MKMapView!
     
     var job: Job!
     var jobLocationStr: String!
-    
-    var locationManager = CLLocationManager()
-    var locPlacemark: MKPlacemark!
     
     private let service: ServiceCalls = ServiceCalls()
     
