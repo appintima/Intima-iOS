@@ -16,6 +16,7 @@
 		3B1EC3011EFC888A00182029 /* ServiceCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3001EFC888A00182029 /* ServiceCalls.swift */; };
 		3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3021EFC915700182029 /* LoginVC.swift */; };
 		3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */; };
+		3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41E1FFC7303006F7F83 /* AppError.swift */; };
 		3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */; };
 		3B71C4FD1EE6836800746DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C4FC1EE6836800746DEE /* AppDelegate.swift */; };
 		3B71C4FF1EE6836800746DEE /* AddNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C4FE1EE6836800746DEE /* AddNameVC.swift */; };
@@ -70,7 +71,7 @@
 		F3CD40921F37DA08001DE153 /* EmailVerifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD40911F37DA08001DE153 /* EmailVerifyVC.swift */; };
 		F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CE9C111FF8506A007E5C4A /* Constrainable.swift */; };
 		F3D9ED141F76EA9D00332237 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED131F76EA9D00332237 /* CustomUIButton.swift */; };
-		F3D9ED1A1F76FD2C00332237 /* ConfirmPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED191F76FD2C00332237 /* ConfirmPageVC.swift */; };
+		F3D9ED1A1F76FD2C00332237 /* ConfirmProfilePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED191F76FD2C00332237 /* ConfirmProfilePageVC.swift */; };
 		F3D9ED201F77008D00332237 /* PopUpJobView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D9ED1F1F77008D00332237 /* PopUpJobView.xib */; };
 		F3D9ED221F77016300332237 /* AnnotationViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED211F77016300332237 /* AnnotationViewVC.swift */; };
 		F3DD81F91FC3BD35000826F8 /* AppSnackbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DD81F81FC3BD34000826F8 /* AppSnackbarController.swift */; };
@@ -107,6 +108,7 @@
 		3B1EC3001EFC888A00182029 /* ServiceCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCalls.swift; sourceTree = "<group>"; };
 		3B1EC3021EFC915700182029 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantsVC.swift; sourceTree = "<group>"; };
+		3B4DE41E1FFC7303006F7F83 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnconfirmedVC.swift; sourceTree = "<group>"; };
 		3B71C4F91EE6836800746DEE /* Time Transac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Time Transac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B71C4FC1EE6836800746DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +177,7 @@
 		F3CD40911F37DA08001DE153 /* EmailVerifyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailVerifyVC.swift; sourceTree = "<group>"; };
 		F3CE9C111FF8506A007E5C4A /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
 		F3D9ED131F76EA9D00332237 /* CustomUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
-		F3D9ED191F76FD2C00332237 /* ConfirmPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPageVC.swift; sourceTree = "<group>"; };
+		F3D9ED191F76FD2C00332237 /* ConfirmProfilePageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmProfilePageVC.swift; sourceTree = "<group>"; };
 		F3D9ED1F1F77008D00332237 /* PopUpJobView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpJobView.xib; sourceTree = "<group>"; };
 		F3D9ED211F77016300332237 /* AnnotationViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewVC.swift; sourceTree = "<group>"; };
 		F3DD81F81FC3BD34000826F8 /* AppSnackbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSnackbarController.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				3B1EC3001EFC888A00182029 /* ServiceCalls.swift */,
 				3B0FC4071F2477AB00ED88C6 /* LocationManager.swift */,
 				F30C07DC1FF9AA56009FC572 /* HelperFunctions.swift */,
+				3B4DE41E1FFC7303006F7F83 /* AppError.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -358,7 +361,7 @@
 				F305C7071F68C90700D8C296 /* navigationBarViewController.swift */,
 				F3138B5B1FE6B3A300E690AB /* ProfilePicture.swift */,
 				F33C83911F6B8220003157B7 /* endSignUpVC.swift */,
-				F3D9ED191F76FD2C00332237 /* ConfirmPageVC.swift */,
+				F3D9ED191F76FD2C00332237 /* ConfirmProfilePageVC.swift */,
 				F3D9ED211F77016300332237 /* AnnotationViewVC.swift */,
 				F35EE16E1F8D3F38007C08E7 /* PopUpJobViewVC.swift */,
 				3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */,
@@ -795,6 +798,7 @@
 				3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */,
 				3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */,
 				3B71C5B81EF1ED9700746DEE /* Job.swift in Sources */,
+				3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */,
 				F3138B5C1FE6B3A300E690AB /* ProfilePicture.swift in Sources */,
 				5F8BAC7F1FFC5BC500450187 /* StartJobVC.swift in Sources */,
 				F30136F81F2D04CB0023828A /* Lgsupage.swift in Sources */,
@@ -804,7 +808,7 @@
 				F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */,
 				F3CD40921F37DA08001DE153 /* EmailVerifyVC.swift in Sources */,
 				F30C07DD1FF9AA57009FC572 /* HelperFunctions.swift in Sources */,
-				F3D9ED1A1F76FD2C00332237 /* ConfirmPageVC.swift in Sources */,
+				F3D9ED1A1F76FD2C00332237 /* ConfirmProfilePageVC.swift in Sources */,
 				3B71C5C01EF3C22900746DEE /* Skill.swift in Sources */,
 				F35EE16B1F8355AC007C08E7 /* customShadowView.swift in Sources */,
 				3B0FC4051F2043FE00ED88C6 /* SellVC.swift in Sources */,

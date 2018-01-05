@@ -121,7 +121,7 @@ extension AppFABMenuController {
     
     @objc
     fileprivate func handleUnconfirmed(button: UIButton) {
-        self.transition(to: ConfirmPageVC())
+        self.transition(to: ConfirmProfilePageVC())
         fabMenu.fabButton?.animate(.rotate(0))
     }
     

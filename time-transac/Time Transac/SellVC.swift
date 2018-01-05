@@ -84,6 +84,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
     override func viewDidLoad() {
         
+        
         self.MapView.delegate = self
         MapView.compassView.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
@@ -104,9 +105,12 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
 
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
+    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToUnconfirmed"{
@@ -150,7 +154,8 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        self.navigationController?.navigationBar.isHidden = true
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -166,10 +171,21 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     //When the postJob red button is pressed
     @IBAction func postJobPressed(_ sender: Any) {
     
-        postJobButton.isHidden = true
-        jobDetailsConstraint.constant = 77
-        UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
-        
+        self.service.checkUserLastPost { (bool) in
+            if !bool{
+                self.postJobButton.isHidden = true
+                self.jobDetailsConstraint.constant = 77
+                UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
+            }else{
+                //ALREADY POSTED A JOB THAT IS NOT ACCEPTED YET
+                let title = "You Can Only Post One Task At A Time"
+                let okButton = CancelButton(title: "OK", action: nil)
+                let popup = PopupDialog(title: title, message: nil)
+                popup.addButton(okButton)
+                self.present(popup, animated: true, completion: nil)
+            }
+        }
+ 
     }
     
     //When next is pressed on the Job details form
@@ -407,7 +423,7 @@ extension SellVC {
         let continueButton = DefaultButton(title: "Continue", dismissOnTap: true) {
             
             //Attempt to charge a payment
-            self.submitJobButton.isHidden = true
+            self.submitJobButton.isHidden = false
             MyAPIClient.sharedClient.completeCharge(amount: priceForStripe, completion: { charge_id in
                 //If no error when paying
                 if charge_id != nil{
