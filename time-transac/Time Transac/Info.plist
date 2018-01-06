@@ -95,5 +95,9 @@
 	<string>488083244862838</string>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1Ijoic3Jpa2FudGhzcm52cyIsImEiOiJjajY0NDI0ejYxcDljMnFtcTNlYWliajNoIn0.jDevn4Fm6WBZUx7TDtys9Q</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To Choose Profile Picture</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To Choose Profile Picture</string>
 </dict>
 </plist>

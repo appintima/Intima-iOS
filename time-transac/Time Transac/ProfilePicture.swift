@@ -36,18 +36,38 @@ class ProfilePicture: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @objc func imageTapped(gesture: UIGestureRecognizer) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        let actionPopup = UIAlertController(title: "Photo Source", message: "Choose Image", preferredStyle: .actionSheet)
+        
+        actionPopup.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actionPopup.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actionPopup.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionPopup, animated: true, completion: nil)
+        
         // if the tapped view is a UIImageView then set it to imageview
-        if (gesture.view as? UIImageView) != nil {
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.delegate = self
-                imagePicker.sourceType = .camera;
-                imagePicker.allowsEditing = false
-                self.present(imagePicker, animated: true, completion: nil)
-            }
-            //Here you can initiate your new ViewController
-            
-        }
+//        if (gesture.view as? UIImageView) != nil {
+//            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//                let imagePicker = UIImagePickerController()
+//                imagePicker.delegate = self
+//                imagePicker.sourceType = .camera;
+//                imagePicker.allowsEditing = false
+//                self.present(imagePicker, animated: true, completion: nil)
+//            }
+//            //Here you can initiate your new ViewController
+//
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,14 +76,20 @@ class ProfilePicture: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func continuePressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "endSignUp", sender: nil)
     }
-    */
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        profilePicture.image = image
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 
 }
