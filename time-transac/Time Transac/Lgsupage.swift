@@ -49,9 +49,7 @@ class Lgsupage: UIViewController {
         super.viewDidLoad()
         
         self.dbRef = Database.database().reference()
-        
         self.navigationController?.navigationBar.isHidden = true
-        
         content.adjustsFontSizeToFitWidth = true
         IntimaLabel.adjustsFontSizeToFitWidth = true
         let logoAnimation = LOTAnimationView(name: "clock")
