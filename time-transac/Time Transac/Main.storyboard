@@ -306,7 +306,7 @@
                         <outlet property="emailTF" destination="CU9-d7-Kbf" id="YZd-9a-WbZ"/>
                         <outlet property="gradientView" destination="LgM-HO-cgv" id="9qK-sg-LI7"/>
                         <outlet property="passwordTF" destination="Xxz-fQ-0kB" id="4Ql-b0-PXN"/>
-                        <segue destination="oOl-Ny-ZFv" kind="show" identifier="endSignUp" id="ZvO-yE-bac"/>
+                        <segue destination="s5C-Zo-6kP" kind="show" identifier="chooseProfilePicture" id="B1G-DD-1VG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cId-Cf-VSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -343,7 +343,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0hi-9W-kOO">
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="0hi-9W-kOO">
                                         <rect key="frame" x="127" y="304" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -370,6 +370,9 @@
                                                 <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="continuePressed:" destination="s5C-Zo-6kP" eventType="touchUpInside" id="QTc-pV-8JN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.47450980539999998" green="0.8392156959" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -380,11 +383,12 @@
                     <connections>
                         <outlet property="gradientView" destination="ZrT-ay-ks0" id="Qfr-3N-TTy"/>
                         <outlet property="profilePicture" destination="0hi-9W-kOO" id="NvD-KS-k9f"/>
+                        <segue destination="oOl-Ny-ZFv" kind="show" identifier="endSignUp" id="fGa-h2-zrD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6f-BF-fTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1361" y="-921"/>
+            <point key="canvasLocation" x="-1273" y="633"/>
         </scene>
         <!--Confirm Profile PageVC-->
         <scene sceneID="Qjd-V9-b2R">
@@ -540,7 +544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83q-XA-7Dw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1562" y="644"/>
+            <point key="canvasLocation" x="-274" y="644"/>
         </scene>
         <!--rootAfterLogin-->
         <scene sceneID="bqO-i4-RYp">
@@ -1489,6 +1493,7 @@
     </scenes>
     <resources>
         <image name="Sell Time" width="29" height="29"/>
+        <image name="emptyProfilePicture" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vvf-Y4-dVk"/>

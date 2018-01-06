@@ -201,7 +201,7 @@ class EmailVerifyVC: UIViewController {
                             let when = DispatchTime.now() + 2
                             DispatchQueue.main.asyncAfter(deadline: when){
                                 self.checkEmail.stop()
-                                self.performSegue(withIdentifier: "endSignUp", sender: self)
+                                self.performSegue(withIdentifier: "chooseProfilePicture", sender: self)
                                 
                             }
                         }
