@@ -84,6 +84,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
     override func viewDidLoad() {
         
+        
         self.MapView.delegate = self
         MapView.compassView.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
@@ -104,9 +105,12 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
 
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
+    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToUnconfirmed"{
@@ -150,7 +154,8 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        self.navigationController?.navigationBar.isHidden = true
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -175,8 +180,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
                 
             }
         }
-        
-        
+ 
     }
     
     //When next is pressed on the Job details form

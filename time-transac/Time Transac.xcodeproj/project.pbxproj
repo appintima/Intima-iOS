@@ -27,6 +27,7 @@
 		3B71C5BC1EF35D8300746DEE /* AllJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5BB1EF35D8300746DEE /* AllJobs.swift */; };
 		3B71C5C01EF3C22900746DEE /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5BF1EF3C22900746DEE /* Skill.swift */; };
 		587CC8B624170F78B122D677 /* Pods_Time_TransacTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF9DFFA91551E89EC78BA7C /* Pods_Time_TransacTests.framework */; };
+		5F8BAC7F1FFC5BC500450187 /* StartJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */; };
 		A4CEFDD9D0F6BA8F7BCA84C5 /* Pods_Time_TransacUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FF9CB0337E42194F0583EF /* Pods_Time_TransacUITests.framework */; };
 		F30136F21F2CF3590023828A /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30136F11F2CF3590023828A /* RootPageViewController.swift */; };
 		F30136F51F2D045D0023828A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30136F31F2D045D0023828A /* AVFoundation.framework */; };
@@ -70,7 +71,7 @@
 		F3CD40921F37DA08001DE153 /* EmailVerifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD40911F37DA08001DE153 /* EmailVerifyVC.swift */; };
 		F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CE9C111FF8506A007E5C4A /* Constrainable.swift */; };
 		F3D9ED141F76EA9D00332237 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED131F76EA9D00332237 /* CustomUIButton.swift */; };
-		F3D9ED1A1F76FD2C00332237 /* ConfirmPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED191F76FD2C00332237 /* ConfirmPageVC.swift */; };
+		F3D9ED1A1F76FD2C00332237 /* ConfirmProfilePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED191F76FD2C00332237 /* ConfirmProfilePageVC.swift */; };
 		F3D9ED201F77008D00332237 /* PopUpJobView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D9ED1F1F77008D00332237 /* PopUpJobView.xib */; };
 		F3D9ED221F77016300332237 /* AnnotationViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9ED211F77016300332237 /* AnnotationViewVC.swift */; };
 		F3DD81F91FC3BD35000826F8 /* AppSnackbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DD81F81FC3BD34000826F8 /* AppSnackbarController.swift */; };
@@ -125,6 +126,7 @@
 		3B71C5BF1EF3C22900746DEE /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		3BF1B7BF1FBD576D00AD2A95 /* Time Transac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Time Transac.entitlements"; sourceTree = "<group>"; };
 		4DBEBA902645A1D14930FE1C /* Pods-Time TransacTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time TransacTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time TransacTests/Pods-Time TransacTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartJobVC.swift; sourceTree = "<group>"; };
 		6861349CE4FCFD95DB24BC6C /* Pods-Time Transac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Transac.release.xcconfig"; path = "Pods/Target Support Files/Pods-Time Transac/Pods-Time Transac.release.xcconfig"; sourceTree = "<group>"; };
 		7D8852E911B1E1DABF851838 /* Pods-Time TransacUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time TransacUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time TransacUITests/Pods-Time TransacUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		81FF9CB0337E42194F0583EF /* Pods_Time_TransacUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_TransacUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +177,7 @@
 		F3CD40911F37DA08001DE153 /* EmailVerifyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailVerifyVC.swift; sourceTree = "<group>"; };
 		F3CE9C111FF8506A007E5C4A /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
 		F3D9ED131F76EA9D00332237 /* CustomUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
-		F3D9ED191F76FD2C00332237 /* ConfirmPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPageVC.swift; sourceTree = "<group>"; };
+		F3D9ED191F76FD2C00332237 /* ConfirmProfilePageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmProfilePageVC.swift; sourceTree = "<group>"; };
 		F3D9ED1F1F77008D00332237 /* PopUpJobView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpJobView.xib; sourceTree = "<group>"; };
 		F3D9ED211F77016300332237 /* AnnotationViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewVC.swift; sourceTree = "<group>"; };
 		F3DD81F81FC3BD34000826F8 /* AppSnackbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSnackbarController.swift; sourceTree = "<group>"; };
@@ -359,7 +361,7 @@
 				F305C7071F68C90700D8C296 /* navigationBarViewController.swift */,
 				F3138B5B1FE6B3A300E690AB /* ProfilePicture.swift */,
 				F33C83911F6B8220003157B7 /* endSignUpVC.swift */,
-				F3D9ED191F76FD2C00332237 /* ConfirmPageVC.swift */,
+				F3D9ED191F76FD2C00332237 /* ConfirmProfilePageVC.swift */,
 				F3D9ED211F77016300332237 /* AnnotationViewVC.swift */,
 				F35EE16E1F8D3F38007C08E7 /* PopUpJobViewVC.swift */,
 				3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */,
@@ -367,6 +369,7 @@
 				F33034471FEF4D1A004C9C30 /* MyAPIClient.swift */,
 				F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */,
 				3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */,
+				5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -797,6 +800,7 @@
 				3B71C5B81EF1ED9700746DEE /* Job.swift in Sources */,
 				3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */,
 				F3138B5C1FE6B3A300E690AB /* ProfilePicture.swift in Sources */,
+				5F8BAC7F1FFC5BC500450187 /* StartJobVC.swift in Sources */,
 				F30136F81F2D04CB0023828A /* Lgsupage.swift in Sources */,
 				3B0FC3FE1F182DDF00ED88C6 /* CustomTableViewCell.swift in Sources */,
 				F3E9176F1F5B4B0E009DCB0F /* ShadowsToButtons.swift in Sources */,
@@ -804,7 +808,7 @@
 				F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */,
 				F3CD40921F37DA08001DE153 /* EmailVerifyVC.swift in Sources */,
 				F30C07DD1FF9AA57009FC572 /* HelperFunctions.swift in Sources */,
-				F3D9ED1A1F76FD2C00332237 /* ConfirmPageVC.swift in Sources */,
+				F3D9ED1A1F76FD2C00332237 /* ConfirmProfilePageVC.swift in Sources */,
 				3B71C5C01EF3C22900746DEE /* Skill.swift in Sources */,
 				F35EE16B1F8355AC007C08E7 /* customShadowView.swift in Sources */,
 				3B0FC4051F2043FE00ED88C6 /* SellVC.swift in Sources */,

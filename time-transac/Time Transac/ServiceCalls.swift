@@ -93,6 +93,8 @@ class ServiceCalls{
                 }
                 
                 completion(newJobs, annotations)
+                self.jobsRef.removeAllObservers()
+                self.userRef.removeAllObservers()
             })
             
         })
@@ -124,7 +126,9 @@ class ServiceCalls{
             self.userRef.child(jobOwnerEmailHash).child("UnconfirmedJobs").child(job.jobID)
             .updateChildValues(jobDict)
             self.userRef.child(jobOwnerEmailHash).child("UnconfirmedJobs").child(job.jobID).child("Applicants").child(self.helper.MD5(string: user.email!)).setValue((user.displayName)!)
-            
+            self.userRef.child(jobOwnerEmailHash).child("PostHistory").child(job.jobID).updateChildValues(jobDict)
+            let ref = self.userRef.child(jobOwnerEmailHash).child("LastPost")
+            ref.setValue(nil)
             guard let deviceToken = userValues[jobOwnerEmailHash]!["currentDevice"]! as? String else{return}
             completion(deviceToken)
             self.userRef.removeAllObservers()
@@ -200,6 +204,21 @@ class ServiceCalls{
             lastPostedRef.removeAllObservers()
         })
     }
+    
+    
+/**
+     
+ */
+    func getApplicantProfile(emailHash: String, completion: @escaping ([String:AnyObject])->()){
+        
+        userRef.observe(.value, with: { (snapshot) in
+            let allInfo = snapshot.value as! [String:AnyObject]
+            let applicantInfo = allInfo[emailHash] as! [String: AnyObject]
+            completion(applicantInfo)
+            self.userRef.removeAllObservers()
+        })
+    }
+    
 }
 
 

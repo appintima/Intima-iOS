@@ -306,7 +306,7 @@
                         <outlet property="emailTF" destination="CU9-d7-Kbf" id="YZd-9a-WbZ"/>
                         <outlet property="gradientView" destination="LgM-HO-cgv" id="9qK-sg-LI7"/>
                         <outlet property="passwordTF" destination="Xxz-fQ-0kB" id="4Ql-b0-PXN"/>
-                        <segue destination="oOl-Ny-ZFv" kind="show" identifier="endSignUp" id="ZvO-yE-bac"/>
+                        <segue destination="s5C-Zo-6kP" kind="show" identifier="chooseProfilePicture" id="B1G-DD-1VG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cId-Cf-VSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -343,7 +343,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0hi-9W-kOO">
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="0hi-9W-kOO">
                                         <rect key="frame" x="127" y="304" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -370,6 +370,9 @@
                                                 <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="continuePressed:" destination="s5C-Zo-6kP" eventType="touchUpInside" id="QTc-pV-8JN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.47450980539999998" green="0.8392156959" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -380,16 +383,17 @@
                     <connections>
                         <outlet property="gradientView" destination="ZrT-ay-ks0" id="Qfr-3N-TTy"/>
                         <outlet property="profilePicture" destination="0hi-9W-kOO" id="NvD-KS-k9f"/>
+                        <segue destination="oOl-Ny-ZFv" kind="show" identifier="endSignUp" id="fGa-h2-zrD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6f-BF-fTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1361" y="-921"/>
+            <point key="canvasLocation" x="-1273" y="633"/>
         </scene>
-        <!--Confirm PageVC-->
+        <!--Confirm Profile PageVC-->
         <scene sceneID="Qjd-V9-b2R">
             <objects>
-                <viewController id="P95-eq-Mey" customClass="ConfirmPageVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="P95-eq-Mey" customClass="ConfirmProfilePageVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bID-J7-k6x"/>
                         <viewControllerLayoutGuide type="bottom" id="Mvy-Gw-0zp"/>
@@ -402,15 +406,6 @@
                                 <rect key="frame" x="-1" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01H-cB-5CO">
-                                        <rect key="frame" x="125" y="318" width="124" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Confirm Application"/>
-                                        <connections>
-                                            <action selector="confirmclicked:" destination="P95-eq-Mey" eventType="touchUpInside" id="C3L-kg-fZC"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erp-Re-rfB">
                                         <rect key="frame" x="16" y="243" width="343" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -549,7 +544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83q-XA-7Dw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1562" y="644"/>
+            <point key="canvasLocation" x="-274" y="644"/>
         </scene>
         <!--rootAfterLogin-->
         <scene sceneID="bqO-i4-RYp">
@@ -951,6 +946,110 @@
             </objects>
             <point key="canvasLocation" x="-679" y="-101"/>
         </scene>
+        <!--Start JobVC-->
+        <scene sceneID="hOh-jR-tEO">
+            <objects>
+                <viewController storyboardIdentifier="JobStartVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fu2-Pg-oWJ" customClass="StartJobVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dUR-vN-in7"/>
+                        <viewControllerLayoutGuide type="bottom" id="xDU-sQ-dyV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mym-E0-oy4" customClass="PastelView" customModule="Pastel">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWO-2s-y7C" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="57" y="171" width="243.5" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
+                                        <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Continue"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueButtonEmail:" destination="JBy-TE-f5L" eventType="touchUpInside" id="F2F-S3-Ail"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlR-N3-91L" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="66" y="313" width="243.5" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
+                                        <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Continue"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueButtonEmail:" destination="JBy-TE-f5L" eventType="touchUpInside" id="fZ2-8f-mPZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63w-mp-hYn" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="66" y="464" width="243.5" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
+                                        <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Continue"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueButtonEmail:" destination="JBy-TE-f5L" eventType="touchUpInside" id="VvP-pU-Lpo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="gradientView" destination="mym-E0-oy4" id="F7e-mi-JbP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vh4-5u-Fkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="-955"/>
+        </scene>
         <!--ApplicantsVC-->
         <scene sceneID="rMU-Pj-hjG">
             <objects>
@@ -983,10 +1082,13 @@
                             <outlet property="delegate" destination="l7p-YY-qLp" id="gx4-Ye-RuW"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="P95-eq-Mey" kind="show" identifier="goToProfile" id="X5V-ez-5bH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3B-KK-V1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="-101"/>
+            <point key="canvasLocation" x="106" y="-42"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="JQI-6l-Wre">
@@ -1236,7 +1338,7 @@
                                     <segue destination="MXG-7B-eGW" kind="show" id="ah7-R3-oW8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rml-8I-E3r" customClass="RaisedButton" customModule="Material">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rml-8I-E3r" customClass="RaisedButton" customModule="Material">
                                 <rect key="frame" x="66" y="489" width="244" height="40"/>
                                 <color key="backgroundColor" red="0.29178643230000001" green="0.39837437869999998" blue="0.67846405509999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
@@ -1391,5 +1493,6 @@
     </scenes>
     <resources>
         <image name="Sell Time" width="29" height="29"/>
+        <image name="emptyProfilePicture" width="128" height="128"/>
     </resources>
 </document>
