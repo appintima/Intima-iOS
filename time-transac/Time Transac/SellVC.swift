@@ -172,7 +172,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
                 self.jobDetailsConstraint.constant = 77
                 UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
             }else{
-                //DO SOME POP UP HERE
+                
             }
         }
         
