@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf">
+        <array key="Century Gothic.ttf">
             <string>CenturyGothic</string>
         </array>
         <array key="CenturyGothicBold.ttf">
@@ -407,16 +407,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Qa-fL-RV4">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="235"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CjT-vA-9Mm">
-                                                <rect key="frame" x="137" y="35" width="100" height="100"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="CjT-vA-9Mm">
+                                                <rect key="frame" x="137" y="60" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Mac-Lh-wzF"/>
+                                                    <constraint firstAttribute="height" constant="100" id="RiD-5C-1TX"/>
+                                                </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rR9-WB-fdx" userLabel="Rating">
-                                                <rect key="frame" x="137.5" y="165" width="100" height="30"/>
+                                                <rect key="frame" x="137.5" y="170" width="100" height="31"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tkq-Vi-3Is">
-                                                <rect key="frame" x="158" y="202" width="59" height="21"/>
+                                                <rect key="frame" x="158" y="208" width="59" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="aOl-IO-F6x"/>
                                                     <constraint firstAttribute="width" constant="59" id="iX2-di-fv6"/>
@@ -426,7 +430,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-Nu-dYZ">
-                                                <rect key="frame" x="300" y="202" width="50" height="21"/>
+                                                <rect key="frame" x="300" y="208" width="50" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="END-k2-a3b"/>
                                                     <constraint firstAttribute="width" constant="50" id="Ssj-Gc-ozZ"/>
@@ -436,7 +440,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKh-Fk-dJE">
-                                                <rect key="frame" x="25" y="202" width="59" height="21"/>
+                                                <rect key="frame" x="25" y="208" width="59" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="59" id="79Y-II-LMG"/>
                                                     <constraint firstAttribute="height" constant="21" id="I4V-pO-0xi"/>
@@ -446,7 +450,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15000 hr" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAW-k4-kiI" userLabel="TotalTime">
-                                                <rect key="frame" x="300" y="147" width="50" height="50"/>
+                                                <rect key="frame" x="300" y="153" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Jps-hz-vec"/>
                                                     <constraint firstAttribute="width" constant="50" id="L2W-RQ-vgB"/>
@@ -456,7 +460,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hv3-PD-NUQ" userLabel="TotalJobs">
-                                                <rect key="frame" x="29" y="162" width="50" height="20"/>
+                                                <rect key="frame" x="29" y="168" width="50" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="43Z-yc-QNE"/>
                                                     <constraint firstAttribute="height" constant="20" id="QGg-fw-AEV"/>
@@ -469,18 +473,17 @@
                                         <color key="backgroundColor" red="0.87196621190000001" green="0.44680542820000002" blue="0.38951410959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="rR9-WB-fdx" firstAttribute="width" secondItem="6Qa-fL-RV4" secondAttribute="width" multiplier="100/375" id="9uR-yJ-Fco"/>
-                                            <constraint firstItem="CjT-vA-9Mm" firstAttribute="top" secondItem="6Qa-fL-RV4" secondAttribute="top" constant="35" id="HFN-Gh-t3s"/>
+                                            <constraint firstItem="CjT-vA-9Mm" firstAttribute="top" secondItem="6Qa-fL-RV4" secondAttribute="top" constant="60" id="HFN-Gh-t3s"/>
                                             <constraint firstItem="rR9-WB-fdx" firstAttribute="centerX" secondItem="6Qa-fL-RV4" secondAttribute="centerX" id="IHs-z6-flp"/>
-                                            <constraint firstItem="CjT-vA-9Mm" firstAttribute="width" secondItem="6Qa-fL-RV4" secondAttribute="width" multiplier="100/375" id="IJJ-dh-R27"/>
                                             <constraint firstItem="CjT-vA-9Mm" firstAttribute="centerX" secondItem="6Qa-fL-RV4" secondAttribute="centerX" id="JQh-2W-s5c"/>
                                             <constraint firstItem="EKh-Fk-dJE" firstAttribute="leading" secondItem="6Qa-fL-RV4" secondAttribute="leading" constant="25" id="PQ7-c9-YzA"/>
-                                            <constraint firstItem="rR9-WB-fdx" firstAttribute="top" secondItem="CjT-vA-9Mm" secondAttribute="bottom" constant="30" id="PVv-c0-hLD"/>
+                                            <constraint firstItem="rR9-WB-fdx" firstAttribute="top" secondItem="CjT-vA-9Mm" secondAttribute="bottom" constant="10" id="PVv-c0-hLD"/>
                                             <constraint firstItem="EKh-Fk-dJE" firstAttribute="centerY" secondItem="Tkq-Vi-3Is" secondAttribute="centerY" id="UTA-Uw-nkh"/>
+                                            <constraint firstAttribute="height" constant="245" id="X2d-9a-aJs"/>
                                             <constraint firstItem="Tkq-Vi-3Is" firstAttribute="centerX" secondItem="rR9-WB-fdx" secondAttribute="centerX" id="Zml-Dr-2Yg"/>
                                             <constraint firstItem="hv3-PD-NUQ" firstAttribute="centerX" secondItem="EKh-Fk-dJE" secondAttribute="centerX" id="asC-48-Eja"/>
                                             <constraint firstItem="lAW-k4-kiI" firstAttribute="centerX" secondItem="ccH-Nu-dYZ" secondAttribute="centerX" id="c8m-BM-O6w"/>
                                             <constraint firstItem="rR9-WB-fdx" firstAttribute="height" secondItem="6Qa-fL-RV4" secondAttribute="height" multiplier="30/235" id="can-SI-fk8"/>
-                                            <constraint firstItem="CjT-vA-9Mm" firstAttribute="height" secondItem="6Qa-fL-RV4" secondAttribute="height" multiplier="100/235" id="qrM-VO-WKl"/>
                                             <constraint firstItem="ccH-Nu-dYZ" firstAttribute="centerY" secondItem="Tkq-Vi-3Is" secondAttribute="centerY" id="rek-83-MCZ"/>
                                             <constraint firstItem="Tkq-Vi-3Is" firstAttribute="top" secondItem="rR9-WB-fdx" secondAttribute="bottom" constant="7" id="s4h-z7-PKg"/>
                                             <constraint firstAttribute="trailing" secondItem="ccH-Nu-dYZ" secondAttribute="trailing" constant="25" id="tV5-Js-1CE"/>
@@ -489,25 +492,25 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JI7-sr-jek" customClass="RaisedButton" customModule="Material">
-                                        <rect key="frame" x="66" y="576" width="243.5" height="40"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="66" y="600" width="243.5" height="40"/>
+                                        <color key="backgroundColor" red="0.87196621190000001" green="0.44680542820000002" blue="0.38951410959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                         <state key="normal" title="Confirm Job">
-                                            <color key="titleColor" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
-                                                <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="value" red="0.87196621190000001" green="0.44680542820000002" blue="0.38951410959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Confirm Job"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                                <color key="value" red="0.40200379489999999" green="0.66299349070000002" blue="0.88240075110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -515,34 +518,34 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Srikanth Srinivas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyP-45-Gvz">
-                                        <rect key="frame" x="37.5" y="259" width="300" height="35"/>
+                                        <rect key="frame" x="37.5" y="269" width="300" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="XcT-s1-9yK"/>
                                             <constraint firstAttribute="height" constant="35" id="dyM-ur-e0e"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.87196621190000001" green="0.44680542820000002" blue="0.38951410959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P15-Kk-8W9">
-                                        <rect key="frame" x="141" y="315" width="92" height="21"/>
+                                        <rect key="frame" x="141" y="309" width="92" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="GMa-NM-Omy"/>
                                             <constraint firstAttribute="width" constant="92" id="x4v-Pi-aPl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.87196621190000001" green="0.44680542820000002" blue="0.38951410959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9f-6s-taa" userLabel="Scroll Reviews">
-                                        <rect key="frame" x="0.0" y="344" width="375" height="210"/>
+                                        <rect key="frame" x="0.0" y="338" width="375" height="240"/>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.47450980539999998" green="0.8392156959" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="6Qa-fL-RV4" secondAttribute="trailing" id="2ep-cs-NF1"/>
                                     <constraint firstItem="D9f-6s-taa" firstAttribute="top" secondItem="P15-Kk-8W9" secondAttribute="bottom" constant="8" id="9XD-aM-pH6"/>
-                                    <constraint firstItem="P15-Kk-8W9" firstAttribute="top" secondItem="cyP-45-Gvz" secondAttribute="bottom" constant="21" id="CXR-mN-ywk"/>
+                                    <constraint firstItem="P15-Kk-8W9" firstAttribute="top" secondItem="cyP-45-Gvz" secondAttribute="bottom" constant="5" id="CXR-mN-ywk"/>
                                     <constraint firstItem="6Qa-fL-RV4" firstAttribute="top" secondItem="QWA-r5-68b" secondAttribute="top" id="Kro-NM-BB1"/>
                                     <constraint firstItem="cyP-45-Gvz" firstAttribute="top" secondItem="6Qa-fL-RV4" secondAttribute="bottom" constant="24" id="gBJ-La-71j"/>
                                     <constraint firstItem="JI7-sr-jek" firstAttribute="top" secondItem="D9f-6s-taa" secondAttribute="bottom" constant="22" id="jUo-ig-AeC"/>
@@ -556,9 +559,8 @@
                             <constraint firstItem="D9f-6s-taa" firstAttribute="centerX" secondItem="Y5i-kb-zpT" secondAttribute="centerX" id="C8L-dS-e73"/>
                             <constraint firstItem="6Qa-fL-RV4" firstAttribute="width" secondItem="Y5i-kb-zpT" secondAttribute="width" id="Gic-5N-cW5"/>
                             <constraint firstItem="cyP-45-Gvz" firstAttribute="centerX" secondItem="Y5i-kb-zpT" secondAttribute="centerX" id="Tkr-rn-PNw"/>
-                            <constraint firstItem="D9f-6s-taa" firstAttribute="height" secondItem="Y5i-kb-zpT" secondAttribute="height" multiplier="210/667" id="WNh-Me-fyL"/>
+                            <constraint firstItem="D9f-6s-taa" firstAttribute="height" secondItem="Y5i-kb-zpT" secondAttribute="height" multiplier="240/667" id="WNh-Me-fyL"/>
                             <constraint firstItem="D9f-6s-taa" firstAttribute="width" secondItem="Y5i-kb-zpT" secondAttribute="width" id="Waj-Yl-wlo"/>
-                            <constraint firstItem="6Qa-fL-RV4" firstAttribute="height" secondItem="Y5i-kb-zpT" secondAttribute="height" multiplier="235/667" id="YGL-Wp-OuX"/>
                             <constraint firstItem="QWA-r5-68b" firstAttribute="height" secondItem="Y5i-kb-zpT" secondAttribute="height" id="Ybc-aw-5pg"/>
                             <constraint firstItem="QWA-r5-68b" firstAttribute="width" secondItem="Y5i-kb-zpT" secondAttribute="width" id="cnn-0k-ZEj"/>
                             <constraint firstItem="JI7-sr-jek" firstAttribute="centerX" secondItem="Y5i-kb-zpT" secondAttribute="centerX" id="m6R-k5-Tpm"/>
@@ -1027,7 +1029,7 @@
         <!--UnconfirmedVC-->
         <scene sceneID="MwB-tB-ihp">
             <objects>
-                <tableViewController storyboardIdentifier="UnconfirmedVC" title="UnconfirmedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OLY-0K-Ta5" customClass="UnconfirmedVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UnconfirmedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OLY-0K-Ta5" customClass="UnconfirmedVC" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CdE-6r-0PJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

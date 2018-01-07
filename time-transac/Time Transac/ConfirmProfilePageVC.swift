@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 import Lottie
 import Pastel
+import Kingfisher
 
 class ConfirmProfilePageVC: UIViewController {
     
@@ -28,46 +29,25 @@ class ConfirmProfilePageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+        prepareInformation()
+        self.gradientView.animationDuration = 3.0
+        gradientView.setColors([#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),#colorLiteral(red: 0.7605337501, green: 0.7767006755, blue: 0.7612826824, alpha: 1)])
+        profilePic.cornerRadius = profilePic.frame.height/2
         
-        self.fullNameLabel.text = (applicantInfo["Name"] as! String)
-        self.ratingAnimationView.handledAnimation(Animation: ratingAnimation)
-        ratingAnimation.play(toProgress: CGFloat((applicantInfo["Rating"] as! Float)/5), withCompletion: nil)
-        let session = URLSession(configuration: .default)
-        
-        //creating a dataTask
-        let getImageFromUrl = session.dataTask(with: profilePicture!) { (data, response, error) in
-            
-            //if there is any error
-            if let e = error {
-                //displaying the message
-                print("Error Occurred: \(e)")
-                
-            } else {
-                //in case of now error, checking wheather the response is nil or not
-                if (response as? HTTPURLResponse) != nil {
-                    
-                    //checking if the response contains an image
-                    if let imageData = data {
-                        
-                        //getting the image
-                        let image = UIImage(data: imageData)
-                        
-                        //displaying the image
-                        self.profilePic.image = image
-                        
-                    } else {
-                        print("Image file is currupted")
-                    }
-                } else {
-                    print("No response from server")
-                }
-            }
-        
-        //        self.usernameLabel.text = "@" + self.job.getJobTaker().getUsername()
-        //        self.fullNameLabel.text = self.job.getJobTaker().getFirstName() + " " + self.job.getJobTaker().getLastName()
-        //        self.ratingsLabel.text = "\(self.job.getJobTaker().getAverageRating())"
-        // Do any additional setup after loading the view.
-        }
+        ////////////// DO THIS, YOU NEED TO MAKE profilePicture to the URL of the applicants profile picture, Right now it gets the currrent user profile picture///////////////////////
+        profilePic.kf.setImage(with: profilePicture!)
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+        self.gradientView.startAnimation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+        self.gradientView.startAnimation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,6 +55,11 @@ class ConfirmProfilePageVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func prepareInformation() {
+        self.fullNameLabel.text = (applicantInfo["Name"] as! String)
+        self.ratingAnimationView.handledAnimation(Animation: ratingAnimation)
+        ratingAnimation.play(toProgress: CGFloat((applicantInfo["Rating"] as! Float)/5), withCompletion: nil)
+    }
     
     @IBAction func confirmclicked(_ sender: UIButton) {
     }
