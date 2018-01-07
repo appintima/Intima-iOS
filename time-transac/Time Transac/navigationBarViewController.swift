@@ -30,6 +30,11 @@ class navigationBarViewController: AnimatableNavigationController {
         if appDelegate.isLaunched {
             prepareSplash()
         }
+        else{
+            if let splashView = self.view.viewWithTag(10) {
+                splashView.removeFromSuperview()
+            }
+        }
     }
     
     func prepareSplash(){
