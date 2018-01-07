@@ -130,6 +130,8 @@ class LoginVC: UIViewController {
                         self.subview.makeAnimationDissapear(tag: 2)
                         
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.isLaunched = false
+                        print(appDelegate.isLaunched)
                         appDelegate.setLoginAsRoot()
                         
                         

@@ -12,10 +12,12 @@ import Material
 import UserNotifications
 import FBSDKCoreKit
 import Stripe
+import RevealingSplashView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate{
     
+    var isLaunched = false
     var window: UIWindow?
     var counter = 60
     static let NOTIFICATION_URL = "https://fcm.googleapis.com/fcm/send"
@@ -26,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        isLaunched = true
         FirebaseApp.configure()
         STPPaymentConfiguration.shared().publishableKey = "pk_test_K45gbx2IXkVSg4pfmoq9SIa9"
         STPPaymentConfiguration.shared().appleMerchantIdentifier = "merchant.online.intima"
@@ -45,7 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     }
                 }
             }
-            
         }
         if #available(iOS 10.0, *){
             UNUserNotificationCenter.current().delegate = self
@@ -76,7 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func setLoginAsRoot(){
-        
         
         self.window = UIWindow(frame: Screen.bounds)
         self.window!.rootViewController = AppSnackbarController(rootViewController: AppFABMenuController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootAfterLogin")))

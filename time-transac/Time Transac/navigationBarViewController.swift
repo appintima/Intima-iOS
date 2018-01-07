@@ -12,9 +12,11 @@ import RevealingSplashView
 
 class navigationBarViewController: AnimatableNavigationController {
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareSplashScreen()
         // Sets the background of the navigation bar to be transperant.
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
@@ -24,15 +26,24 @@ class navigationBarViewController: AnimatableNavigationController {
         
     }
     
-    func prepareSplashScreen(){
-        let splash = RevealingSplashView(iconImage: UIImage(named: "Clock")!, iconInitialSize: CGSize(width: 112, height: 100), backgroundColor: #colorLiteral(red: 0.3476088047, green: 0.1101973727, blue: 0.08525472134, alpha: 1))
-        self.view.addSubview(splash)
-        splash.animationType = SplashAnimationType.squeezeAndZoomOut
-        splash.startAnimation(){
-            print("Splash Complete")
+    override func viewWillAppear(_ animated: Bool) {
+        if appDelegate.isLaunched {
+            prepareSplash()
         }
     }
-
+    
+    func prepareSplash(){
+        
+        let splash = RevealingSplashView(iconImage: UIImage(named: "Clock")!, iconInitialSize: CGSize(width: 112, height: 100), backgroundColor: #colorLiteral(red: 0.3476088047, green: 0.1101973727, blue: 0.08525472134, alpha: 1))
+        splash.animationType = SplashAnimationType.squeezeAndZoomOut
+        splash.tag = 10
+        self.view.addSubview(splash)
+        splash.startAnimation() {
+            print("Splash Screen complete")
+            self.appDelegate.isLaunched = false
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
