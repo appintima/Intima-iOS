@@ -24,7 +24,7 @@ class ConfirmProfilePageVC: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     let ratingAnimation = LOTAnimationView(name: "5_stars")
-    let profilePicture = Auth.auth().currentUser?.photoURL
+    var profilePicture: URL?
     var job: Job!
     
     override func viewDidLoad() {
@@ -34,8 +34,9 @@ class ConfirmProfilePageVC: UIViewController {
         self.gradientView.animationDuration = 3.0
         gradientView.setColors([#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),#colorLiteral(red: 0.7605337501, green: 0.7767006755, blue: 0.7612826824, alpha: 1)])
         profilePic.cornerRadius = profilePic.frame.height/2
-        
-        ////////////// DO THIS, YOU NEED TO MAKE profilePicture to the URL of the applicants profile picture, Right now it gets the currrent user profile picture///////////////////////
+        let picURL = (applicantInfo["photoURL"] as! String)
+        profilePicture = URL(string: picURL) ?? Auth.auth().currentUser?.photoURL
+        //// PARTIALLY DONE/////
         profilePic.kf.setImage(with: profilePicture!)
 
     }

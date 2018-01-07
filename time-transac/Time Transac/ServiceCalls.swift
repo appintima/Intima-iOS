@@ -13,7 +13,6 @@ import CoreLocation
 import Firebase
 import Mapbox
 
-//Singleton
 class ServiceCalls{
 
     private var fireBaseRef: DatabaseReference!

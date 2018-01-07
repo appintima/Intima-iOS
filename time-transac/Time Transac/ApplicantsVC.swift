@@ -19,8 +19,9 @@ class ApplicantsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applicantsEHashArr = Array(applicantsDict.keys)
-        print(applicantsEHashArr)
-        print(applicantsDict)
+       
+        let nib = UINib(nibName: "CustomTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "tableViewCell")
         
     }
 
@@ -42,10 +43,16 @@ class ApplicantsVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! CustomTableViewCell
         
-        cell.textLabel?.text = self.applicantsDict[self.applicantsEHashArr[indexPath.row]]
+        cell.fullNameLabel.text = self.applicantsDict[self.applicantsEHashArr[indexPath.row]]
+        
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 156
     }
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

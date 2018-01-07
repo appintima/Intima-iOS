@@ -23,6 +23,7 @@ target 'Time Transac' do
   pod 'Stripe'
   pod "SHSearchBar"
   pod 'Kingfisher', '~> 4.0'
+  pod 'Firebase/Storage'
   
   target 'Time TransacTests' do
     inherit! :search_paths
