@@ -60,6 +60,8 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var searchBar: SHSearchBar!
     var unconfirmedLst:[Job] = []
     
+    
+    
     ///////////////////////// Functions that enable stripe payments go here /////////////////////////////
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
         print(error)
