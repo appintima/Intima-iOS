@@ -367,6 +367,7 @@
 				3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */,
 				F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */,
 				F33034471FEF4D1A004C9C30 /* MyAPIClient.swift */,
+				3B0FC3FC1F182DDF00ED88C6 /* CustomTableViewCell.swift */,
 				F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */,
 				3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */,
 				5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */,
@@ -378,7 +379,6 @@
 			isa = PBXGroup;
 			children = (
 				F3CE9C111FF8506A007E5C4A /* Constrainable.swift */,
-				3B0FC3FC1F182DDF00ED88C6 /* CustomTableViewCell.swift */,
 				3B0FC3FD1F182DDF00ED88C6 /* CustomTableViewCell.xib */,
 				F30136F11F2CF3590023828A /* RootPageViewController.swift */,
 				F30137111F2D479E0023828A /* CustomUIBorderControls.swift */,
@@ -700,6 +700,7 @@
 				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 				"${BUILT_PRODUCTS_DIR}/SHSearchBar/SHSearchBar.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -724,6 +725,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSearchBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",

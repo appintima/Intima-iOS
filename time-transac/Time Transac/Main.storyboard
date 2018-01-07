@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Century Gothic.ttf">
+        <array key="911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf">
             <string>CenturyGothic</string>
         </array>
         <array key="CenturyGothicBold.ttf">
@@ -1433,10 +1433,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i4X-a0-oWh" userLabel="Overlay">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34626498287671231" colorSpace="calibratedRGB"/>
-                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2MD-K5-MEZ">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hQJ-0q-0CD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8w-F6-cmt" customClass="RaisedButton" customModule="Material">
                                 <rect key="frame" x="66" y="428" width="244" height="40"/>
                                 <color key="backgroundColor" red="0.40200379490852356" green="0.66299349069595337" blue="0.8824007511138916" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1462,19 +1466,16 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rml-8I-E3r" customClass="RaisedButton" customModule="Material">
                                 <rect key="frame" x="66" y="489" width="244" height="40"/>
-                                <color key="backgroundColor" red="0.29178643230000001" green="0.39837437869999998" blue="0.67846405509999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.25425633790000002" green="0.3374417126" blue="0.59610682729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
-                                <state key="normal" title="Continue with Facebook">
+                                <state key="normal" title="Continue">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" red="0.29178643226623535" green="0.39837437868118286" blue="0.67846405506134033" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="0.25425633788108826" green="0.33744171261787415" blue="0.59610682725906372" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Continue with Facebook"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Continue"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
@@ -1483,6 +1484,12 @@
                                     <action selector="loginWithFacebookClicked:" destination="r6E-pH-SbH" eventType="touchUpInside" id="WPG-BS-eZv"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebookButton" translatesAutoresizingMaskIntoConstraints="NO" id="D33-RX-R8y">
+                                <rect key="frame" x="66" y="489" width="45" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="oAH-1b-7h3"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQk-MC-fJz" customClass="RaisedButton" customModule="Material">
                                 <rect key="frame" x="66" y="550" width="244" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1509,6 +1516,9 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="HOD-MQ-jHl"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="ez8-ji-Dw2">
+                                <rect key="frame" x="66" y="550" width="52" height="40"/>
+                            </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="rge-j8-BJF">
                                 <rect key="frame" x="139" y="368" width="98" height="34"/>
                                 <connections>
@@ -1566,32 +1576,40 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.88225442170000001" green="0.319435209" blue="0.25485315920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="dmu-ID-j9k" firstAttribute="top" secondItem="E9F-BD-9Ke" secondAttribute="bottom" constant="25" id="2le-kl-pAI"/>
+                            <constraint firstItem="2MD-K5-MEZ" firstAttribute="centerY" secondItem="Nfj-mf-WFe" secondAttribute="centerY" id="3mh-Th-bSY"/>
                             <constraint firstItem="qxm-2c-Oqt" firstAttribute="height" secondItem="Nfj-mf-WFe" secondAttribute="height" multiplier="0.187406" id="5I2-0v-Fjc"/>
                             <constraint firstItem="RQk-MC-fJz" firstAttribute="height" secondItem="Nfj-mf-WFe" secondAttribute="height" multiplier="0.06" id="68G-On-h8T"/>
-                            <constraint firstItem="U3w-oT-0O0" firstAttribute="top" secondItem="i4X-a0-oWh" secondAttribute="bottom" id="80K-o0-dTV"/>
+                            <constraint firstItem="ez8-ji-Dw2" firstAttribute="width" secondItem="RQk-MC-fJz" secondAttribute="width" multiplier="52/244" id="79c-ne-3Or"/>
+                            <constraint firstItem="D33-RX-R8y" firstAttribute="top" secondItem="Rml-8I-E3r" secondAttribute="top" id="7SH-P5-083"/>
                             <constraint firstItem="qxm-2c-Oqt" firstAttribute="centerX" secondItem="Nfj-mf-WFe" secondAttribute="centerX" id="8fd-iD-bzB"/>
                             <constraint firstItem="h8w-F6-cmt" firstAttribute="centerX" secondItem="Nfj-mf-WFe" secondAttribute="centerX" id="99v-0Z-hd6"/>
-                            <constraint firstItem="i4X-a0-oWh" firstAttribute="leading" secondItem="Nfj-mf-WFe" secondAttribute="leading" id="Bh7-as-VWK"/>
-                            <constraint firstItem="i4X-a0-oWh" firstAttribute="top" secondItem="Nfj-mf-WFe" secondAttribute="top" id="CCS-7g-h68"/>
+                            <constraint firstItem="2MD-K5-MEZ" firstAttribute="width" secondItem="Nfj-mf-WFe" secondAttribute="width" id="9Bt-TG-Puj"/>
                             <constraint firstItem="Rml-8I-E3r" firstAttribute="width" secondItem="Nfj-mf-WFe" secondAttribute="width" multiplier="0.65" id="FBF-tu-zST"/>
                             <constraint firstItem="qxm-2c-Oqt" firstAttribute="width" secondItem="Nfj-mf-WFe" secondAttribute="width" multiplier="0.792" id="ISw-5X-af4"/>
                             <constraint firstItem="RQk-MC-fJz" firstAttribute="top" secondItem="Rml-8I-E3r" secondAttribute="bottom" constant="21" id="L5d-lA-bkn"/>
+                            <constraint firstItem="2MD-K5-MEZ" firstAttribute="height" secondItem="Nfj-mf-WFe" secondAttribute="height" id="Mlt-FN-hzn"/>
+                            <constraint firstItem="2MD-K5-MEZ" firstAttribute="centerX" secondItem="Nfj-mf-WFe" secondAttribute="centerX" id="Vks-Hl-9FT"/>
                             <constraint firstItem="qxm-2c-Oqt" firstAttribute="top" secondItem="dmu-ID-j9k" secondAttribute="bottom" constant="19" id="XjP-pn-opK"/>
                             <constraint firstItem="h8w-F6-cmt" firstAttribute="height" secondItem="Nfj-mf-WFe" secondAttribute="height" multiplier="0.06" id="bF5-L0-9sZ"/>
+                            <constraint firstItem="D33-RX-R8y" firstAttribute="width" secondItem="Rml-8I-E3r" secondAttribute="width" multiplier="45/244" id="bSO-mu-cUY"/>
                             <constraint firstItem="RQk-MC-fJz" firstAttribute="centerX" secondItem="Nfj-mf-WFe" secondAttribute="centerX" id="ckj-V6-XcN"/>
+                            <constraint firstItem="D33-RX-R8y" firstAttribute="height" secondItem="Rml-8I-E3r" secondAttribute="height" id="d6j-aX-PNg"/>
                             <constraint firstItem="rge-j8-BJF" firstAttribute="height" secondItem="Nfj-mf-WFe" secondAttribute="height" multiplier="0.05" id="fXU-Hn-xXf"/>
                             <constraint firstItem="rge-j8-BJF" firstAttribute="top" secondItem="qxm-2c-Oqt" secondAttribute="bottom" constant="20" id="fuX-wG-UxY"/>
+                            <constraint firstItem="ez8-ji-Dw2" firstAttribute="height" secondItem="RQk-MC-fJz" secondAttribute="height" id="ghu-az-faB"/>
                             <constraint firstItem="Rml-8I-E3r" firstAttribute="top" secondItem="h8w-F6-cmt" secondAttribute="bottom" constant="21" id="hYq-Su-Kf6"/>
                             <constraint firstItem="rge-j8-BJF" firstAttribute="centerX" secondItem="Nfj-mf-WFe" secondAttribute="centerX" id="lE7-9T-lGE"/>
+                            <constraint firstItem="D33-RX-R8y" firstAttribute="leading" secondItem="Rml-8I-E3r" secondAttribute="leading" id="mK4-sw-mTX"/>
                             <constraint firstItem="h8w-F6-cmt" firstAttribute="top" secondItem="rge-j8-BJF" secondAttribute="bottom" constant="26.5" id="mR5-4N-5Ao"/>
                             <constraint firstItem="rge-j8-BJF" firstAttribute="width" secondItem="Nfj-mf-WFe" secondAttribute="width" multiplier="0.261333" id="odO-BI-Y9M"/>
                             <constraint firstItem="h8w-F6-cmt" firstAttribute="width" secondItem="Nfj-mf-WFe" secondAttribute="width" multiplier="0.65" id="sb7-E0-KLz"/>
                             <constraint firstItem="Rml-8I-E3r" firstAttribute="height" secondItem="Nfj-mf-WFe" secondAttribute="height" multiplier="0.06" id="shn-8e-rMB"/>
+                            <constraint firstItem="ez8-ji-Dw2" firstAttribute="top" secondItem="RQk-MC-fJz" secondAttribute="top" id="we9-Gf-pFr"/>
+                            <constraint firstItem="ez8-ji-Dw2" firstAttribute="leading" secondItem="RQk-MC-fJz" secondAttribute="leading" id="wo8-05-CKj"/>
                             <constraint firstItem="Rml-8I-E3r" firstAttribute="centerX" secondItem="Nfj-mf-WFe" secondAttribute="centerX" id="xQy-ya-Edu"/>
-                            <constraint firstAttribute="trailing" secondItem="i4X-a0-oWh" secondAttribute="trailing" id="ydy-8J-dMj"/>
                             <constraint firstItem="RQk-MC-fJz" firstAttribute="width" secondItem="Nfj-mf-WFe" secondAttribute="width" multiplier="0.65" id="ytg-TT-H1x"/>
                             <constraint firstItem="dmu-ID-j9k" firstAttribute="centerX" secondItem="Nfj-mf-WFe" secondAttribute="centerX" id="zFj-Mk-ItQ"/>
                         </constraints>
@@ -1610,11 +1628,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Enj-cZ-k0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3930" y="-101"/>
+            <point key="canvasLocation" x="-3930.4000000000001" y="-101.19940029985008"/>
         </scene>
     </scenes>
     <resources>
         <image name="Sell Time" width="29" height="29"/>
+        <image name="email" width="644" height="470"/>
         <image name="emptyProfilePicture" width="128" height="128"/>
+        <image name="facebookButton" width="512" height="512"/>
     </resources>
 </document>

@@ -13,6 +13,7 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import Material
 import Firebase
+import RevealingSplashView
 
 
 class Lgsupage: UIViewController {
@@ -47,7 +48,6 @@ class Lgsupage: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         self.dbRef = Database.database().reference()
         self.navigationController?.navigationBar.isHidden = true
         content.adjustsFontSizeToFitWidth = true
@@ -93,6 +93,8 @@ class Lgsupage: UIViewController {
         
         
     }
+    
+    
     
     //Handle the swipes
     
