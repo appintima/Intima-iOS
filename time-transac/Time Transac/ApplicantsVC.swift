@@ -43,9 +43,16 @@ class ApplicantsVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! CustomTableViewCell
         
-        cell.fullNameLabel.text = self.applicantsDict[self.applicantsEHashArr[indexPath.row]]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! CustomTableViewCell
+        let eHash = applicantsEHashArr[indexPath.row]
+        service.getApplicantProfile(emailHash: eHash) { (applicantInfo) in
+            cell.fullNameLabel.text = (applicantInfo["Name"] as! String)
+            let picURL = URL(string: (applicantInfo["photoURL"] as! String))
+            cell.profilePic.kf.setImage(with: picURL)
+        }
+        
+//        cell.fullNameLabel.text = self.applicantsDict[self.applicantsEHashArr[indexPath.row]]
         
         return cell
     }
@@ -57,7 +64,7 @@ class ApplicantsVC: UITableViewController {
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let eHash = applicantsEHashArr[indexPath.row]
-        self.service.getApplicantProfile(emailHash: eHash) { (applicantInfo) in
+        service.getApplicantProfile(emailHash: eHash) { (applicantInfo) in
             self.clickedApplicantInfo = applicantInfo
             self.performSegue(withIdentifier: "goToProfile", sender: nil)
         }

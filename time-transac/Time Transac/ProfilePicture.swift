@@ -92,6 +92,13 @@ class ProfilePicture: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
                 
                 let profileImgURL = metadata?.downloadURL()?.absoluteString
+                let profile = Auth.auth().currentUser?.createProfileChangeRequest()
+                profile?.photoURL = URL(string: profileImgURL!)
+                profile?.commitChanges(completion: { (err) in
+                    if err != nil{
+                        return
+                    }
+                })
                 let imgValues = ["photoURL":profileImgURL]
                 self.userRef.updateChildValues(imgValues)
             })

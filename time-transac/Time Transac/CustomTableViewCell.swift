@@ -18,6 +18,8 @@ class CustomTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        profilePic.cornerRadius = profilePic.frame.height/2
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
