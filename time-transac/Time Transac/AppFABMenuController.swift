@@ -4,6 +4,7 @@ import Material
 import Firebase
 import FBSDKLoginKit
 import Stripe
+import PopupDialog
 
 class AppFABMenuController: FABMenuController, STPPaymentContextDelegate{
     fileprivate let fabMenuSize = CGSize(width: 40, height: 40)
@@ -111,17 +112,20 @@ extension AppFABMenuController {
             let facebookLoginManager = FBSDKLoginManager()
             facebookLoginManager.logOut()
             print("Logged out")
+            self.navigationController?.popToRootViewController(animated: true)
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.setLogoutAsRoot()
-            self.navigationController?.popViewController(animated: true)
+            
         } catch let signOutError as NSError {
+            let signOutErrorPopup = PopupDialog(title: "Error", message: "Error signing you out, try again later" + signOutError.localizedDescription )
+            self.present(signOutErrorPopup, animated: true, completion: nil)
             print ("Error signing out: %@", signOutError)
         }
     }
     
     @objc
     fileprivate func handleUnconfirmed(button: UIButton) {
-        self.transition(to: UnconfirmedVC())
+
         fabMenu.fabButton?.animate(.rotate(0))
     }
     

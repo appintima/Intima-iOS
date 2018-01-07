@@ -9,14 +9,20 @@
 
 import UIKit
 import Firebase
+import Lottie
+import Pastel
 
 class ConfirmProfilePageVC: UIViewController {
     
     var applicantInfo: [String:AnyObject]!
+    @IBOutlet weak var gradientView: PastelView!
+    @IBOutlet weak var scrollForReviews: UIScrollView!
+    @IBOutlet weak var ratingAnimationView: UIView!
+    @IBOutlet weak var totalTime: UILabel!
+    @IBOutlet weak var totalJobs: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var ratingsLabel: UILabel!
+    let ratingAnimation = LOTAnimationView(name: "5_stars")
     let profilePicture = Auth.auth().currentUser?.photoURL
     var job: Job!
     
@@ -24,7 +30,8 @@ class ConfirmProfilePageVC: UIViewController {
         super.viewDidLoad()
         
         self.fullNameLabel.text = (applicantInfo["Name"] as! String)
-        self.ratingsLabel.text = "\((applicantInfo["Rating"] as! Double))"
+        self.ratingAnimationView.handledAnimation(Animation: ratingAnimation)
+        ratingAnimation.play(toProgress: CGFloat((applicantInfo["Rating"] as! Float)/5), withCompletion: nil)
         let session = URLSession(configuration: .default)
         
         //creating a dataTask
