@@ -179,12 +179,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
                 self.jobDetailsConstraint.constant = 77
                 UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
             }else{
-                //ALREADY POSTED A JOB THAT IS NOT ACCEPTED YET
-                let title = "You Can Only Post One Task At A Time"
-                let okButton = CancelButton(title: "OK", action: nil)
-                let popup = PopupDialog(title: title, message: nil)
-                popup.addButton(okButton)
-                self.present(popup, animated: true, completion: nil)
+                
             }
         }
  

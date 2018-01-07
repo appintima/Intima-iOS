@@ -22,7 +22,7 @@ target 'Time Transac' do
   pod 'PopupDialog', '~> 0.6'
   pod 'Stripe'
   pod "SHSearchBar"
-  
+  pod 'Kingfisher', '~> 4.0'
   
   target 'Time TransacTests' do
     inherit! :search_paths
