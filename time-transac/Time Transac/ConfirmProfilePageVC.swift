@@ -12,6 +12,7 @@ import Firebase
 import Lottie
 import Pastel
 import Kingfisher
+import Alamofire
 
 class ConfirmProfilePageVC: UIViewController {
     
@@ -24,7 +25,7 @@ class ConfirmProfilePageVC: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     let ratingAnimation = LOTAnimationView(name: "5_stars")
-    let profilePicture = Auth.auth().currentUser?.photoURL
+    var picURL: URL?
     var job: Job!
     
     override func viewDidLoad() {
@@ -34,9 +35,9 @@ class ConfirmProfilePageVC: UIViewController {
         self.gradientView.animationDuration = 3.0
         gradientView.setColors([#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),#colorLiteral(red: 0.7605337501, green: 0.7767006755, blue: 0.7612826824, alpha: 1)])
         profilePic.cornerRadius = profilePic.frame.height/2
-        
-        ////////////// DO THIS, YOU NEED TO MAKE profilePicture to the URL of the applicants profile picture, Right now it gets the currrent user profile picture///////////////////////
-        profilePic.kf.setImage(with: profilePicture!)
+        picURL = URL(string: (applicantInfo["photoURL"] as! String))
+        //// PARTIALLY DONE/////
+        profilePic.kf.setImage(with: picURL!)
 
     }
     
@@ -62,6 +63,18 @@ class ConfirmProfilePageVC: UIViewController {
     }
     
     @IBAction func confirmclicked(_ sender: UIButton) {
+        let title = "Intima"
+        let body = "Your Job Has Been Accepted By \(Auth.auth().currentUser?.displayName ?? "someone")"
+        let device = applicantInfo["currentDevice"] as! String
+        var headers: HTTPHeaders = HTTPHeaders()
+        
+        headers = ["Content-Type":"application/json", "Authorization":"key=\(AppDelegate.SERVERKEY)"]
+        
+        let notification = ["to":"\(device)", "notification":["body":body, "title":title, "badge":1, "sound":"default"]] as [String : Any]
+        
+        Alamofire.request(AppDelegate.NOTIFICATION_URL as URLConvertible, method: .post as HTTPMethod, parameters: notification, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { (response) in
+        })
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "confirmedNotification"), object: nil)
     }
     
     

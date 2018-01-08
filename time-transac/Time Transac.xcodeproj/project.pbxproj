@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B0FC3FE1F182DDF00ED88C6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FC3FC1F182DDF00ED88C6 /* CustomTableViewCell.swift */; };
 		3B0FC3FF1F182DDF00ED88C6 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B0FC3FD1F182DDF00ED88C6 /* CustomTableViewCell.xib */; };
 		3B0FC4051F2043FE00ED88C6 /* SellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FC4041F2043FE00ED88C6 /* SellVC.swift */; };
 		3B0FC4081F2477AC00ED88C6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FC4071F2477AB00ED88C6 /* LocationManager.swift */; };
@@ -15,6 +14,7 @@
 		3B0FC40D1F24804300ED88C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */; };
 		3B1EC3011EFC888A00182029 /* ServiceCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3001EFC888A00182029 /* ServiceCalls.swift */; };
 		3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3021EFC915700182029 /* LoginVC.swift */; };
+		3B3F82212001A47400308C9A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F82202001A47400308C9A /* CustomTableViewCell.swift */; };
 		3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */; };
 		3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41E1FFC7303006F7F83 /* AppError.swift */; };
 		3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */; };
@@ -100,7 +100,6 @@
 
 /* Begin PBXFileReference section */
 		3B0FA97B1FED934600DD2556 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		3B0FC3FC1F182DDF00ED88C6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3B0FC3FD1F182DDF00ED88C6 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		3B0FC4041F2043FE00ED88C6 /* SellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellVC.swift; sourceTree = "<group>"; };
 		3B0FC4071F2477AB00ED88C6 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3B1EC3001EFC888A00182029 /* ServiceCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCalls.swift; sourceTree = "<group>"; };
 		3B1EC3021EFC915700182029 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		3B3F82202001A47400308C9A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantsVC.swift; sourceTree = "<group>"; };
 		3B4DE41E1FFC7303006F7F83 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnconfirmedVC.swift; sourceTree = "<group>"; };
@@ -795,6 +795,7 @@
 			files = (
 				F305C7081F68C90800D8C296 /* navigationBarViewController.swift in Sources */,
 				F35EE16F1F8D3F38007C08E7 /* PopUpJobViewVC.swift in Sources */,
+				3B3F82212001A47400308C9A /* CustomTableViewCell.swift in Sources */,
 				F3DD81F91FC3BD35000826F8 /* AppSnackbarController.swift in Sources */,
 				F3A2006A1FF32824005F7286 /* CustomAPIAdapter.swift in Sources */,
 				F33034521FEF80F3004C9C30 /* PaymentContextFooterView.swift in Sources */,
@@ -809,7 +810,6 @@
 				F3138B5C1FE6B3A300E690AB /* ProfilePicture.swift in Sources */,
 				5F8BAC7F1FFC5BC500450187 /* StartJobVC.swift in Sources */,
 				F30136F81F2D04CB0023828A /* Lgsupage.swift in Sources */,
-				3B0FC3FE1F182DDF00ED88C6 /* CustomTableViewCell.swift in Sources */,
 				F3E9176F1F5B4B0E009DCB0F /* ShadowsToButtons.swift in Sources */,
 				F33034481FEF4D1A004C9C30 /* MyAPIClient.swift in Sources */,
 				F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */,

@@ -3501,8 +3501,8 @@
 				054D58DD51EBCC24E45BBE3CD27E9003 /* leveldb-library-prefix.pch */,
 				6F1EF430FD48CD247C73D0BBE66BE83F /* leveldb-library-umbrella.h */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/leveldb-library";
+			name = "lottie-ios";
+			path = "lottie-ios";
 			sourceTree = "<group>";
 		};
 		1CFA47D92366E49BFBAC60FB21942146 /* FirebaseInstanceID */ = {
@@ -4334,7 +4334,8 @@
 				8BF89E57FC5835C2E72268BC70F06403 /* stp_shipping_form@3x.png */,
 				39C69997A23A225AD0EF8BD7DF64B42E /* stp_test_upload_image.jpeg */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/GTMSessionFetcher";
 			sourceTree = "<group>";
 		};
 		8A416335497CD396AF94D9C501E58FD8 /* Alamofire */ = {
@@ -4399,15 +4400,19 @@
 			path = FBSDKLoginKit;
 			sourceTree = "<group>";
 		};
-		8F802539D95B632FC0F9E44E3F912497 /* Frameworks */ = {
+		85D9BCE3301D94020FED23BFD7748F86 /* GoogleToolboxForMac */ = {
 			isa = PBXGroup;
 			children = (
-				FDB3C2BC15837FD01EB14DAAACC22A49 /* Bolts.framework */,
-				80A4B585B1BD34E9130111546320019F /* FBSDKCoreKit.framework */,
-				DE97C477AE9AC8D52AD0C7D30A1F624A /* Motion.framework */,
-				CB7B67D7E20C541D12E31CF87FA9E18C /* iOS */,
+				AAD47FC62C9C4C84FD22837CAFD428ED /* DebugUtils */,
+				D4FBBC96FDA7C451C4F74EB68C87289B /* Defines */,
+				31255145637BE725060F95B940B8FF88 /* Logger */,
+				BD6D38D6500B337B2AF59474E5228C09 /* NSData+zlib */,
+				13634A7042862E3CB6BEAABF4EF58C05 /* NSDictionary+URLArguments */,
+				D68991BAC9D333E72F888769046C4AFA /* NSString+URLArguments */,
+				73FA0EE33BCECC0F5451E7BC4C8F2DB5 /* Support Files */,
 			);
-			name = Frameworks;
+			name = GoogleToolboxForMac;
+			path = GoogleToolboxForMac;
 			sourceTree = "<group>";
 		};
 		94A510BA10E013DC6184121B5AC555FF /* Support Files */ = {
@@ -4462,7 +4467,8 @@
 			children = (
 				4C20294F530BF1D775CB1D9323C79D24 /* FacebookSDKStrings.bundle */,
 			);
-			name = Resources;
+			name = FirebaseInstanceID;
+			path = FirebaseInstanceID;
 			sourceTree = "<group>";
 		};
 		A47729AE7A96D1D47C3C7B9D7B7C77C5 /* IBAnimatable */ = {
@@ -5179,8 +5185,8 @@
 				952C11979135B2DD1D8C0D7B54B41948 /* nanopb-prefix.pch */,
 				D04D088A2089720C2D9F5B42AB266AD0 /* nanopb-umbrella.h */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/nanopb";
+			name = FBSDKShareKit;
+			path = FBSDKShareKit;
 			sourceTree = "<group>";
 		};
 		DF83C5D9080A741C13DB8AF865E45707 /* Support Files */ = {

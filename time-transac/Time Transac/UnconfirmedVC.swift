@@ -21,12 +21,14 @@ class UnconfirmedVC: UITableViewController {
     var yPosition:CGFloat = 0
     var scrollViewContentSize: CGFloat = 0
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
-        
-        
     }
+    
+
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

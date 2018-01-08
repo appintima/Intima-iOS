@@ -8,15 +8,20 @@
 
 import UIKit
 import Pastel
+import Firebase
 
 class ProfilePicture: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var gradientView: PastelView!
     @IBOutlet weak var profilePicture: UIImageView!
+    let helper = HelperFunctions()
+    var userRef: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfilePicture.imageTapped(gesture:)))
+        userRef = Database.database().reference().child("Users").child(helper.MD5(string: (Auth.auth().currentUser?.email)!))
+        
         
         // add it to the image view;
         profilePicture.addGestureRecognizer(tapGesture)
@@ -77,6 +82,27 @@ class ProfilePicture: UIViewController, UIImagePickerControllerDelegate, UINavig
     
 
     @IBAction func continuePressed(_ sender: UIButton) {
+        
+        let storageRef = Storage.storage().reference(forURL: "gs://intima-227c4.appspot.com").child("profile_image").child(helper.MD5(string: (Auth.auth().currentUser?.email)!))
+        
+        if let profileImg = profilePicture.image, let imageData = UIImageJPEGRepresentation(profileImg, 0.1){
+            storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
+                if error != nil{
+                    return
+                }
+                
+                let profileImgURL = metadata?.downloadURL()?.absoluteString
+                let profile = Auth.auth().currentUser?.createProfileChangeRequest()
+                profile?.photoURL = URL(string: profileImgURL!)
+                profile?.commitChanges(completion: { (err) in
+                    if err != nil{
+                        return
+                    }
+                })
+                let imgValues = ["photoURL":profileImgURL]
+                self.userRef.updateChildValues(imgValues)
+            })
+        }
         self.performSegue(withIdentifier: "endSignUp", sender: nil)
     }
     
