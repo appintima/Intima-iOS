@@ -207,8 +207,8 @@ open class ChipBar: Bar {
     /// Buttons.
     open var chipItems = [ChipItem]() {
         didSet {
-            for b in oldValue {
-                b.removeFromSuperview()
+            oldValue.forEach {
+                $0.removeFromSuperview()
             }
             
             prepareChipItems()
@@ -292,7 +292,6 @@ fileprivate extension ChipBar {
                 w += p
                 
                 if scrollView != v.superview {
-                    v.removeFromSuperview()
                     scrollView.addSubview(v)
                 }
             }

@@ -453,7 +453,7 @@ open class NavigationDrawerController: TransitionController {
         
         rootViewController.view.frame = container.bounds
 	}
-	
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         leftViewController?.beginAppearanceTransition(true, animated: animated)

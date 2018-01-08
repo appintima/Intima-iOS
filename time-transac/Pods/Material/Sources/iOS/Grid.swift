@@ -157,9 +157,10 @@ public struct Grid {
     /// An Array of UIButtons.
     public var views = [UIView]() {
         didSet {
-            for v in oldValue {
-                v.removeFromSuperview()
+            oldValue.forEach {
+                $0.removeFromSuperview()
             }
+            
             reload()
         }
     }
@@ -200,7 +201,6 @@ public struct Grid {
         
         for v in views {
             if canvas != v.superview {
-                v.removeFromSuperview()
                 canvas.addSubview(v)
             }
         }

@@ -21,7 +21,7 @@ target 'Time Transac' do
   pod 'Mapbox-iOS-SDK', '~> 3.7'
   pod 'PopupDialog', '~> 0.6'
   pod 'Stripe'
-  pod "SHSearchBar"
+  pod 'SHSearchBar'
   pod 'Kingfisher', '~> 4.0'
   pod 'RevealingSplashView'
   

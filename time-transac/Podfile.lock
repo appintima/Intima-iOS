@@ -1,11 +1,11 @@
 PODS:
   - Alamofire (4.6.0)
-  - Bolts (1.8.4):
-    - Bolts/AppLinks (= 1.8.4)
-    - Bolts/Tasks (= 1.8.4)
-  - Bolts/AppLinks (1.8.4):
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
-  - Bolts/Tasks (1.8.4)
+  - Bolts/Tasks (1.9.0)
   - FBSDKCoreKit (4.29.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.29.0):
@@ -24,9 +24,6 @@ PODS:
   - Firebase/Messaging (4.8.0):
     - Firebase/Core
     - FirebaseMessaging (= 2.0.8)
-  - Firebase/Storage (4.8.0):
-    - Firebase/Core
-    - FirebaseStorage (= 2.1.1)
   - FirebaseAnalytics (4.0.5):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
@@ -50,10 +47,6 @@ PODS:
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
-  - FirebaseStorage (2.1.1):
-    - FirebaseAnalytics (~> 4.0)
-    - FirebaseCore (~> 4.0)
-    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/DebugUtils (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GoogleToolboxForMac/Defines (2.1.3)
@@ -72,13 +65,13 @@ PODS:
   - leveldb-library (1.20)
   - lottie-ios (2.1.5)
   - Mapbox-iOS-SDK (3.7.2)
-  - Material (2.13.0):
-    - Material/Core (= 2.13.0)
-  - Material/Core (2.13.0):
+  - Material (2.13.3):
+    - Material/Core (= 2.13.3)
+  - Material/Core (2.13.3):
     - Motion (~> 1.3.0)
-  - Motion (1.3.0):
-    - Motion/Core (= 1.3.0)
-  - Motion/Core (1.3.0)
+  - Motion (1.3.3):
+    - Motion/Core (= 1.3.3)
+  - Motion/Core (1.3.3)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -100,7 +93,6 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
-  - Firebase/Storage
   - IBAnimatable
   - Kingfisher (~> 4.0)
   - lottie-ios
@@ -114,7 +106,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
   FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
   FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
@@ -125,7 +117,6 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 7088bfc4af2cc00231bb36e1404fc2d7509eb4dc
   FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
   FirebaseMessaging: dfdcd307c2382290a1e297a81d0f18370f5b1bcd
-  FirebaseStorage: ab08d1c93a2feffa038fdd6693088b310ab1e6c6
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   IBAnimatable: aa2286a9cf8fb4ae2e1be85c5287ae56143b024f
@@ -133,8 +124,8 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   lottie-ios: 836cdbba92f62f3c6a00e37a4ce485321fe317cf
   Mapbox-iOS-SDK: d882f53debc26649b728755df5b7a160d9086367
-  Material: eb21f195af9944f4002c219a6dadfc78d0242efc
-  Motion: 1dcb3db74e157a4ba79ad99b5d437fe0222f1ddc
+  Material: 7c23a0569c69ca6e5c84a9e61aa186960cc656ab
+  Motion: 171fae75e927306cf906ab579ab5ac99d291658f
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Pastel: 738740c84f2b15bbcd96ebe99c4e6c2f5dd42262
   PopupDialog: d4336d7274a6aa3af4cb26d8b6691510eba90cc3
@@ -143,6 +134,6 @@ SPEC CHECKSUMS:
   SHSearchBar: d59fb32d1e26b46bc036b8d551d30683f2479c31
   Stripe: 10761682d20dc491c52287393c800db056c9748d
 
-PODFILE CHECKSUM: 10865dba602eafebfbc83dbd72ad6bcecf5725ed
+PODFILE CHECKSUM: c6ce15b8d01d624d246f8d6eb3c4083ff772de91
 
 COCOAPODS: 1.3.1
