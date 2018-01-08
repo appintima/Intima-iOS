@@ -14,7 +14,6 @@
 		3B0FC40D1F24804300ED88C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */; };
 		3B1EC3011EFC888A00182029 /* ServiceCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3001EFC888A00182029 /* ServiceCalls.swift */; };
 		3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3021EFC915700182029 /* LoginVC.swift */; };
-		3B3F82212001A47400308C9A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F82202001A47400308C9A /* CustomTableViewCell.swift */; };
 		3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */; };
 		3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41E1FFC7303006F7F83 /* AppError.swift */; };
 		3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */; };
@@ -29,6 +28,7 @@
 		587CC8B624170F78B122D677 /* Pods_Time_TransacTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF9DFFA91551E89EC78BA7C /* Pods_Time_TransacTests.framework */; };
 		5F00B2BE2001FB7400749398 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F00B2BD2001FB7400749398 /* SplashViewController.swift */; };
 		5F8BAC7F1FFC5BC500450187 /* StartJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */; };
+		5FD263A32003104D004B1978 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD263A22003104D004B1978 /* CustomTableViewCell.swift */; };
 		A4CEFDD9D0F6BA8F7BCA84C5 /* Pods_Time_TransacUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FF9CB0337E42194F0583EF /* Pods_Time_TransacUITests.framework */; };
 		F30136F21F2CF3590023828A /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30136F11F2CF3590023828A /* RootPageViewController.swift */; };
 		F30136F51F2D045D0023828A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30136F31F2D045D0023828A /* AVFoundation.framework */; };
@@ -107,7 +107,6 @@
 		3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3B1EC3001EFC888A00182029 /* ServiceCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCalls.swift; sourceTree = "<group>"; };
 		3B1EC3021EFC915700182029 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		3B3F82202001A47400308C9A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantsVC.swift; sourceTree = "<group>"; };
 		3B4DE41E1FFC7303006F7F83 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnconfirmedVC.swift; sourceTree = "<group>"; };
@@ -129,6 +128,7 @@
 		4DBEBA902645A1D14930FE1C /* Pods-Time TransacTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time TransacTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time TransacTests/Pods-Time TransacTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F00B2BD2001FB7400749398 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartJobVC.swift; sourceTree = "<group>"; };
+		5FD263A22003104D004B1978 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		6861349CE4FCFD95DB24BC6C /* Pods-Time Transac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Transac.release.xcconfig"; path = "Pods/Target Support Files/Pods-Time Transac/Pods-Time Transac.release.xcconfig"; sourceTree = "<group>"; };
 		7D8852E911B1E1DABF851838 /* Pods-Time TransacUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time TransacUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time TransacUITests/Pods-Time TransacUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		81FF9CB0337E42194F0583EF /* Pods_Time_TransacUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_TransacUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,11 +369,11 @@
 				3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */,
 				F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */,
 				F33034471FEF4D1A004C9C30 /* MyAPIClient.swift */,
-				3B0FC3FC1F182DDF00ED88C6 /* CustomTableViewCell.swift */,
 				F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */,
 				3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */,
 				5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */,
 				5F00B2BD2001FB7400749398 /* SplashViewController.swift */,
+				5FD263A22003104D004B1978 /* CustomTableViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -795,7 +795,6 @@
 			files = (
 				F305C7081F68C90800D8C296 /* navigationBarViewController.swift in Sources */,
 				F35EE16F1F8D3F38007C08E7 /* PopUpJobViewVC.swift in Sources */,
-				3B3F82212001A47400308C9A /* CustomTableViewCell.swift in Sources */,
 				F3DD81F91FC3BD35000826F8 /* AppSnackbarController.swift in Sources */,
 				F3A2006A1FF32824005F7286 /* CustomAPIAdapter.swift in Sources */,
 				F33034521FEF80F3004C9C30 /* PaymentContextFooterView.swift in Sources */,
@@ -832,6 +831,7 @@
 				F30136F21F2CF3590023828A /* RootPageViewController.swift in Sources */,
 				3B71C4FD1EE6836800746DEE /* AppDelegate.swift in Sources */,
 				F3938E2D1F6A45A3006634E2 /* GradientView.swift in Sources */,
+				5FD263A32003104D004B1978 /* CustomTableViewCell.swift in Sources */,
 				3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */,
 				F3110CD41F3A7AF900BACAE9 /* ApplicationTabsController.swift in Sources */,
 				F3619A241F3793EB00FCA94B /* CustomAnimationHandler.swift in Sources */,

@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Lottie
 
 class ApplicantsVC: UITableViewController {
     
     var applicantsDict: [String:String]!
     var applicantsEHashArr:[String]!
-    
+    let ratingAnimation = LOTAnimationView(name: "5_stars")
     var clickedApplicantInfo: [String:AnyObject]!
     let service = ServiceCalls()
 
@@ -50,6 +51,8 @@ class ApplicantsVC: UITableViewController {
             cell.fullNameLabel.text = (applicantInfo["Name"] as! String)
             let picURL = URL(string: (applicantInfo["photoURL"] as! String))
             cell.profilePic.kf.setImage(with: picURL)
+            cell.ratingsView.handledAnimation(Animation: self.ratingAnimation)
+            self.ratingAnimation.play(toProgress: CGFloat((applicantInfo["Rating"] as! Float)/5), withCompletion: nil)
         }
         
 //        cell.fullNameLabel.text = self.applicantsDict[self.applicantsEHashArr[indexPath.row]]
