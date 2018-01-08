@@ -12,6 +12,7 @@ import Firebase
 import Lottie
 import Pastel
 import Kingfisher
+import Alamofire
 
 class ConfirmProfilePageVC: UIViewController {
     
@@ -62,6 +63,18 @@ class ConfirmProfilePageVC: UIViewController {
     }
     
     @IBAction func confirmclicked(_ sender: UIButton) {
+        let title = "Intima"
+        let body = "Your Job Has Been Accepted By \(Auth.auth().currentUser?.displayName ?? "someone")"
+        let device = applicantInfo["currentDevice"] as! String
+        var headers: HTTPHeaders = HTTPHeaders()
+        
+        headers = ["Content-Type":"application/json", "Authorization":"key=\(AppDelegate.SERVERKEY)"]
+        
+        let notification = ["to":"\(device)", "notification":["body":body, "title":title, "badge":1, "sound":"default"]] as [String : Any]
+        
+        Alamofire.request(AppDelegate.NOTIFICATION_URL as URLConvertible, method: .post as HTTPMethod, parameters: notification, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { (response) in
+        })
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "confirmedNotification"), object: nil)
     }
     
     
