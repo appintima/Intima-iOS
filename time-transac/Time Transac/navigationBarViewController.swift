@@ -30,11 +30,6 @@ class navigationBarViewController: AnimatableNavigationController {
         if appDelegate.isLaunched {
             prepareSplash()
         }
-        else{
-            if let splashView = self.view.viewWithTag(10) {
-                splashView.removeFromSuperview()
-            }
-        }
     }
     
     func prepareSplash(){
@@ -43,7 +38,7 @@ class navigationBarViewController: AnimatableNavigationController {
         splash.animationType = SplashAnimationType.squeezeAndZoomOut
         splash.tag = 10
         self.view.addSubview(splash)
-        splash.startAnimation() {
+        splash.startAnimation {
             print("Splash Screen complete")
             self.appDelegate.isLaunched = false
         }
