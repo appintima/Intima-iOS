@@ -31,11 +31,12 @@ class Lgsupage: UIViewController {
     @IBOutlet var SignUpButton: UIButton!
     @IBOutlet var ContentView: UIView!
     var dbRef: DatabaseReference!
+    let logoAnimation = LOTAnimationView(name: "clock")
     
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -52,18 +53,8 @@ class Lgsupage: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         content.adjustsFontSizeToFitWidth = true
         IntimaLabel.adjustsFontSizeToFitWidth = true
-        let logoAnimation = LOTAnimationView(name: "clock")
-        IntimaLogo.addSubview(logoAnimation)
-        let ycenterConstraint = NSLayoutConstraint(item: logoAnimation, attribute: .centerY, relatedBy: .equal, toItem: IntimaLogo, attribute: .centerY, multiplier: 1, constant: 0)
-        let xCenterConstraint = NSLayoutConstraint(item: logoAnimation, attribute: .centerX, relatedBy: .equal, toItem: IntimaLogo, attribute: .centerX, multiplier: 1, constant: 0)
-        let widthConstraint = NSLayoutConstraint(item: logoAnimation, attribute: .width, relatedBy: .equal, toItem: IntimaLogo, attribute: .width, multiplier: 1, constant: 0)
-        let heightConstraint = NSLayoutConstraint(item: logoAnimation, attribute: .height, relatedBy: .equal, toItem: IntimaLogo, attribute: .height, multiplier: 1, constant: 0)
-
-        IntimaLogo.addConstraints([ycenterConstraint, xCenterConstraint, widthConstraint, heightConstraint])
-        logoAnimation.translatesAutoresizingMaskIntoConstraints = false
-        logoAnimation.contentMode = .scaleAspectFit
+        IntimaLogo.handledAnimation(Animation: logoAnimation)
         logoAnimation.play()
-        
         content.text = contentlist[0]
         let leftswap = UISwipeGestureRecognizer(target: self, action: #selector(Lgsupage.handleSwap(_:)))
         let rightswap = UISwipeGestureRecognizer(target: self, action: #selector(Lgsupage.handleSwap(_:)))

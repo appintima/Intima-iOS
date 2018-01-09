@@ -26,7 +26,7 @@
                                 <rect key="frame" x="131.5" y="283.5" width="112" height="100"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.32003945112228394" green="0.12617695331573486" blue="0.098024122416973114" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.88225442170000001" green="0.319435209" blue="0.25485315920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="QbH-6I-7Kj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6WA-U7-IyR"/>
                             <constraint firstItem="QbH-6I-7Kj" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="100/667" id="I2K-ev-T5o"/>

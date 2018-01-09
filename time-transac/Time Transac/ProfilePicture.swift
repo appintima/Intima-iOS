@@ -29,7 +29,7 @@ class ProfilePicture: UIViewController, UIImagePickerControllerDelegate, UINavig
         profilePicture.isUserInteractionEnabled = true
         // Do any additional setup after loading the view.
         gradientView.animationDuration = 3.0
-        gradientView.setColors([#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),#colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)])
+        gradientView.setColors([#colorLiteral(red: 0.3476088047, green: 0.1101973727, blue: 0.08525472134, alpha: 1),#colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)])
     }
     
     override func viewWillAppear(_ animated: Bool) {

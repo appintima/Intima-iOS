@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Century Gothic.ttf">
+        <array key="911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf">
             <string>CenturyGothic</string>
         </array>
         <array key="CenturyGothicBold.ttf">
@@ -33,6 +33,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zra-sJ-Hxs" userLabel="gradientView" customClass="PastelView" customModule="Pastel">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.47450980539999998" green="0.8392156959" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xYP-il-Pty" customClass="TextField" customModule="Material">
                                 <rect key="frame" x="65.5" y="230" width="244" height="40"/>
@@ -180,6 +181,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgM-HO-cgv" userLabel="gradientView" customClass="PastelView" customModule="Pastel">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.47450980539999998" green="0.8392156959" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a valid email address and choose a password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="pps-eW-0gd">
                                 <rect key="frame" x="78" y="146" width="219" height="81"/>
@@ -220,7 +222,7 @@
                                 <gestureRecognizers/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1q2-zA-484" customClass="RaisedButton" customModule="Material">
-                                <rect key="frame" x="66" y="439" width="243.5" height="40"/>
+                                <rect key="frame" x="65.5" y="439" width="244" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                 <state key="normal" title="Continue">
@@ -1390,6 +1392,102 @@
             </objects>
             <point key="canvasLocation" x="-3052" y="-101.19940029985008"/>
         </scene>
+        <!--OnboardingVC View Controller-->
+        <scene sceneID="wtF-EC-fVr">
+            <objects>
+                <viewController id="4Fm-Ra-rmT" customClass="OnboardingVCViewController" customModule="Time_Transac" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KeY-BL-mvs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ceg-td-vO1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HLo-qt-dc4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZU-v9-4L9">
+                                <rect key="frame" x="63" y="144" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="1w1-pN-19F"/>
+                                    <constraint firstAttribute="height" constant="250" id="Utd-tG-EG1"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Krx-ji-BVK">
+                                <rect key="frame" x="0.0" y="354" width="375" height="150"/>
+                                <color key="backgroundColor" red="0.88225442170000001" green="0.319435209" blue="0.25485315920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Qjf-6y-lxF"/>
+                                </constraints>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yYd-T0-Tr9">
+                                <rect key="frame" x="168" y="504" width="39" height="37"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Intima" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzy-Uo-G9T">
+                                <rect key="frame" x="37.5" y="84" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="UFG-pi-z1M"/>
+                                    <constraint firstAttribute="height" constant="50" id="YhP-XS-Ctx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARd-nH-wuU" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="65.5" y="566" width="244" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleColor" red="0.88225442170000001" green="0.319435209" blue="0.25485315920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
+                                        <color key="value" red="0.88225442170000001" green="0.319435209" blue="0.25485315920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Get Started"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.88225442170000001" green="0.319435209" blue="0.25485315920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="GoToLGSU:" destination="4Fm-Ra-rmT" eventType="touchUpInside" id="XNk-TM-wts"/>
+                                    <action selector="loginButton:" destination="MXG-7B-eGW" eventType="touchUpInside" id="gei-h6-wcS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.88225442170000001" green="0.319435209" blue="0.25485315920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="ARd-nH-wuU" firstAttribute="top" secondItem="yYd-T0-Tr9" secondAttribute="bottom" constant="25" id="70V-0y-5e5"/>
+                            <constraint firstItem="yYd-T0-Tr9" firstAttribute="top" secondItem="Krx-ji-BVK" secondAttribute="bottom" id="8kd-kp-G25"/>
+                            <constraint firstItem="Krx-ji-BVK" firstAttribute="width" secondItem="HLo-qt-dc4" secondAttribute="width" id="9bh-Yi-dUb"/>
+                            <constraint firstItem="Wzy-Uo-G9T" firstAttribute="centerX" secondItem="HLo-qt-dc4" secondAttribute="centerX" id="FEl-Qp-cni"/>
+                            <constraint firstItem="Wzy-Uo-G9T" firstAttribute="top" secondItem="KeY-BL-mvs" secondAttribute="bottom" constant="20" id="KKp-y9-hla"/>
+                            <constraint firstItem="yYd-T0-Tr9" firstAttribute="centerX" secondItem="HLo-qt-dc4" secondAttribute="centerX" id="T0P-RN-MgM"/>
+                            <constraint firstItem="ARd-nH-wuU" firstAttribute="centerX" secondItem="HLo-qt-dc4" secondAttribute="centerX" id="Voc-cY-KQ3"/>
+                            <constraint firstItem="Krx-ji-BVK" firstAttribute="centerX" secondItem="HLo-qt-dc4" secondAttribute="centerX" id="Wcb-Sm-jRH"/>
+                            <constraint firstItem="ARd-nH-wuU" firstAttribute="height" secondItem="HLo-qt-dc4" secondAttribute="height" multiplier="0.06" id="XuF-GQ-kWW"/>
+                            <constraint firstItem="Krx-ji-BVK" firstAttribute="top" secondItem="bZU-v9-4L9" secondAttribute="bottom" constant="-40" id="YH9-qx-kOL"/>
+                            <constraint firstItem="bZU-v9-4L9" firstAttribute="centerX" secondItem="HLo-qt-dc4" secondAttribute="centerX" id="kMn-4m-Bhh"/>
+                            <constraint firstItem="bZU-v9-4L9" firstAttribute="top" secondItem="Wzy-Uo-G9T" secondAttribute="bottom" constant="10" id="qfM-kr-wel"/>
+                            <constraint firstItem="ARd-nH-wuU" firstAttribute="width" secondItem="HLo-qt-dc4" secondAttribute="width" multiplier="0.65" id="wTk-BE-Rgl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9wU-9P-2S6"/>
+                    <connections>
+                        <outlet property="pageControl" destination="yYd-T0-Tr9" id="hDc-6c-6KA"/>
+                        <outlet property="scrollView" destination="Krx-ji-BVK" id="y8k-wA-6DY"/>
+                        <outlet property="serviceAnimationView" destination="bZU-v9-4L9" id="tWb-qV-NCL"/>
+                        <segue destination="r6E-pH-SbH" kind="show" identifier="goToLGSU" id="fPG-pD-gnz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jGo-AN-gn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4708" y="-101"/>
+        </scene>
         <!--rootViewController-->
         <scene sceneID="Wd4-tW-uC7">
             <objects>
@@ -1415,12 +1513,12 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="_transitionAnimationType" value="Fade"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="r6E-pH-SbH" kind="relationship" relationship="rootViewController" id="aJE-fE-xeP"/>
+                        <segue destination="4Fm-Ra-rmT" kind="relationship" relationship="rootViewController" id="hJs-75-HII"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdd-bg-pVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4745" y="-101"/>
+            <point key="canvasLocation" x="-5503" y="-101"/>
         </scene>
         <!--loginSignUp-->
         <scene sceneID="2hm-B9-uOS">
@@ -1635,7 +1733,7 @@
     <resources>
         <image name="Sell Time" width="29" height="29"/>
         <image name="email" width="644" height="470"/>
-        <image name="emptyProfilePicture" width="128" height="128"/>
+        <image name="emptyProfilePicture" width="64" height="64"/>
         <image name="facebookButton" width="512" height="512"/>
     </resources>
 </document>

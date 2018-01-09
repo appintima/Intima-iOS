@@ -80,6 +80,7 @@ class ServiceCalls{
             self.userRef.observe(.value, with: { (snapshot2) in
                 let userIDs = snapshot2.value as! [String : AnyObject]
                 job.jobOwnerRating = userIDs[job.jobOwnerEmailHash]!["Rating"] as! Float
+                job.jobOwnerPhotoURL = URL(string: (userIDs[job.jobOwnerEmailHash]!["photoURL"] as! String))
 
                 if job.jobOwnerEmailHash != self.emailHash{
                     newJobs.append(job)

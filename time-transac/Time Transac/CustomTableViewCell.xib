@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sk-N4-0jt">
-                    <rect key="frame" x="95.5" y="47" width="188.5" height="51"/>
+                    <rect key="frame" x="95.5" y="57" width="188.5" height="51"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="yqC-DM-LWc" userLabel="Profile Picture">
                     <rect key="frame" x="20" y="20" width="75" height="75"/>
@@ -32,7 +32,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvt-Y2-LT6" customClass="RaisedButton" customModule="Material">
-                    <rect key="frame" x="0.0" y="106" width="300" height="50"/>
+                    <rect key="frame" x="15" y="116" width="270" height="30"/>
                     <color key="backgroundColor" red="0.46666666870000001" green="0.76470589639999997" blue="0.26666668059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                     <state key="normal" title="Hire">
@@ -75,14 +75,13 @@
                 <constraint firstItem="7Sk-N4-0jt" firstAttribute="height" secondItem="g7m-5A-am5" secondAttribute="height" multiplier="51/156" id="DX2-lj-H4E"/>
                 <constraint firstItem="yqC-DM-LWc" firstAttribute="top" secondItem="g7m-5A-am5" secondAttribute="top" constant="20" id="HoA-Pk-dIs"/>
                 <constraint firstItem="pSb-qy-esE" firstAttribute="width" secondItem="g7m-5A-am5" secondAttribute="width" multiplier="201/320" id="M1d-F0-88E"/>
-                <constraint firstItem="jvt-Y2-LT6" firstAttribute="width" secondItem="g7m-5A-am5" secondAttribute="width" id="Oad-cB-dHr"/>
                 <constraint firstItem="pSb-qy-esE" firstAttribute="top" secondItem="g7m-5A-am5" secondAttribute="top" constant="20" id="Wjg-P8-baJ"/>
-                <constraint firstAttribute="trailing" secondItem="jvt-Y2-LT6" secondAttribute="trailing" id="WqY-nQ-IJH"/>
                 <constraint firstItem="yqC-DM-LWc" firstAttribute="leading" secondItem="g7m-5A-am5" secondAttribute="leading" constant="20" id="Y9L-XA-AQp"/>
-                <constraint firstAttribute="bottom" secondItem="jvt-Y2-LT6" secondAttribute="bottom" id="fHR-yz-hvs"/>
+                <constraint firstAttribute="bottom" secondItem="jvt-Y2-LT6" secondAttribute="bottom" constant="10" id="fHR-yz-hvs"/>
                 <constraint firstAttribute="trailing" secondItem="pSb-qy-esE" secondAttribute="trailing" constant="16" id="gwN-H3-sCT"/>
-                <constraint firstItem="jvt-Y2-LT6" firstAttribute="leading" secondItem="g7m-5A-am5" secondAttribute="leading" id="nSr-wz-U7X"/>
-                <constraint firstItem="jvt-Y2-LT6" firstAttribute="height" secondItem="g7m-5A-am5" secondAttribute="height" multiplier="50/156" id="s3H-21-Sju"/>
+                <constraint firstItem="jvt-Y2-LT6" firstAttribute="width" secondItem="g7m-5A-am5" secondAttribute="width" multiplier="270/300" id="kAx-kZ-05b"/>
+                <constraint firstItem="jvt-Y2-LT6" firstAttribute="centerX" secondItem="g7m-5A-am5" secondAttribute="centerX" id="kmO-2s-GAr"/>
+                <constraint firstItem="jvt-Y2-LT6" firstAttribute="height" secondItem="g7m-5A-am5" secondAttribute="height" multiplier="30/156" id="s3H-21-Sju"/>
                 <constraint firstItem="pSb-qy-esE" firstAttribute="height" secondItem="g7m-5A-am5" secondAttribute="height" multiplier="26/156" id="zLc-ya-bnS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

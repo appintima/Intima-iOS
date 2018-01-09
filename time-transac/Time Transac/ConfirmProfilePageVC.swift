@@ -64,7 +64,8 @@ class ConfirmProfilePageVC: UIViewController {
     
     @IBAction func confirmclicked(_ sender: UIButton) {
         let title = "Intima"
-        let body = "Your Job Has Been Accepted By \(Auth.auth().currentUser?.displayName ?? "someone")"
+//        let body = "Your Job Has Been Accepted By \(Auth.auth().currentUser?.displayName ?? "someone")"
+        let body = "You have been awarded the task"
         let device = applicantInfo["currentDevice"] as! String
         var headers: HTTPHeaders = HTTPHeaders()
         
@@ -77,14 +78,5 @@ class ConfirmProfilePageVC: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "confirmedNotification"), object: nil)
     }
     
-    
-    /*
-     // MARK: - Navigation
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

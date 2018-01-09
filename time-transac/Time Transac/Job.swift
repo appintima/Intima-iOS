@@ -14,6 +14,7 @@ import Firebase
 
 class Job {
     
+    var jobOwnerPhotoURL: URL?
     let description: String
     var title: String
     var wage_per_hour: Double

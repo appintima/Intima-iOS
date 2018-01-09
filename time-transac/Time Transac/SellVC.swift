@@ -17,6 +17,7 @@ import PopupDialog
 import Alamofire
 import Stripe
 import SHSearchBar
+import Kingfisher
 
 class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, STPPaymentContextDelegate, SHSearchBarDelegate {
     
@@ -59,7 +60,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var timer : Timer!
     var searchBar: SHSearchBar!
     var unconfirmedLst:[Job] = []
-    
+    let pulseAnimation = LOTAnimationView(name: "pulse_loader")
     
     
     ///////////////////////// Functions that enable stripe payments go here /////////////////////////////
@@ -242,6 +243,15 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         
     }
     
+    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+        for Job in allAvailableJobs{
+            if Job.title == annotation.title!!{
+                let popup = self.prepareAndShowPopup(job: Job)
+                self.present(popup, animated: true, completion: nil)
+            }
+        }
+    }
+    
     //Loads the bouncing animation for the map annotation
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         // This example is only concerned with point annotations.
@@ -249,7 +259,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
             return nil
         }
         let annotationView = CustomAnnotationView()
-        annotationView.frame = CGRect(x: 0, y: 0, width: 40, height: 40 )
+        annotationView.frame = CGRect(x: 0, y: 0, width: 35, height: 35 )
         let locationAnimation = annotationView.returnHandledAnimationScaleToFill(filename: "bouncy_mapmaker", subView: annotationView, tagNum: 1)
         locationAnimation.loopAnimation = true
         annotationView.addSubview(locationAnimation)
@@ -331,21 +341,35 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     }
     
     
-    //Loads a button for pressing on a job annotations to display more information
+    //Loads an animation
     func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
-        return UIButton(type: .detailDisclosure)
-    }
-    
-    //Loads logic for what happens when the button to display more inforamation is pressed
-    func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
-        
-        for Job in allAvailableJobs{
-            if Job.title == annotation.title!!{
-                let popup = self.prepareAndShowPopup(job: Job)
-                self.present(popup, animated: true, completion: nil)
+        var picture = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        picture.cornerRadius = picture.frame.height/2
+        for j in allAvailableJobs{
+            if j.title == annotation.title!!{
+                if let profilePic = j.jobOwnerPhotoURL{
+                    picture.kf.setImage(with: profilePic)
+                }
+                else{
+                    print("default pic")
+                    picture.image = #imageLiteral(resourceName: "emptyProfilePicture")
+                    break
+                }
             }
         }
+        return picture
     }
+    
+//    //Loads logic for what happens when the button to display more inforamation is pressed
+//    func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
+//
+//        for Job in allAvailableJobs{
+//            if Job.title == annotation.title!!{
+//                let popup = self.prepareAndShowPopup(job: Job)
+//                self.present(popup, animated: true, completion: nil)
+//            }
+//        }
+//    }
     
     //Prepares a snackbar for when a job has been successfully posted and paid for
     @objc func prepareSnackbarForJobPost() {
