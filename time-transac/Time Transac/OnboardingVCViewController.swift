@@ -8,9 +8,11 @@
 
 import UIKit
 import Lottie
+import Pastel
 
 class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet var gradientView: PastelView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var serviceAnimationView: UIView!
@@ -21,10 +23,20 @@ class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        gradientView.animationDuration = 3.0
+        gradientView.setColors([#colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1),#colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)])
         self.navigationController?.navigationBar.isHidden = true
         prepareAnimation()
         setupScrollView()
         pageControl.numberOfPages = 6
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        gradientView.startAnimation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        gradientView.startAnimation()
     }
     
     func setupScrollView(){

@@ -1400,7 +1400,7 @@
                         <viewControllerLayoutGuide type="top" id="KeY-BL-mvs"/>
                         <viewControllerLayoutGuide type="bottom" id="Ceg-td-vO1"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HLo-qt-dc4">
+                    <view key="view" contentMode="scaleToFill" id="HLo-qt-dc4" customClass="PastelView" customModule="Pastel">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1413,7 +1413,7 @@
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Krx-ji-BVK">
                                 <rect key="frame" x="0.0" y="354" width="375" height="150"/>
-                                <color key="backgroundColor" red="0.88225442170000001" green="0.319435209" blue="0.25485315920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Qjf-6y-lxF"/>
                                 </constraints>
@@ -1478,6 +1478,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9wU-9P-2S6"/>
                     <connections>
+                        <outlet property="gradientView" destination="HLo-qt-dc4" id="Afn-nW-cgH"/>
                         <outlet property="pageControl" destination="yYd-T0-Tr9" id="hDc-6c-6KA"/>
                         <outlet property="scrollView" destination="Krx-ji-BVK" id="y8k-wA-6DY"/>
                         <outlet property="serviceAnimationView" destination="bZU-v9-4L9" id="tWb-qV-NCL"/>
