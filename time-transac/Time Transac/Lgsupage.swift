@@ -23,13 +23,12 @@ class Lgsupage: UIViewController {
     var PlayerLayer: AVPlayerLayer!
     var contentlist = ["Welcome to Intima, the worlds first market place for time.","Buy or sell free time from other Intima users.", "Whether it's Moving boxes, babysitting or running errands, monetize your idle time.", "Make your day more efficient, buying time from others for tasks that drain your productivity.","Get started today"]
     
-    @IBOutlet var pagecontrol: UIPageControl!
-    @IBOutlet weak var content: UILabel!
+
     @IBOutlet var IntimaLogo: UIView!
     @IBOutlet var IntimaLabel: UILabel!
     @IBOutlet var LoginButton: UIButton!
     @IBOutlet var SignUpButton: UIButton!
-    @IBOutlet var ContentView: UIView!
+
     var dbRef: DatabaseReference!
     let logoAnimation = LOTAnimationView(name: "clock")
     
@@ -51,18 +50,9 @@ class Lgsupage: UIViewController {
         super.viewDidLoad()
         self.dbRef = Database.database().reference()
         self.navigationController?.navigationBar.isHidden = true
-        content.adjustsFontSizeToFitWidth = true
         IntimaLabel.adjustsFontSizeToFitWidth = true
         IntimaLogo.handledAnimation(Animation: logoAnimation)
         logoAnimation.play()
-        content.text = contentlist[0]
-        let leftswap = UISwipeGestureRecognizer(target: self, action: #selector(Lgsupage.handleSwap(_:)))
-        let rightswap = UISwipeGestureRecognizer(target: self, action: #selector(Lgsupage.handleSwap(_:)))
-        leftswap.direction = .left
-        rightswap.direction = .right
-        ContentView.addGestureRecognizer(leftswap)
-        ContentView.addGestureRecognizer(rightswap)
-        
         //Load video background
         
         let URL = Bundle.main.url(forResource: "lgsu", withExtension: "mp4")
@@ -89,35 +79,6 @@ class Lgsupage: UIViewController {
     
     //Handle the swipes
     
-    @objc func handleSwap(_ sender:UISwipeGestureRecognizer){
-        
-        if(sender.direction == .left){
-            if(pagecontrol.currentPage == 4){
-                content.leftToRightAnimation()
-                content.text = contentlist[0]
-                pagecontrol.currentPage = 0
-            }
-                
-            else{
-                content.leftToRightAnimation()
-                pagecontrol.currentPage += 1
-                content.text = contentlist[pagecontrol.currentPage]
-            }
-        }
-        
-        if(sender.direction == .right){
-            if(pagecontrol.currentPage != 0){
-                content.rightToLeftAnimation()
-                pagecontrol.currentPage -= 1
-                content.text = contentlist[pagecontrol.currentPage]
-            }
-        }
-    }
-    
-    @IBAction func slideTheScreen(_ sender: AnyObject) {
-        
-        content.text = contentlist[pagecontrol.currentPage]
-    }
     
     @IBAction func loginWithFacebookClicked(_ sender: Any) {
         

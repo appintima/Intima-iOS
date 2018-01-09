@@ -9,6 +9,7 @@
 import UIKit
 import Pastel
 import Firebase
+import FirebaseStorage
 
 class ProfilePicture: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -22,7 +23,7 @@ class ProfilePicture: UIViewController, UIImagePickerControllerDelegate, UINavig
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfilePicture.imageTapped(gesture:)))
         userRef = Database.database().reference().child("Users").child(helper.MD5(string: (Auth.auth().currentUser?.email)!))
         
-        
+        profilePicture.cornerRadius = profilePicture.frame.width/2
         // add it to the image view;
         profilePicture.addGestureRecognizer(tapGesture)
         // make sure imageView can be interacted with by user

@@ -9,11 +9,12 @@
 import UIKit
 import Lottie
 import Pastel
+import CHIPageControl
 
 class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var gradientView: PastelView!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var pageControl: CHIPageControlFresno!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var serviceAnimationView: UIView!
 
@@ -66,17 +67,21 @@ class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        let progress = (scrollView.contentOffset.x + 120) / scrollView.contentSize.width
+        
+        let progress = (scrollView.contentOffset.x + 125) / scrollView.contentSize.width
         serviceAnimation.animationProgress = progress
+        print(scrollView.contentOffset.x)
+        let pageProgress = scrollView.contentOffset.x / 375
+        pageControl.progress = Double(pageProgress)
     }
     
 
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
-        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
-        pageControl.currentPage = Int(pageNumber)
-    }
+//
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//
+//        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+//        pageControl.currentPage = Int(pageNumber)
+//    }
     
     func prepareAnimation(){
         

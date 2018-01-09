@@ -25,6 +25,7 @@ target 'Time Transac' do
   pod 'Kingfisher', '~> 4.0'
   pod 'RevealingSplashView'
   pod 'Firebase/Storage'
+  pod 'CHIPageControl/Fresno'
   
   target 'Time TransacTests' do
     inherit! :search_paths
