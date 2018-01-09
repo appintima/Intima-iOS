@@ -81,7 +81,7 @@ class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
     func prepareAnimation(){
         
         serviceAnimationView.handledAnimation(Animation: serviceAnimation)
-        serviceAnimation.animationSpeed = 100
+        serviceAnimation.animationSpeed = 10000
         serviceAnimation.play(fromProgress: 0, toProgress: 0.1, withCompletion: nil)
     }
 
