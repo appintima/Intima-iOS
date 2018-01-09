@@ -179,12 +179,27 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
                 self.postJobButton.isHidden = true
                 self.jobDetailsConstraint.constant = 77
                 UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
+                
             }else{
                 
+                let title = "You Already posted a task"
+                let message = ""
+                // Create the dialog
+    
+                let popup = PopupDialog(title: title, message: message)
+                // Create buttons
+                let buttonOne = CancelButton(title: "Cancel") {
+                    print("Job Cancelled")
+                }
+                popup.addButton(buttonOne)
+                self.present(popup, animated: true, completion: nil)
             }
         }
  
     }
+    
+    
+    
     
     //When next is pressed on the Job details form
     @IBAction func nextPressedOnDetails(_ sender: Any) {
@@ -343,7 +358,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
     //Loads an animation
     func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
-        var picture = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        let picture = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         picture.cornerRadius = picture.frame.height/2
         for j in allAvailableJobs{
             if j.title == annotation.title!!{

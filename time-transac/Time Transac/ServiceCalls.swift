@@ -198,7 +198,7 @@ class ServiceCalls{
         lastPostedRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if !(snapshot.hasChildren()){
                 completion(false)
-            }else{
+            }else{// if there is a child
                 completion(true)
             }
             lastPostedRef.removeAllObservers()

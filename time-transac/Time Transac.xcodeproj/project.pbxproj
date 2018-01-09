@@ -31,8 +31,6 @@
 		5F1F8DA92003F1A200E20AB0 /* servishero_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F1F8DA82003F1A100E20AB0 /* servishero_loading.json */; };
 		5F8BAC7F1FFC5BC500450187 /* StartJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */; };
 		5FD263A32003104D004B1978 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD263A22003104D004B1978 /* CustomTableViewCell.swift */; };
-		5FD263A520031D10004B1978 /* location_pin.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD263A420031D10004B1978 /* location_pin.json */; };
-		5FD263A720031D17004B1978 /* pulse_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD263A620031D17004B1978 /* pulse_loader.json */; };
 		A4CEFDD9D0F6BA8F7BCA84C5 /* Pods_Time_TransacUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FF9CB0337E42194F0583EF /* Pods_Time_TransacUITests.framework */; };
 		F30136F21F2CF3590023828A /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30136F11F2CF3590023828A /* RootPageViewController.swift */; };
 		F30136F51F2D045D0023828A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30136F31F2D045D0023828A /* AVFoundation.framework */; };
@@ -135,8 +133,6 @@
 		5F1F8DA82003F1A100E20AB0 /* servishero_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = servishero_loading.json; sourceTree = "<group>"; };
 		5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartJobVC.swift; sourceTree = "<group>"; };
 		5FD263A22003104D004B1978 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		5FD263A420031D10004B1978 /* location_pin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = location_pin.json; path = ../../../../../Downloads/location_pin.json; sourceTree = "<group>"; };
-		5FD263A620031D17004B1978 /* pulse_loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pulse_loader.json; path = ../../../../../Downloads/pulse_loader.json; sourceTree = "<group>"; };
 		6861349CE4FCFD95DB24BC6C /* Pods-Time Transac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Transac.release.xcconfig"; path = "Pods/Target Support Files/Pods-Time Transac/Pods-Time Transac.release.xcconfig"; sourceTree = "<group>"; };
 		7D8852E911B1E1DABF851838 /* Pods-Time TransacUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time TransacUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time TransacUITests/Pods-Time TransacUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		81FF9CB0337E42194F0583EF /* Pods_Time_TransacUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_TransacUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,8 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				5F1F8DA82003F1A100E20AB0 /* servishero_loading.json */,
-				5FD263A620031D17004B1978 /* pulse_loader.json */,
-				5FD263A420031D10004B1978 /* location_pin.json */,
 				F3CA7CD81FEC93D500862F7A /* location.json */,
 				F35B3B4E1FA027A7005A6ACA /* menu.json */,
 				F30281C41F9445FE0062093C /* 5_stars.json */,
@@ -561,7 +555,6 @@
 				F375B3131F64F05C002F5538 /* 911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf in Resources */,
 				F357C2F21F3562BE00963A35 /* Century Gothic.ttf in Resources */,
 				F357C2E21F35622900963A35 /* loading.json in Resources */,
-				5FD263A720031D17004B1978 /* pulse_loader.json in Resources */,
 				F303373C1F36119C00A4E499 /* Check2.json in Resources */,
 				F3D9ED201F77008D00332237 /* PopUpJobView.xib in Resources */,
 				F357C2E31F35622900963A35 /* outline_user.json in Resources */,
@@ -572,7 +565,6 @@
 				F30281C71F944C670062093C /* 5_stars.json in Resources */,
 				F375B3151F65ACA5002F5538 /* GoogleService-Info.plist in Resources */,
 				3B0FC3FF1F182DDF00ED88C6 /* CustomTableViewCell.xib in Resources */,
-				5FD263A520031D10004B1978 /* location_pin.json in Resources */,
 				F357C2EE1F3562A400963A35 /* lgsu.mp4 in Resources */,
 				F357C2E41F35622900963A35 /* simple_outline_lock_.json in Resources */,
 				F3CA7CD91FEC93D500862F7A /* location.json in Resources */,
