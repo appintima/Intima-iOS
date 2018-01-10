@@ -20,7 +20,7 @@ class Job {
     var wage_per_hour: Double
     var maxTime: Double
     var jobOwner: User!
-    var jobTaker: User!
+    var jobApplicant: User!
     var occupied: Bool!
     var completed: Bool!
     var jobID: String!
@@ -75,7 +75,7 @@ class Job {
         ref.updateChildValues(["isCompleted" : false])
     }
     
-    func setJobTaker(user: User){
+    func setJobApplicant(user: User){
         
     }
 

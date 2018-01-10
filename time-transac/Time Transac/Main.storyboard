@@ -331,7 +331,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set up your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="AwO-4u-Egc">
-                                        <rect key="frame" x="64" y="85" width="246.5" height="35"/>
+                                        <rect key="frame" x="65" y="85" width="246.5" height="35"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -757,7 +757,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="OLY-0K-Ta5" kind="show" identifier="goToUnconfirmed" id="vdR-YU-Apx"/>
+                                            <action selector="buttonPressedForProfile:" destination="edh-TT-NGu" eventType="touchUpInside" id="1Ma-S8-WSC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1044,6 +1044,7 @@
                         <outlet property="pricePerHour" destination="4Vf-z1-l35" id="auK-5A-tCG"/>
                         <outlet property="scheduleJob" destination="89C-MW-Egu" id="MYL-a0-cyC"/>
                         <outlet property="submitJobButton" destination="NnV-Fm-3yO" id="8Je-Mo-P0F"/>
+                        <segue destination="P95-eq-Mey" kind="show" identifier="goToProfileToCancel" id="kgP-50-JPr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hh4-LM-Bpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1083,9 +1084,6 @@
                             <outlet property="delegate" destination="OLY-0K-Ta5" id="Wmf-M1-YzS"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="l7p-YY-qLp" kind="show" identifier="goToApplicants" id="76G-wp-vJU"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Of8-Zt-vq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1228,9 +1226,6 @@
                             <outlet property="delegate" destination="l7p-YY-qLp" id="gx4-Ye-RuW"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="P95-eq-Mey" kind="show" identifier="goToProfile" id="X5V-ez-5bH"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3B-KK-V1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

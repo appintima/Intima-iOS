@@ -26,7 +26,7 @@ class ConfirmProfilePageVC: UIViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     let ratingAnimation = LOTAnimationView(name: "5_stars")
     var picURL: URL?
-    var job: Job!
+//    var job: Job!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,7 @@ class ConfirmProfilePageVC: UIViewController {
         picURL = URL(string: (applicantInfo["photoURL"] as! String))
         //// PARTIALLY DONE/////
         profilePic.kf.setImage(with: picURL!)
+        
 
     }
     
