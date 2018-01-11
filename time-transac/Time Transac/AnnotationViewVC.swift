@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AnnotaionViewVC: UIView {
-    
+class AnnotaionViewVC: UIView {aaaaaaaaaaaaaaaaaaaaa
+    æ
     /*
      // Only override draw() if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.

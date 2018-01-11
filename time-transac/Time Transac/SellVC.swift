@@ -61,6 +61,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var searchBar: SHSearchBar!
     var unconfirmedLst:[Job] = []
     let pulseAnimation = LOTAnimationView(name: "pulse_loader")
+    var filteredJobs: [MGLPointAnnotation] = []
     
     
     ///////////////////////// Functions that enable stripe payments go here /////////////////////////////
@@ -127,11 +128,11 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     @objc func prepareMap(){
         
         service.getJobFromFirebase { newJobs, annotations  in
-            let annotationsWithoutCurrentUser = annotations
-            self.MapView.addAnnotations(annotationsWithoutCurrentUser)
+            self.pointAnnotations = annotations
+            self.MapView.addAnnotations(self.pointAnnotations)
             self.allAvailableJobs = newJobs
 
-            self.MapView.addAnnotations(annotationsWithoutCurrentUser)
+            self.MapView.addAnnotations(self.pointAnnotations)
         }//end of closure
     }
     
@@ -273,12 +274,27 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     func searchBarDidEndEditing(_ searchBar: SHSearchBar) {
         let searchText = searchBar.text
         if !(searchText?.isEmpty)!{
-            for job in allAvailableJobs {
-                if (job.title.lowercased().range(of: searchText!.lowercased()) != nil) {
-                    print("Found a job")
+            for j in allAvailableJobs {
+                if (j.title.lowercased().range(of: searchText!.lowercased()) != nil) {
+
+                    let point = MGLPointAnnotation()
+                    point.coordinate = j.location.coordinate
+                    point.title = j.title
+                    point.subtitle = ("$"+"\(j.wage_per_hour)"+"/Hour")
+                    filteredJobs.append(point)
                 }
             }
+            print("Runs code")
+            self.MapView.removeAnnotations(pointAnnotations)
+            self.MapView.addAnnotations(filteredJobs)
         }
+    }
+    
+    func searchBarShouldClear(_ searchBar: SHSearchBar) -> Bool {
+        self.MapView.removeAnnotations(filteredJobs)
+        self.MapView.addAnnotations(pointAnnotations)
+
+        return true
     }
     
     //Prepares custom textfields for the job form
@@ -343,7 +359,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
     //Loads an animation
     func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
-        var picture = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        let picture = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         picture.cornerRadius = picture.frame.height/2
         for j in allAvailableJobs{
             if j.title == annotation.title!!{
@@ -445,9 +461,11 @@ extension SellVC {
             
             //Attempt to charge a payment
             self.submitJobButton.isHidden = false
+            //LoadingAnimation initialize and play
             MyAPIClient.sharedClient.completeCharge(amount: priceForStripe, completion: { charge_id in
                 //If no error when paying
                 if charge_id != nil{
+                    //
                     self.service.addJobToFirebase(jobTitle: self.jobTitleTF.text!, jobDetails: self.jobDetailsTF.text!, pricePerHour: self.pricePerHour.text!, numberOfHours: self.numberOfHoursTF.text!, locationCoord: self.currentLocation, chargeID: charge_id!)
                     
                     self.jobPriceViewConstraint.constant = 1600

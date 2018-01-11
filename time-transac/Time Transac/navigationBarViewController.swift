@@ -34,7 +34,7 @@ class navigationBarViewController: AnimatableNavigationController {
     
     func prepareSplash(){
         
-        let splash = RevealingSplashView(iconImage: UIImage(named: "Clock")!, iconInitialSize: CGSize(width: 112, height: 100), backgroundColor: #colorLiteral(red: 0.9562184215, green: 0.2603174746, blue: 0.2111842036, alpha: 1))
+        let splash = RevealingSplashView(iconImage: UIImage(named: "Clock")!, iconInitialSize: CGSize(width: 112, height: 100), backgroundColor: #colorLiteral(red: 0.9357799888, green: 0.4159773588, blue: 0.3661105633, alpha: 1))
         splash.animationType = SplashAnimationType.squeezeAndZoomOut
         splash.tag = 10
         self.view.addSubview(splash)
