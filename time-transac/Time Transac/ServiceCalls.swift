@@ -123,9 +123,10 @@ class ServiceCalls{
             let userValues = snapshot.value as! [String : AnyObject]
             
             // add the job to job poster's reference in database
-            self.userRef.child(jobOwnerEmailHash).child("UnconfirmedJobs").child(job.jobID)
+            self.userRef.child(jobOwnerEmailHash).child("LatestPostAccepted").child(job.jobID)
             .updateChildValues(jobDict)
-            self.userRef.child(jobOwnerEmailHash).child("UnconfirmedJobs").child(job.jobID).child("Applicants").child(self.helper.MD5(string: user.email!)).setValue((user.displayName)!)
+            self.userRef.child(jobOwnerEmailHash).child("LatestPostAccepted").child(job.jobID).child("Applicant").child(self.helper.MD5(string: user.email!)).setValue((user.displayName)!)
+            
             self.userRef.child(jobOwnerEmailHash).child("PostHistory").child(job.jobID).updateChildValues(jobDict)
             let ref = self.userRef.child(jobOwnerEmailHash).child("LastPost")
             ref.setValue(nil)
@@ -135,6 +136,10 @@ class ServiceCalls{
         })
         
     }
+    
+/**
+ 
+ */
     
     func getCustomerID(completion: @escaping (String) -> ()){
         
@@ -148,24 +153,29 @@ class ServiceCalls{
     
     
 /**
-     
+     gets the accepted task and the email hash and name of the user who took the task as a dictionary
  */
-    func getUserUnconfirmedJobs(completion: @escaping ([Job])->()){
-        let currentUserUnconfirmRef = userRef.child(emailHash).child("UnconfirmedJobs")
-        var unconfirmedJobsLst:[Job] = []
-        currentUserUnconfirmRef.observe(.childAdded, with: { (snapshot) in
-            let job = Job(snapshot: snapshot)
-            unconfirmedJobsLst.append(job)
-            completion(unconfirmedJobsLst)
-            currentUserUnconfirmRef.removeAllObservers()
+    func getUserLatestAccepted(completion: @escaping (Job?, String?)->()){
+        let latestPostAcceptedRef = userRef.child(emailHash).child("LatestPostAccepted")
+        
+        latestPostAcceptedRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+            if snapshot.hasChildren(){
+                let job = Job(snapshot: snapshot)
+                let dict = snapshot.value as! [String:AnyObject]
+                let applicantInfo = dict["Applicant"] as! [String:String]
+                let eHash = Array(applicantInfo.keys)[0]
+                completion(job, eHash)
+                latestPostAcceptedRef.removeAllObservers()
+            }
         })
+        
     }
     
 /**
      
 */
     func getApplicants(job: Job, completion: @escaping ([String:String])->()){
-        let jobApplicantsRef = userRef.child(emailHash).child("UnconfirmedJobs").child(job.jobID).child("Applicants")
+        let jobApplicantsRef = userRef.child(emailHash).child("LatestPostAccepted").child(job.jobID).child("Applicant")
         var applicantsDict:[String:String] = [:]
         
         jobApplicantsRef.observe(.value, with: { (snapshot) in
@@ -175,6 +185,23 @@ class ServiceCalls{
         })
         
     }
+    
+/**
+     check if the path "LatestPostAccepted" exists in the current users reference
+*/
+    func checkLatestPostAcceptedExist(completion: @escaping (Bool)->()){
+        let latestPostAcceptedRef = userRef.child(emailHash).child("LatestPostAccepted")
+        latestPostAcceptedRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.hasChildren(){
+                completion(true)
+            }else{
+                completion(false)
+            }
+            latestPostAcceptedRef.removeAllObservers()
+        })
+    }
+    
+
     
 /**
      
@@ -198,7 +225,7 @@ class ServiceCalls{
         lastPostedRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if !(snapshot.hasChildren()){
                 completion(false)
-            }else{
+            }else{// if there is a child
                 completion(true)
             }
             lastPostedRef.removeAllObservers()
@@ -209,14 +236,18 @@ class ServiceCalls{
 /**
      
  */
-    func getApplicantProfile(emailHash: String, completion: @escaping ([String:AnyObject])->()){
-        
-        userRef.observe(.value, with: { (snapshot) in
-            let allInfo = snapshot.value as! [String:AnyObject]
-            let applicantInfo = allInfo[emailHash] as! [String: AnyObject]
-            completion(applicantInfo)
-            self.userRef.removeAllObservers()
-        })
+    func getApplicantProfile(emailHash: String?, completion: @escaping ([String:AnyObject]?)->()){
+        if emailHash != nil{
+            userRef.observe(.value, with: { (snapshot) in
+                let allInfo = snapshot.value as! [String:AnyObject]
+                let applicantInfo = allInfo[emailHash!] as! [String: AnyObject]
+                completion(applicantInfo)
+                self.userRef.removeAllObservers()
+            })
+        }else{  // no email Hash available
+            print("No One Has Accepted Your Task")
+            completion(nil)
+        }
     }
     
 }

@@ -45,7 +45,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var dbRef: DatabaseReference!
     var pointAnnotations : [MGLPointAnnotation] = []
     var allAvailableJobs: [Job] = []
-//    var newJob: Job?
+
     let service = ServiceCalls()
     var menuShowing = false
     var hamburgerAnimation: LOTAnimationView!
@@ -59,7 +59,8 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     let companyName = "Intima"
     var timer : Timer!
     var searchBar: SHSearchBar!
-    var unconfirmedLst:[Job] = []
+    var latestAccepted:Job!
+    var applicantEHash:String!
     let pulseAnimation = LOTAnimationView(name: "pulse_loader")
     var filteredJobs: [MGLPointAnnotation] = []
     
@@ -103,8 +104,12 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         prepareMap()
         prepareSearchBar()
         
-        service.getUserUnconfirmedJobs { (jobs) in
-            self.unconfirmedLst = jobs
+        service.getUserLatestAccepted { (job, applicantEHash) in
+            if job != nil{
+                self.latestAccepted = job
+                self.applicantEHash = applicantEHash
+                
+            }
         }
 
     }
@@ -115,13 +120,23 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     }
     
 
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToUnconfirmed"{
-            if let tbvc = segue.destination as? UnconfirmedVC{
-                tbvc.unconfirmedLst = self.unconfirmedLst
+    @IBAction func buttonPressedForProfile(_ sender: UIButton) {
+        service.getApplicantProfile(emailHash: self.applicantEHash) { (userInfo) in
+            if userInfo != nil{
+                self.applicantInfo = userInfo
+                self.performSegue(withIdentifier: "goToProfileToCancel", sender: nil)
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToProfileToCancel"{
+            if let dest = segue.destination as? ConfirmProfilePageVC{
+                dest.applicantInfo = self.applicantInfo
+                
+            }
+        }
+        
     }
     
     //Prepares the map by adding annotations for jobs from firebase, and setting the mapview.
@@ -160,6 +175,12 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         
+        service.checkLatestPostAcceptedExist { (bool) in
+            if !(bool){
+                self.latestAccepted = nil
+                self.applicantEHash = nil
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -180,12 +201,27 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
                 self.postJobButton.isHidden = true
                 self.jobDetailsConstraint.constant = 77
                 UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
+                
             }else{
                 
+                let title = "You Already posted a task"
+                let message = ""
+                // Create the dialog
+    
+                let popup = PopupDialog(title: title, message: message)
+                // Create buttons
+                let buttonOne = CancelButton(title: "Cancel") {
+                    print("Job Cancelled")
+                }
+                popup.addButton(buttonOne)
+                self.present(popup, animated: true, completion: nil)
             }
         }
  
     }
+    
+    
+    
     
     //When next is pressed on the Job details form
     @IBAction func nextPressedOnDetails(_ sender: Any) {
