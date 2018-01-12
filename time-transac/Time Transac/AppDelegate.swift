@@ -35,14 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         STPPaymentConfiguration.shared().appleMerchantIdentifier = "merchant.online.intima"
 
         if (Auth.auth().currentUser != nil && (Auth.auth().currentUser?.isEmailVerified)!){
-            self.setLoginAsRoot()
+            self.goHome()
         }
         else{
             let providerData = Auth.auth().currentUser?.providerData
             if providerData != nil{
                 for userInfo in providerData! {
                     if userInfo.providerID == "facebook.com" {
-                        self.setLoginAsRoot()
+                        self.goHome()
                     }
                     else{
                         self.setLogoutAsRoot()
@@ -70,18 +70,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
+    fileprivate func goHome(){
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = AppFABMenuController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootAfterLogin"))
+        window?.makeKeyAndVisible()
+    }
+    
     func setLogoutAsRoot(){
         
         window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = AppSnackbarController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootViewController"))
+        var options = UIWindow.TransitionOptions()
+        options.direction = .toTop
+        options.duration = 0.8
+        options.style = .easeOut
+        window!.setRootViewController((UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootViewController")), options: options)
         window?.makeKeyAndVisible()
         
     }
     
     func setLoginAsRoot(){
         
+        var options = UIWindow.TransitionOptions()
+        options.direction = .toBottom
+        options.duration = 0.8
+        options.style = .easeIn
         self.window = UIWindow(frame: Screen.bounds)
-        self.window!.rootViewController = AppSnackbarController(rootViewController: AppFABMenuController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootAfterLogin")))
+        self.window!.setRootViewController(AppFABMenuController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootAfterLogin")), options: options)
         self.window?.makeKeyAndVisible()
     }
     

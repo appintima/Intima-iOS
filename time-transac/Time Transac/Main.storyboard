@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cYO-R1-T5w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cYO-R1-T5w">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf">
+        <array key="Century Gothic.ttf">
             <string>CenturyGothic</string>
         </array>
         <array key="CenturyGothicBold.ttf">
@@ -62,7 +62,7 @@
                                 <color key="backgroundColor" white="1" alpha="0.20077054790000001" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="dividerColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,6 +78,9 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueButtonName:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="RJz-aI-mo4"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lets get you started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ufp-wr-Z3n">
                                 <rect key="frame" x="46.5" y="89" width="282" height="37"/>
@@ -252,7 +255,7 @@
                                 <color key="backgroundColor" white="1" alpha="0.20077054790000001" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="dividerColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -268,6 +271,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isClearIconButtonEnabled" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueOnTextField:" destination="JBy-TE-f5L" eventType="primaryActionTriggered" id="chn-ku-dzO"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -331,13 +337,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set up your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="AwO-4u-Egc">
-                                        <rect key="frame" x="65" y="85" width="246.5" height="35"/>
+                                        <rect key="frame" x="56.5" y="85" width="262" height="37"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We require our users to verify their identity for safety reasons. Please upload a photo of yourself" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="pQh-94-y9n">
-                                        <rect key="frame" x="37.5" y="140" width="300" height="148"/>
+                                        <rect key="frame" x="37.5" y="142" width="300" height="148"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="148" id="C1r-3N-38p"/>
                                             <constraint firstAttribute="width" constant="300" id="jrA-yy-S7O"/>
@@ -347,7 +353,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baF-96-riF" customClass="RaisedButton" customModule="Material">
-                                        <rect key="frame" x="66" y="443" width="243.5" height="40"/>
+                                        <rect key="frame" x="66" y="470" width="243.5" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                         <state key="normal" title="Continue">
@@ -373,10 +379,10 @@
                                         </connections>
                                     </button>
                                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="0hi-9W-kOO">
-                                        <rect key="frame" x="150" y="308" width="75" height="75"/>
+                                        <rect key="frame" x="137.5" y="310" width="100" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="Zp2-eP-QGd"/>
-                                            <constraint firstAttribute="width" constant="75" id="gAk-cE-hp3"/>
+                                            <constraint firstAttribute="height" constant="100" id="Zp2-eP-QGd"/>
+                                            <constraint firstAttribute="width" constant="100" id="gAk-cE-hp3"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -605,7 +611,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2YM-CY-9Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106.4000000000001" y="-54.422788605697157"/>
+            <point key="canvasLocation" x="-274" y="-101"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wXO-ih-vVQ">
+            <objects>
+                <viewController id="LK6-FY-mzc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lwh-Ho-BGT"/>
+                        <viewControllerLayoutGuide type="bottom" id="p9D-0B-mcH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C9a-jH-kD6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.87196621190000001" green="0.44680542820000002" blue="0.38951410959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ygq-9c-bVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="-101"/>
         </scene>
         <!--endSignUp-->
         <scene sceneID="4sJ-20-vxY">
@@ -1049,7 +1073,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hh4-LM-Bpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1516" y="-101.19940029985008"/>
+            <point key="canvasLocation" x="-1274" y="-101"/>
         </scene>
         <!--UnconfirmedVC-->
         <scene sceneID="MwB-tB-ihp">
@@ -1087,7 +1111,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Of8-Zt-vq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-735" y="-101"/>
+            <point key="canvasLocation" x="-2598" y="-860"/>
         </scene>
         <!--Start JobVC-->
         <scene sceneID="hOh-jR-tEO">
@@ -1191,7 +1215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vh4-5u-Fkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="-955"/>
+            <point key="canvasLocation" x="-274" y="-860"/>
         </scene>
         <!--ApplicantsVC-->
         <scene sceneID="rMU-Pj-hjG">
@@ -1229,7 +1253,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3B-KK-V1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="-42"/>
+            <point key="canvasLocation" x="-1746" y="-860"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="JQI-6l-Wre">
@@ -1271,6 +1295,9 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goPressed:" destination="MXG-7B-eGW" eventType="primaryActionTriggered" id="kNF-Zy-8yI"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WET-f5-ghP" customClass="RaisedButton" customModule="Material">
                                 <rect key="frame" x="65.5" y="474.5" width="244" height="40"/>

@@ -18,6 +18,7 @@ import Alamofire
 import Stripe
 import SHSearchBar
 import Kingfisher
+import NotificationBannerSwift
 
 class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, STPPaymentContextDelegate, SHSearchBarDelegate {
     
@@ -63,7 +64,9 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var applicantEHash:String!
     let pulseAnimation = LOTAnimationView(name: "pulse_loader")
     var filteredJobs: [MGLPointAnnotation] = []
-    
+    var applicantInfo: [String:AnyObject]!
+    let postedJobAnimation = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+    let check = LOTAnimationView(name: "check")
     
     ///////////////////////// Functions that enable stripe payments go here /////////////////////////////
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
@@ -100,9 +103,9 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         preparePostJobButton()
         useCurrentLocations()
         prepareJobForm()
-        prepareViewButton()
         prepareMap()
         prepareSearchBar()
+        prepareBannerLeftView()
         
         service.getUserLatestAccepted { (job, applicantEHash) in
             if job != nil{
@@ -412,42 +415,20 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         return picture
     }
     
-//    //Loads logic for what happens when the button to display more inforamation is pressed
-//    func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
-//
-//        for Job in allAvailableJobs{
-//            if Job.title == annotation.title!!{
-//                let popup = self.prepareAndShowPopup(job: Job)
-//                self.present(popup, animated: true, completion: nil)
-//            }
-//        }
-//    }
-    
-    //Prepares a snackbar for when a job has been successfully posted and paid for
-    @objc func prepareSnackbarForJobPost() {
-        guard let snackbar2 = snackbarController?.snackbar else {
-            return
-        }
-        snackbar2.text = "Your Job has been successfully posted"
-    }
-    
-    //Prepares a snackbar for when a job has been accepted by a user
-    @objc func prepareSnackbar() {
-        guard let snackbar = snackbarController?.snackbar else {
-            return
-        }
-        snackbar.text = "Awaiting confirmation from Job owner"
-        snackbar.rightViews = [viewJobButton]
-    }
-    
-    @objc
-    fileprivate func animateSnackbar() {
-        guard let sc = snackbarController else {
-            return
-        }
+    func prepareBannerLeftView(){
         
-        _ = sc.animate(snackbar: .visible, delay: 1)
-        _ = sc.animate(snackbar: .hidden, delay: 4)
+        postedJobAnimation.handledAnimation(Animation: self.check)
+    }
+    
+    //Prepares a banner for when a job has been successfully posted and paid for
+    func prepareBannerForPost() {
+        
+        let banner = NotificationBanner(title: "Success", subtitle: "Your job was posted", leftView: postedJobAnimation, style: .success)
+        banner.show()
+        banner.dismissOnSwipeUp = true
+        banner.dismissOnTap = true
+        check.play()
+        
     }
 
     
@@ -508,8 +489,7 @@ extension SellVC {
                     UIView.animate(withDuration: 1, animations: {self.view.layoutIfNeeded()})
                     self.postJobButton.isHidden = false
                     self.resetTextFields()
-                    self.prepareSnackbarForJobPost()
-                    self.animateSnackbar()
+                    self.prepareBannerForPost()
                     print("Sucessfully posted job")
                     self.submitJobButton.isHidden = true
                 }
@@ -526,6 +506,13 @@ extension SellVC {
         }
         popup.addButtons([continueButton,cancelButton])
         return popup
+    }
+    
+    func prepareBannerForAccept(){
+        
+        let banner = NotificationBanner(title: "Accepted", subtitle: "Awaiting confirmation from job owner", leftView: postedJobAnimation, style: .success)
+        banner.show()
+        check.play()
     }
     
     
@@ -558,11 +545,11 @@ extension SellVC {
                 Alamofire.request(AppDelegate.NOTIFICATION_URL as URLConvertible, method: .post as HTTPMethod, parameters: notification, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { (response) in
                 })
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "acceptedNotification"), object: nil)
-                self.prepareSnackbar()
-                self.animateSnackbar()
+                
                 
             }
             print("Accepted Job")
+            self.prepareBannerForAccept()
         }
         popup.addButtons([buttonTwo, buttonOne])
         return popup
@@ -647,20 +634,6 @@ func imageViewWithIcon(_ icon: UIImage, rasterSize: CGFloat) -> UIImageView {
     imgView.contentMode = .center
     imgView.tintColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1)
     return imgView
-}
-
-extension SellVC {
-    
-    fileprivate func prepareViewButton() {
-        viewJobButton = FlatButton(title: "View", titleColor: Color.yellow.base)
-        viewJobButton.pulseAnimation = .backing
-        viewJobButton.titleLabel?.font = snackbarController?.snackbar.textLabel.font
-    }
-    
-
-    fileprivate func scheduleAnimation() {
-        Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(animateSnackbar), userInfo: nil, repeats: false)
-    }
 }
 
 

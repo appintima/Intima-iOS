@@ -18,8 +18,8 @@ class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var serviceAnimationView: UIView!
 
-    let serviceAnimation = LOTAnimationView(name: "servishero_loading")
-    let serviceArray = ["Post jobs on Intima, and set your own fair price. Whether its a handyman, a grocer, or a tutor","Cleaning services? No problem!","Repairs? Go ahead!","Need a personal chaffeur for the night?  Hire one!","How about a freelance photographer?","Deliveries to and from custom locations"]
+    let serviceAnimation = LOTAnimationView(name: "onboarding")
+    let serviceArray = ["Welcome to Intima, the worlds first marketplace for free time","Post jobs at custom locations that you need completed","Need a painter? Someone to move your boxes? Or just someone to pick up ice cream from the closest store for you? Hire other users to complete your tasks","Pay and get paid instantaneously, freelancing your free time to complete other users jobs","Hit get started to begin with a free account"]
     
     override func viewDidLoad() {
         
@@ -29,7 +29,7 @@ class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.navigationBar.isHidden = true
         prepareAnimation()
         setupScrollView()
-        pageControl.numberOfPages = 6
+        pageControl.numberOfPages = 5
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,10 +42,10 @@ class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
     
     func setupScrollView(){
         scrollView.delegate = self
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width * 6, height: scrollView.frame.size.height)
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width * 5, height: scrollView.frame.size.height)
         scrollView.showsHorizontalScrollIndicator = false
         
-        for stage in 0...5{
+        for stage in 0...4{
     
             let label = UILabel(frame: CGRect(x: scrollView.center.x + CGFloat(stage) * self.view.frame.size.width - 125 , y: 0, width: 250, height: self.scrollView.frame.size.height))
             label.font = UIFont(name: "CenturyGothic", size: 20)
@@ -68,10 +68,11 @@ class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         
-        let progress = (scrollView.contentOffset.x + 125) / scrollView.contentSize.width
+        let progress = scrollView.contentOffset.x  / self.scrollView.contentSize.width * 1.08
         serviceAnimation.animationProgress = progress
-        print(scrollView.contentOffset.x)
-        let pageProgress = scrollView.contentOffset.x / 375
+        let pageProgress = scrollView.contentOffset.x / self.view.frame.size.width
+        print(progress)
+
         pageControl.progress = Double(pageProgress)
     }
     
@@ -86,8 +87,6 @@ class OnboardingVCViewController: UIViewController, UIScrollViewDelegate {
     func prepareAnimation(){
         
         serviceAnimationView.handledAnimation(Animation: serviceAnimation)
-        serviceAnimation.animationSpeed = 10000
-        serviceAnimation.play(fromProgress: 0, toProgress: 0.1, withCompletion: nil)
     }
 
     override func didReceiveMemoryWarning() {

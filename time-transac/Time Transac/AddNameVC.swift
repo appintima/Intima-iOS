@@ -51,7 +51,7 @@ class AddNameVC: UIViewController {
     
     @IBAction func continueButtonName(_ sender: Any) {
     
-        
+        self.dismissKeyboard()
         if (firstNameTF.text?.isEmpty != true && lastNameTF.text?.isEmpty != true){
             checkViewName.handledAnimation(Animation: checkName)
             self.continueButtonName.makeButtonDissapear()

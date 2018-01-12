@@ -29,7 +29,9 @@
 		5F00B2BE2001FB7400749398 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F00B2BD2001FB7400749398 /* SplashViewController.swift */; };
 		5F1F8DA72003F17200E20AB0 /* OnboardingVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F8DA62003F17200E20AB0 /* OnboardingVCViewController.swift */; };
 		5F1F8DA92003F1A200E20AB0 /* servishero_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F1F8DA82003F1A100E20AB0 /* servishero_loading.json */; };
+		5F24F46220086CCF005AD28A /* UIWindowTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F24F46120086CCF005AD28A /* UIWindowTransitions.swift */; };
 		5F8BAC7F1FFC5BC500450187 /* StartJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */; };
+		5FD00AAF20092649004CFD9E /* onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD00AAE20092649004CFD9E /* onboarding.json */; };
 		5FD263A32003104D004B1978 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD263A22003104D004B1978 /* CustomTableViewCell.swift */; };
 		A4CEFDD9D0F6BA8F7BCA84C5 /* Pods_Time_TransacUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FF9CB0337E42194F0583EF /* Pods_Time_TransacUITests.framework */; };
 		F30136F21F2CF3590023828A /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30136F11F2CF3590023828A /* RootPageViewController.swift */; };
@@ -131,7 +133,9 @@
 		5F00B2BD2001FB7400749398 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		5F1F8DA62003F17200E20AB0 /* OnboardingVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCViewController.swift; sourceTree = "<group>"; };
 		5F1F8DA82003F1A100E20AB0 /* servishero_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = servishero_loading.json; sourceTree = "<group>"; };
+		5F24F46120086CCF005AD28A /* UIWindowTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowTransitions.swift; sourceTree = "<group>"; };
 		5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartJobVC.swift; sourceTree = "<group>"; };
+		5FD00AAE20092649004CFD9E /* onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding.json; sourceTree = "<group>"; };
 		5FD263A22003104D004B1978 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		6861349CE4FCFD95DB24BC6C /* Pods-Time Transac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Transac.release.xcconfig"; path = "Pods/Target Support Files/Pods-Time Transac/Pods-Time Transac.release.xcconfig"; sourceTree = "<group>"; };
 		7D8852E911B1E1DABF851838 /* Pods-Time TransacUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time TransacUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time TransacUITests/Pods-Time TransacUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -336,6 +340,7 @@
 		F33302781F311A8B00C3A293 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				5FD00AAE20092649004CFD9E /* onboarding.json */,
 				5F1F8DA82003F1A100E20AB0 /* servishero_loading.json */,
 				F3CA7CD81FEC93D500862F7A /* location.json */,
 				F35B3B4E1FA027A7005A6ACA /* menu.json */,
@@ -399,6 +404,7 @@
 				F3D9ED1F1F77008D00332237 /* PopUpJobView.xib */,
 				F35EE16A1F8355AC007C08E7 /* customShadowView.swift */,
 				F3CA7CDC1FEC95DC00862F7A /* CustomAnnotationView.swift */,
+				5F24F46120086CCF005AD28A /* UIWindowTransitions.swift */,
 			);
 			name = CustomViewControllers;
 			sourceTree = "<group>";
@@ -569,6 +575,7 @@
 				F357C2E41F35622900963A35 /* simple_outline_lock_.json in Resources */,
 				F3CA7CD91FEC93D500862F7A /* location.json in Resources */,
 				F357C2F11F3562BE00963A35 /* CenturyGothicBold.ttf in Resources */,
+				5FD00AAF20092649004CFD9E /* onboarding.json in Resources */,
 				5F1F8DA92003F1A200E20AB0 /* servishero_loading.json in Resources */,
 				F3837F821FEE1F0A00EC67DB /* bouncy_mapmaker.json in Resources */,
 			);
@@ -694,6 +701,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Time Transac/Pods-Time Transac-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSPolly/AWSPolly.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
@@ -706,20 +715,33 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
+				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SHSearchBar/SHSearchBar.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPolly.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
@@ -732,14 +754,25 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSearchBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -822,6 +855,7 @@
 				F3E9176F1F5B4B0E009DCB0F /* ShadowsToButtons.swift in Sources */,
 				F33034481FEF4D1A004C9C30 /* MyAPIClient.swift in Sources */,
 				F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */,
+				5F24F46220086CCF005AD28A /* UIWindowTransitions.swift in Sources */,
 				F3CD40921F37DA08001DE153 /* EmailVerifyVC.swift in Sources */,
 				F30C07DD1FF9AA57009FC572 /* HelperFunctions.swift in Sources */,
 				F3D9ED1A1F76FD2C00332237 /* ConfirmProfilePageVC.swift in Sources */,

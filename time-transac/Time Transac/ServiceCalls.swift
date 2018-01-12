@@ -79,6 +79,7 @@ class ServiceCalls{
             let job = Job(snapshot: snapshot)
             self.userRef.observe(.value, with: { (snapshot2) in
                 let userIDs = snapshot2.value as! [String : AnyObject]
+                print(job.jobOwnerEmailHash)
                 job.jobOwnerRating = userIDs[job.jobOwnerEmailHash]!["Rating"] as! Float
                 job.jobOwnerPhotoURL = URL(string: (userIDs[job.jobOwnerEmailHash]!["photoURL"] as! String))
 

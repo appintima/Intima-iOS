@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.6.0)
+  - AWSCore (2.6.10)
+  - AWSPolly (2.6.10):
+    - AWSCore (= 2.6.10)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -73,6 +76,21 @@ PODS:
   - leveldb-library (1.20)
   - lottie-ios (2.1.5)
   - Mapbox-iOS-SDK (3.7.2)
+  - MapboxCoreNavigation (0.12.1):
+    - MapboxDirections.swift (~> 0.15)
+    - MapboxMobileEvents (~> 0.2)
+    - Turf (~> 0.0.4)
+  - MapboxDirections.swift (0.15.1):
+    - Polyline (~> 4.2)
+  - MapboxMobileEvents (0.2.10)
+  - MapboxNavigation (0.12.1):
+    - AWSPolly (~> 2.6)
+    - Mapbox-iOS-SDK (~> 3.6)
+    - MapboxCoreNavigation (= 0.12.1)
+    - SDWebImage (~> 4.1)
+    - Solar (~> 2.1)
+    - Turf (~> 0.0.4)
+  - MarqueeLabel/Swift (3.1.4)
   - Material (2.13.4):
     - Material/Core (= 2.13.4)
   - Material/Core (2.13.4):
@@ -85,12 +103,22 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NotificationBannerSwift (1.5.4):
+    - MarqueeLabel/Swift
+    - SnapKit (~> 4.0)
   - Pastel (0.3.0)
+  - Polyline (4.2.0)
   - PopupDialog (0.6.2)
   - Protobuf (3.5.0)
   - RevealingSplashView (0.4.0)
+  - SDWebImage (4.2.3):
+    - SDWebImage/Core (= 4.2.3)
+  - SDWebImage/Core (4.2.3)
   - SHSearchBar (1.4.0)
+  - SnapKit (4.0.0)
+  - Solar (2.1.0)
   - Stripe (11.5.0)
+  - Turf (0.0.4)
 
 DEPENDENCIES:
   - Alamofire
@@ -107,7 +135,9 @@ DEPENDENCIES:
   - Kingfisher (~> 4.0)
   - lottie-ios
   - Mapbox-iOS-SDK (~> 3.7)
+  - MapboxNavigation
   - Material (~> 2.0)
+  - NotificationBannerSwift
   - Pastel
   - PopupDialog (~> 0.6)
   - RevealingSplashView
@@ -116,6 +146,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AWSCore: 5bb072a6b5b185f43ddbd239d6554d2f8a285ad2
+  AWSPolly: 2e06b395db6176f6edc8ce6cd3379c46c1bccb44
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   CHIPageControl: 79d19a8ee2e35fa3c1da6533adb5364c77b5cfea
   FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
@@ -136,16 +168,27 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   lottie-ios: 836cdbba92f62f3c6a00e37a4ce485321fe317cf
   Mapbox-iOS-SDK: d882f53debc26649b728755df5b7a160d9086367
+  MapboxCoreNavigation: d35ac3c11d9d3ea852823822752922ea34d82104
+  MapboxDirections.swift: 2ed0a698a7721b5373362b74579c7194cda12528
+  MapboxMobileEvents: 9e48b59d0eed04508595dcb04a77b7632e1c3054
+  MapboxNavigation: a3307bbd66fcbe6c5ef50f2a6419c6d2f4d2de07
+  MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
   Material: e7db2ee1aac9154a48c86921836578fffce41728
   Motion: 171fae75e927306cf906ab579ab5ac99d291658f
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NotificationBannerSwift: 4f6666c8421dcf11be0812dd1093d932c15921af
   Pastel: 738740c84f2b15bbcd96ebe99c4e6c2f5dd42262
+  Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
   PopupDialog: d4336d7274a6aa3af4cb26d8b6691510eba90cc3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   RevealingSplashView: 72be158ad5e1bc72713e8f78383dc3e1803ce4d1
+  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
   SHSearchBar: d59fb32d1e26b46bc036b8d551d30683f2479c31
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
   Stripe: 10761682d20dc491c52287393c800db056c9748d
+  Turf: 6c169618fa671e3f8a7b764b5b3332053ad6110e
 
-PODFILE CHECKSUM: e3af0272f626037589a554f3c2ddc5c11956a879
+PODFILE CHECKSUM: 4e8f63fb660c4bfe940b6b9004b607a76b63ce33
 
 COCOAPODS: 1.3.1
