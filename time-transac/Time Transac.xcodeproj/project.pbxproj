@@ -32,6 +32,10 @@
 		5F24F46220086CCF005AD28A /* UIWindowTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F24F46120086CCF005AD28A /* UIWindowTransitions.swift */; };
 		5F8BAC7F1FFC5BC500450187 /* StartJobVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */; };
 		5FD00AAF20092649004CFD9E /* onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD00AAE20092649004CFD9E /* onboarding.json */; };
+		5FD00AB420092CDA004CFD9E /* White in Resources */ = {isa = PBXBuildFile; fileRef = 5FD00AB020092CD8004CFD9E /* White */; };
+		5FD00AB520092CDA004CFD9E /* Blue in Resources */ = {isa = PBXBuildFile; fileRef = 5FD00AB120092CD9004CFD9E /* Blue */; };
+		5FD00AB620092CDA004CFD9E /* Red in Resources */ = {isa = PBXBuildFile; fileRef = 5FD00AB220092CD9004CFD9E /* Red */; };
+		5FD00AB720092CDA004CFD9E /* Yellow in Resources */ = {isa = PBXBuildFile; fileRef = 5FD00AB320092CDA004CFD9E /* Yellow */; };
 		5FD263A32003104D004B1978 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD263A22003104D004B1978 /* CustomTableViewCell.swift */; };
 		A4CEFDD9D0F6BA8F7BCA84C5 /* Pods_Time_TransacUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FF9CB0337E42194F0583EF /* Pods_Time_TransacUITests.framework */; };
 		F30136F21F2CF3590023828A /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30136F11F2CF3590023828A /* RootPageViewController.swift */; };
@@ -136,6 +140,10 @@
 		5F24F46120086CCF005AD28A /* UIWindowTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowTransitions.swift; sourceTree = "<group>"; };
 		5F8BAC7E1FFC5BC500450187 /* StartJobVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartJobVC.swift; sourceTree = "<group>"; };
 		5FD00AAE20092649004CFD9E /* onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding.json; sourceTree = "<group>"; };
+		5FD00AB020092CD8004CFD9E /* White */ = {isa = PBXFileReference; lastKnownFileType = folder; path = White; sourceTree = "<group>"; };
+		5FD00AB120092CD9004CFD9E /* Blue */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Blue; sourceTree = "<group>"; };
+		5FD00AB220092CD9004CFD9E /* Red */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Red; sourceTree = "<group>"; };
+		5FD00AB320092CDA004CFD9E /* Yellow */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Yellow; sourceTree = "<group>"; };
 		5FD263A22003104D004B1978 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		6861349CE4FCFD95DB24BC6C /* Pods-Time Transac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Transac.release.xcconfig"; path = "Pods/Target Support Files/Pods-Time Transac/Pods-Time Transac.release.xcconfig"; sourceTree = "<group>"; };
 		7D8852E911B1E1DABF851838 /* Pods-Time TransacUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time TransacUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time TransacUITests/Pods-Time TransacUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +348,10 @@
 		F33302781F311A8B00C3A293 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				5FD00AB120092CD9004CFD9E /* Blue */,
+				5FD00AB220092CD9004CFD9E /* Red */,
+				5FD00AB020092CD8004CFD9E /* White */,
+				5FD00AB320092CDA004CFD9E /* Yellow */,
 				5FD00AAE20092649004CFD9E /* onboarding.json */,
 				5F1F8DA82003F1A100E20AB0 /* servishero_loading.json */,
 				F3CA7CD81FEC93D500862F7A /* location.json */,
@@ -559,8 +571,10 @@
 				F357C2E61F35624400963A35 /* error.json in Resources */,
 				F35B3B4F1FA027A7005A6ACA /* menu.json in Resources */,
 				F375B3131F64F05C002F5538 /* 911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf in Resources */,
+				5FD00AB620092CDA004CFD9E /* Red in Resources */,
 				F357C2F21F3562BE00963A35 /* Century Gothic.ttf in Resources */,
 				F357C2E21F35622900963A35 /* loading.json in Resources */,
+				5FD00AB420092CDA004CFD9E /* White in Resources */,
 				F303373C1F36119C00A4E499 /* Check2.json in Resources */,
 				F3D9ED201F77008D00332237 /* PopUpJobView.xib in Resources */,
 				F357C2E31F35622900963A35 /* outline_user.json in Resources */,
@@ -569,8 +583,10 @@
 				3B71C5041EE6836800746DEE /* Assets.xcassets in Resources */,
 				F357C2E81F35624B00963A35 /* check.json in Resources */,
 				F30281C71F944C670062093C /* 5_stars.json in Resources */,
+				5FD00AB520092CDA004CFD9E /* Blue in Resources */,
 				F375B3151F65ACA5002F5538 /* GoogleService-Info.plist in Resources */,
 				3B0FC3FF1F182DDF00ED88C6 /* CustomTableViewCell.xib in Resources */,
+				5FD00AB720092CDA004CFD9E /* Yellow in Resources */,
 				F357C2EE1F3562A400963A35 /* lgsu.mp4 in Resources */,
 				F357C2E41F35622900963A35 /* simple_outline_lock_.json in Resources */,
 				F3CA7CD91FEC93D500862F7A /* location.json in Resources */,
