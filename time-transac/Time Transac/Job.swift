@@ -12,7 +12,7 @@ import CoreLocation
 import Firebase
 
 
-class Job {
+class Job{
     
     var jobOwnerPhotoURL: URL?
     let description: String
