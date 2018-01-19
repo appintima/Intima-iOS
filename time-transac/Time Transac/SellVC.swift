@@ -44,7 +44,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var yPosition:CGFloat = 45
     var scrollViewContentSize: CGFloat = 0
     var dbRef: DatabaseReference!
-    var pointAnnotations : [MGLPointAnnotation] = []
+    var pointAnnotations : [CustomMGLAnnotation] = []
     var allAvailableJobs: [Job] = []
 
     let service = ServiceCalls()
@@ -64,35 +64,19 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var applicantEHash:String!
     let pulseAnimation = LOTAnimationView(name: "pulse_loader")
     var filteredJobs: [MGLPointAnnotation] = []
+    var allAnnotations: [String:CustomMGLAnnotation]!
+    
     var applicantInfo: [String:AnyObject]!
     let postedJobAnimation = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     let check = LOTAnimationView(name: "check")
     
-    ///////////////////////// Functions that enable stripe payments go here /////////////////////////////
-    func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
-        print(error)
-        
-    }
-    
-    func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
-        
-    }
-    
-    func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
-        
-    }
-    
-    func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        let source = paymentResult.source.stripeID
-        MyAPIClient.sharedClient.addPaymentSource(id: source, completion: { (error) in })
-    }
+
     
     
     ////////////////////////Functions associated with the controller go here//////////////////////////
     
     override func viewDidLoad() {
-        
-        
+       
         self.MapView.delegate = self
         MapView.compassView.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
@@ -103,19 +87,12 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         preparePostJobButton()
         useCurrentLocations()
         prepareJobForm()
-        prepareMap()
-        prepareSearchBar()
-        prepareBannerLeftView()
         
-        service.getUserLatestAccepted { (job, applicantEHash) in
-            if job != nil{
-                self.latestAccepted = job
-                self.applicantEHash = applicantEHash
-                
-            }
-        }
+        self.prepareSearchBar()
+        self.prepareBannerLeftView()
 
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -124,6 +101,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
 
     @IBAction func buttonPressedForProfile(_ sender: UIButton) {
+      
         service.getApplicantProfile(emailHash: self.applicantEHash) { (userInfo) in
             if userInfo != nil{
                 self.applicantInfo = userInfo
@@ -141,28 +119,9 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         }
         
     }
-    
-    //Prepares the map by adding annotations for jobs from firebase, and setting the mapview.
-    @objc func prepareMap(){
-        
-        service.getJobFromFirebase { newJobs, annotations  in
-            self.pointAnnotations = annotations
-            self.MapView.addAnnotations(self.pointAnnotations)
-            self.allAvailableJobs = newJobs
 
-            self.MapView.addAnnotations(self.pointAnnotations)
-        }//end of closure
-    }
     
-    func prepareSearchBar(){
-    
-        let searchGlassIconTemplate = UIImage(named: "icon-search")!.withRenderingMode(.alwaysTemplate)
-        let leftView1 = imageViewWithIcon(searchGlassIconTemplate, rasterSize: rasterSize)
-        searchBar = defaultSearchBar(withRasterSize: rasterSize, leftView: leftView1, rightView: nil, delegate: self)
-        view.addSubview(searchBar)
-        self.setupLayoutConstraints()
 
-    }
     
     //Sets the camera for the mapview and sets current location to users current locations
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -184,18 +143,30 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
                 self.applicantEHash = nil
             }
         }
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
 
+        self.prepareMap()
+        
+        service.getUserLatestAccepted { (job, applicantEHash) in
+            if job != nil{
+                self.latestAccepted = job
+                self.applicantEHash = applicantEHash
+                
+            }
+        }
     }
     
-    //Any adjustments to job form visuals should be done here.
-    func prepareJobForm() {
-        self.jobDetailsView.cornerRadius = 7
-        self.jobPriceView.cornerRadius = 7
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        service.jobsRef.removeAllObservers()
+        service.userRef.removeAllObservers()
     }
     
+
     //When the postJob red button is pressed
     @IBAction func postJobPressed(_ sender: Any) {
     
@@ -283,13 +254,15 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         
     }
     
+
+    
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
-        for Job in allAvailableJobs{
-            if Job.title == annotation.title!!{
-                let popup = self.prepareAndShowPopup(job: Job)
-                self.present(popup, animated: true, completion: nil)
-            }
+        
+        if let anno = annotation as? CustomMGLAnnotation{
+            let popup = self.prepareAndShowPopup(job: anno.job!)
+            self.present(popup, animated: true, completion: nil)
         }
+        
     }
     
     //Loads the bouncing animation for the map annotation
@@ -316,7 +289,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
             for j in allAvailableJobs {
                 if (j.title.lowercased().range(of: searchText!.lowercased()) != nil) {
 
-                    let point = MGLPointAnnotation()
+                    let point = CustomMGLAnnotation()
                     point.coordinate = j.location.coordinate
                     point.title = j.title
                     point.subtitle = ("$"+"\(j.wage_per_hour)"+"/Hour")
@@ -386,50 +359,35 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         let ratingAnimation = LOTAnimationView(name: "5_stars")
         animation.handledAnimation(Animation: ratingAnimation)
         var rating = CGFloat(0)
-        for Job in allAvailableJobs{
-            if Job.title == annotation.title!!{
-                rating = CGFloat(Job.jobOwnerRating/5)
-            }
-        }
+        
+        if let anno = annotation as? CustomMGLAnnotation{
+            rating = CGFloat((anno.job?.jobOwnerRating)!/5)
+        }        
         ratingAnimation.play(toProgress: rating, withCompletion: nil)
         return animation
     }
     
-    
+/**
     //Loads an animation
+ */
     func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
         let picture = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         picture.cornerRadius = picture.frame.height/2
-        for j in allAvailableJobs{
-            if j.title == annotation.title!!{
-                if let profilePic = j.jobOwnerPhotoURL{
-                    picture.kf.setImage(with: profilePic)
-                }
-                else{
-                    print("default pic")
-                    picture.image = #imageLiteral(resourceName: "emptyProfilePicture")
-                    break
-                }
+        
+        if let anno = annotation as? CustomMGLAnnotation{
+            if let profilePic = anno.job?.jobOwnerPhotoURL{
+                picture.kf.setImage(with: profilePic)
+            }
+            else{
+                print("default pic")
+                picture.image = #imageLiteral(resourceName: "emptyProfilePicture")
             }
         }
         return picture
     }
     
-    func prepareBannerLeftView(){
-        
-        postedJobAnimation.handledAnimation(Animation: self.check)
-    }
     
-    //Prepares a banner for when a job has been successfully posted and paid for
-    func prepareBannerForPost() {
-        
-        let banner = NotificationBanner(title: "Success", subtitle: "Your job was posted", leftView: postedJobAnimation, style: .success)
-        banner.show()
-        banner.dismissOnSwipeUp = true
-        banner.dismissOnTap = true
-        check.play()
-        
-    }
+
 
     
     override func didReceiveMemoryWarning() {
@@ -564,77 +522,5 @@ extension SellVC {
     }
     
 }
-
-extension SellVC: Constrainable {
-    
-    func setupLayoutConstraints() {
-        let searchbarHeight: CGFloat = 44.0
-        
-        // Deactivate old constraints
-        viewConstraints?.forEach { $0.isActive = false }
-        
-        let constraints = [
-            searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
-            searchBar.leadingAnchor.constraint(equalTo:
-                view.leadingAnchor, constant: 20),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
-            searchBar.heightAnchor.constraint(equalToConstant: searchbarHeight),
-        ]
-        
-        NSLayoutConstraint.activate(constraints)
-        
-        if viewConstraints != nil {
-            UIView.animate(withDuration: 0.25) {
-                self.view.layoutIfNeeded()
-            }
-        }
-        
-        viewConstraints = constraints
-    }
-}
-
-
-
-// MARK: - Helper Functions
-func defaultSearchBar(withRasterSize rasterSize: CGFloat, leftView: UIView?, rightView: UIView?, delegate: SHSearchBarDelegate, useCancelButton: Bool = false) -> SHSearchBar {
-    var config = defaultSearchBarConfig(rasterSize)
-    config.leftView = leftView
-    config.rightView = rightView
-    config.useCancelButton = useCancelButton
-    
-    if leftView != nil {
-        config.leftViewMode = .always
-    }
-    
-    if rightView != nil {
-        config.rightViewMode = .unlessEditing
-    }
-    
-    let bar = SHSearchBar(config: config)
-    bar.delegate = delegate
-    bar.placeholder = NSLocalizedString("Filter Jobs", comment: "")
-    bar.updateBackgroundImage(withRadius: 6, corners: [.allCorners], color: UIColor.white)
-    bar.layer.shadowColor = UIColor.black.cgColor
-    bar.layer.shadowOffset = CGSize(width: 0, height: 3)
-    bar.layer.shadowRadius = 5
-    bar.layer.shadowOpacity = 0.25
-    return bar
-}
-
-func defaultSearchBarConfig(_ rasterSize: CGFloat) -> SHSearchBarConfig {
-    var config: SHSearchBarConfig = SHSearchBarConfig()
-    config.rasterSize = rasterSize
-    config.textAttributes = [.foregroundColor : UIColor.gray]
-    return config
-}
-
-func imageViewWithIcon(_ icon: UIImage, rasterSize: CGFloat) -> UIImageView {
-    let imgView = UIImageView(image: icon)
-    imgView.frame = CGRect(x: 0, y: 0, width: icon.size.width + rasterSize * 2.0, height: icon.size.height)
-    imgView.contentMode = .center
-    imgView.tintColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1)
-    return imgView
-}
-
 
 

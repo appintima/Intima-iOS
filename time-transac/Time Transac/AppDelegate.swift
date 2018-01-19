@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FirebaseApp.configure()
         STPPaymentConfiguration.shared().publishableKey = "pk_test_K45gbx2IXkVSg4pfmoq9SIa9"
         STPPaymentConfiguration.shared().appleMerchantIdentifier = "merchant.online.intima"
+        
+        
 
         if (Auth.auth().currentUser != nil && (Auth.auth().currentUser?.isEmailVerified)!){
             self.goHome()

@@ -16,11 +16,13 @@ import Mapbox
 class ServiceCalls{
 
     private var fireBaseRef: DatabaseReference!
-    private let jobsRef: DatabaseReference!
-    private let userRef: DatabaseReference!
+    let jobsRef: DatabaseReference!
+    let userRef: DatabaseReference!
     var availableJobs: [Job] = []
     let helper = HelperFunctions()
     let emailHash = HelperFunctions().MD5(string: (Auth.auth().currentUser?.email)!)
+    var jobsRefHandle:UInt!
+    var userRefHandle: UInt!
     
     init() {
         fireBaseRef = Database.database().reference()
@@ -68,36 +70,58 @@ class ServiceCalls{
         
     }
     
+/**
+ 
+ */
+    func removedJobFromFirebase(completion: @escaping (Job)->()){
+        
+        jobsRefHandle = jobsRef.observe(.childRemoved, with: { (snapshot) in
+            let job = Job(snapshot: snapshot)
+            completion(job)
+        })
+        
+//        jobsRef.observe(.childRemoved, with: { (snapshot) in
+//            print("SNAPSHOT HERE IS",snapshot.key)
+//            let job = Job(snapshot: snapshot)
+//            let point = MGLPointAnnotation()
+//            point.coordinate = job.location.coordinate
+//            point.title = job.title
+//            point.subtitle = ("$"+"\(job.wage_per_hour)"+"/Hour")
+//
+//            completion(job, point)
+////            self.jobsRef.removeAllObservers()
+//        })
+    }
     
+/**
+ 
+ */
     
-    func getJobFromFirebase(completion: @escaping ([Job],[MGLPointAnnotation])->()){
+    func getJobFromFirebase(completion: @escaping ([String:CustomMGLAnnotation])->()){
 
         var newJobs : [Job] = []
-        var annotations = [MGLPointAnnotation]()
-        jobsRef.observe(.childAdded, with: { (snapshot) in
-            
+        var annotationDict: [String:CustomMGLAnnotation] = [:]
+        
+        jobsRefHandle = jobsRef.observe(.childAdded, with: { (snapshot) in
             let job = Job(snapshot: snapshot)
-            self.userRef.observe(.value, with: { (snapshot2) in
+            self.userRefHandle = self.userRef.observe(.value, with: { (snapshot2) in
                 let userIDs = snapshot2.value as! [String : AnyObject]
-                print(job.jobOwnerEmailHash)
                 job.jobOwnerRating = userIDs[job.jobOwnerEmailHash]!["Rating"] as! Float
                 job.jobOwnerPhotoURL = URL(string: (userIDs[job.jobOwnerEmailHash]!["photoURL"] as! String))
-
+                
                 if job.jobOwnerEmailHash != self.emailHash{
                     newJobs.append(job)
                     
-                    let point = MGLPointAnnotation()
+                    let point = CustomMGLAnnotation()
+                    point.job = job
                     point.coordinate = job.location.coordinate
                     point.title = job.title
                     point.subtitle = ("$"+"\(job.wage_per_hour)"+"/Hour")
-                    annotations.append(point)
+                    annotationDict[job.jobID] = point
+                    //                    annotations.append(point)
                 }
-                
-                completion(newJobs, annotations)
-                self.jobsRef.removeAllObservers()
-                self.userRef.removeAllObservers()
+                completion(annotationDict)
             })
-            
         })
 
     }
@@ -120,12 +144,12 @@ class ServiceCalls{
         userAcceptedRef.child(job.jobID).updateChildValues(jobDict)
         
         let jobOwnerEmailHash = job.jobOwnerEmailHash!
-        userRef.observe(.value, with: { (snapshot) in
+        userRefHandle = userRef.observe(.value, with: { (snapshot) in
             let userValues = snapshot.value as! [String : AnyObject]
             
             // add the job to job poster's reference in database
             self.userRef.child(jobOwnerEmailHash).child("LatestPostAccepted").child(job.jobID)
-            .updateChildValues(jobDict)
+                .updateChildValues(jobDict)
             self.userRef.child(jobOwnerEmailHash).child("LatestPostAccepted").child(job.jobID).child("Applicant").child(self.helper.MD5(string: user.email!)).setValue((user.displayName)!)
             
             self.userRef.child(jobOwnerEmailHash).child("PostHistory").child(job.jobID).updateChildValues(jobDict)
@@ -133,9 +157,7 @@ class ServiceCalls{
             ref.setValue(nil)
             guard let deviceToken = userValues[jobOwnerEmailHash]!["currentDevice"]! as? String else{return}
             completion(deviceToken)
-            self.userRef.removeAllObservers()
         })
-        
     }
     
 /**

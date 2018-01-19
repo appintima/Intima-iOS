@@ -14,6 +14,7 @@
 		3B0FC40D1F24804300ED88C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */; };
 		3B1EC3011EFC888A00182029 /* ServiceCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3001EFC888A00182029 /* ServiceCalls.swift */; };
 		3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3021EFC915700182029 /* LoginVC.swift */; };
+		3B2673C82012823400519397 /* SellVC+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2673C72012823400519397 /* SellVC+.swift */; };
 		3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */; };
 		3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DE41E1FFC7303006F7F83 /* AppError.swift */; };
 		3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */; };
@@ -25,6 +26,7 @@
 		3B71C5B81EF1ED9700746DEE /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5B71EF1ED9700746DEE /* Job.swift */; };
 		3B71C5BC1EF35D8300746DEE /* AllJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5BB1EF35D8300746DEE /* AllJobs.swift */; };
 		3B71C5C01EF3C22900746DEE /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71C5BF1EF3C22900746DEE /* Skill.swift */; };
+		3BF4EC9F200ABAE500F19287 /* CustomMGLAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4EC9E200ABAE500F19287 /* CustomMGLAnnotation.swift */; };
 		587CC8B624170F78B122D677 /* Pods_Time_TransacTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF9DFFA91551E89EC78BA7C /* Pods_Time_TransacTests.framework */; };
 		5F00B2BE2001FB7400749398 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F00B2BD2001FB7400749398 /* SplashViewController.swift */; };
 		5F1F8DA72003F17200E20AB0 /* OnboardingVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F8DA62003F17200E20AB0 /* OnboardingVCViewController.swift */; };
@@ -111,6 +113,7 @@
 		3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3B1EC3001EFC888A00182029 /* ServiceCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCalls.swift; sourceTree = "<group>"; };
 		3B1EC3021EFC915700182029 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		3B2673C72012823400519397 /* SellVC+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SellVC+.swift"; sourceTree = "<group>"; };
 		3B4DE41C1FFB4C33006F7F83 /* ApplicantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantsVC.swift; sourceTree = "<group>"; };
 		3B4DE41E1FFC7303006F7F83 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3B6B19091FA4C3D700DC9134 /* UnconfirmedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnconfirmedVC.swift; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 		3B71C5BB1EF35D8300746DEE /* AllJobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllJobs.swift; sourceTree = "<group>"; };
 		3B71C5BF1EF3C22900746DEE /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		3BF1B7BF1FBD576D00AD2A95 /* Time Transac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Time Transac.entitlements"; sourceTree = "<group>"; };
+		3BF4EC9E200ABAE500F19287 /* CustomMGLAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMGLAnnotation.swift; sourceTree = "<group>"; };
 		4DBEBA902645A1D14930FE1C /* Pods-Time TransacTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time TransacTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time TransacTests/Pods-Time TransacTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F00B2BD2001FB7400749398 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		5F1F8DA62003F17200E20AB0 /* OnboardingVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVCViewController.swift; sourceTree = "<group>"; };
@@ -365,6 +369,7 @@
 				3B71C4FE1EE6836800746DEE /* AddNameVC.swift */,
 				3B1EC3021EFC915700182029 /* LoginVC.swift */,
 				3B0FC4041F2043FE00ED88C6 /* SellVC.swift */,
+				3B2673C72012823400519397 /* SellVC+.swift */,
 				F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */,
 				F330344F1FEF80F2004C9C30 /* SettingsViewController.swift */,
 				F30136F71F2D04CB0023828A /* Lgsupage.swift */,
@@ -405,6 +410,7 @@
 				F35EE16A1F8355AC007C08E7 /* customShadowView.swift */,
 				F3CA7CDC1FEC95DC00862F7A /* CustomAnnotationView.swift */,
 				5F24F46120086CCF005AD28A /* UIWindowTransitions.swift */,
+				3BF4EC9E200ABAE500F19287 /* CustomMGLAnnotation.swift */,
 			);
 			name = CustomViewControllers;
 			sourceTree = "<group>";
@@ -849,9 +855,11 @@
 				3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */,
 				3B71C5B81EF1ED9700746DEE /* Job.swift in Sources */,
 				3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */,
+				3BF4EC9F200ABAE500F19287 /* CustomMGLAnnotation.swift in Sources */,
 				F3138B5C1FE6B3A300E690AB /* ProfilePicture.swift in Sources */,
 				5F8BAC7F1FFC5BC500450187 /* StartJobVC.swift in Sources */,
 				F30136F81F2D04CB0023828A /* Lgsupage.swift in Sources */,
+				3B2673C82012823400519397 /* SellVC+.swift in Sources */,
 				F3E9176F1F5B4B0E009DCB0F /* ShadowsToButtons.swift in Sources */,
 				F33034481FEF4D1A004C9C30 /* MyAPIClient.swift in Sources */,
 				F3CE9C121FF8506A007E5C4A /* Constrainable.swift in Sources */,
