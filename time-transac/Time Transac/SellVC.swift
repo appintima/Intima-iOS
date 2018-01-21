@@ -501,6 +501,11 @@ extension SellVC {
                 let notification = ["to":"\(device)", "notification":["body":body, "title":title, "badge":1, "sound":"default"]] as [String : Any]
                 
                 Alamofire.request(AppDelegate.NOTIFICATION_URL as URLConvertible, method: .post as HTTPMethod, parameters: notification, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { (response) in
+                    if let err = response.error{
+                        //Error sending notifications
+                    }else{
+                        self.performSegue(withIdentifier: "goToStartJob", sender: nil)
+                    }
                 })
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "acceptedNotification"), object: nil)
                 

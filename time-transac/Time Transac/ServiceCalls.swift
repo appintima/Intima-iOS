@@ -80,17 +80,21 @@ class ServiceCalls{
             completion(job)
         })
         
-//        jobsRef.observe(.childRemoved, with: { (snapshot) in
-//            print("SNAPSHOT HERE IS",snapshot.key)
-//            let job = Job(snapshot: snapshot)
-//            let point = MGLPointAnnotation()
-//            point.coordinate = job.location.coordinate
-//            point.title = job.title
-//            point.subtitle = ("$"+"\(job.wage_per_hour)"+"/Hour")
-//
-//            completion(job, point)
-////            self.jobsRef.removeAllObservers()
-//        })
+    }
+    
+/**
+     
+*/
+
+    func removeAcceptedJobsFromMap(completion: @escaping (Job)->()){
+        
+        jobsRefHandle = jobsRef.observe(.childChanged, with: { (snapshot) in
+            let job = Job(snapshot: snapshot)
+            if job.occupied{
+                completion(job)
+            }
+            
+        })
     }
     
 /**
@@ -109,7 +113,7 @@ class ServiceCalls{
                 job.jobOwnerRating = userIDs[job.jobOwnerEmailHash]!["Rating"] as! Float
                 job.jobOwnerPhotoURL = URL(string: (userIDs[job.jobOwnerEmailHash]!["photoURL"] as! String))
                 
-                if job.jobOwnerEmailHash != self.emailHash{
+                if (job.jobOwnerEmailHash != self.emailHash && !(job.occupied)){
                     newJobs.append(job)
                     
                     let point = CustomMGLAnnotation()
@@ -142,6 +146,8 @@ class ServiceCalls{
                                      "Full Name":(job.jobOwnerFullName)!]
 
         userAcceptedRef.child(job.jobID).updateChildValues(jobDict)
+        
+        jobsRef.child(job.jobID).updateChildValues(["isOccupied":true])
         
         let jobOwnerEmailHash = job.jobOwnerEmailHash!
         userRefHandle = userRef.observe(.value, with: { (snapshot) in

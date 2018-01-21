@@ -45,6 +45,8 @@ class Job{
         latitude = jobValues["latitude"] as! Double
         longitude = jobValues["longitude"] as! Double
         
+        self.occupied = jobValues["isOccupied"] as! Bool
+        
         self.title = jobValues["JobTitle"] as! String
         self.description = jobValues["JobDescription"] as! String
         self.jobOwnerEmailHash = jobValues["JobOwner"] as! String
@@ -52,18 +54,17 @@ class Job{
         self.wage_per_hour = Double(jobValues["Price"] as! String)!
         self.maxTime = Double(jobValues["Time"] as! String)!
         self.location = CLLocation(latitude: latitude, longitude: longitude)
-        
-        
-        
-        
+
     }
     
 
     func setOccupied(){
+        self.occupied = true
         ref.updateChildValues(["isOccupied" : true])
     }
     
     func setNotOccupied(){
+        self.occupied = false
         ref.updateChildValues(["isOccupied" : false])
     }
     

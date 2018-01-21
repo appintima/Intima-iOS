@@ -58,11 +58,25 @@ extension SellVC: Constrainable{
             self.pointAnnotations = Array(annotationDict.values)
             self.MapView.addAnnotations(self.pointAnnotations)
             //            self.allAvailableJobs = newJobs
-            
-            
             self.MapView.addAnnotations(self.pointAnnotations)
         }//end of closure
+        
+        service.removeAcceptedJobsFromMap { (job) in
+            
+            self.MapView.removeAnnotation(self.allAnnotations[job.jobID]!)
+        }
+        
+        let hash = HelperFunctions().MD5(string: (Auth.auth().currentUser?.email)!)
+        let ref = Database.database().reference().child("Users/\(hash)")
+        service.userRefHandle = ref.observe(.value, with: { (snapshot) in
+            let val = snapshot.value as! [String:AnyObject]
+            if (val["LatestPostAccepted"] != nil){
+                self.performSegue(withIdentifier: "goToStartJob", sender: nil)
+            }
+        })
     }
+    
+    
     
     func prepareSearchBar(){
         
