@@ -1069,6 +1069,7 @@
                         <outlet property="scheduleJob" destination="89C-MW-Egu" id="MYL-a0-cyC"/>
                         <outlet property="submitJobButton" destination="NnV-Fm-3yO" id="8Je-Mo-P0F"/>
                         <segue destination="P95-eq-Mey" kind="show" identifier="goToProfileToCancel" id="kgP-50-JPr"/>
+                        <segue destination="fu2-Pg-oWJ" kind="show" identifier="goToStartJob" id="gsi-Ln-BPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hh4-LM-Bpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
