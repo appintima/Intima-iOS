@@ -28,6 +28,7 @@ target 'Time Transac' do
   pod 'CHIPageControl/Fresno'
   pod 'MapboxNavigation'
   pod 'NotificationBannerSwift'
+  pod 'ISHPullUp'
   
   target 'Time TransacTests' do
     inherit! :search_paths
