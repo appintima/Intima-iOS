@@ -52,7 +52,6 @@
 		F33034521FEF80F3004C9C30 /* PaymentContextFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */; };
 		F33C83921F6B8220003157B7 /* endSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C83911F6B8220003157B7 /* endSignUpVC.swift */; };
 		F34760D21F32A726001C24A5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34760D11F32A726001C24A5 /* Launch Screen.storyboard */; };
-		F34F55FF2016DB1600E45226 /* BottomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F55FE2016DB1600E45226 /* BottomVC.swift */; };
 		F34F56022016DB6E00E45226 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F56012016DB6D00E45226 /* MainVC.swift */; };
 		F357C2E21F35622900963A35 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F357C2DE1F35622900963A35 /* loading.json */; };
 		F357C2E31F35622900963A35 /* outline_user.json in Resources */ = {isa = PBXBuildFile; fileRef = F357C2DF1F35622900963A35 /* outline_user.json */; };
@@ -72,6 +71,7 @@
 		F375B3151F65ACA5002F5538 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F375B3141F65ACA5002F5538 /* GoogleService-Info.plist */; };
 		F3837F821FEE1F0A00EC67DB /* bouncy_mapmaker.json in Resources */ = {isa = PBXBuildFile; fileRef = F3837F811FEE1F0A00EC67DB /* bouncy_mapmaker.json */; };
 		F3938E2D1F6A45A3006634E2 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3938E2C1F6A45A3006634E2 /* GradientView.swift */; };
+		F396339520179FBB00DC765E /* BottomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F396339420179FBB00DC765E /* BottomVC.swift */; };
 		F3A2006A1FF32824005F7286 /* CustomAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */; };
 		F3CA7AF21FEB43F800862F7A /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */; };
 		F3CA7AF61FEB5DD900862F7A /* AppFABMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */; };
@@ -167,7 +167,6 @@
 		F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentContextFooterView.swift; sourceTree = "<group>"; };
 		F33C83911F6B8220003157B7 /* endSignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = endSignUpVC.swift; sourceTree = "<group>"; };
 		F34760D11F32A726001C24A5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		F34F55FE2016DB1600E45226 /* BottomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomVC.swift; path = "../../../../Downloads/ISHPullUp-master/ISHPullUpSample/ISHPullUpSample/BottomVC.swift"; sourceTree = "<group>"; };
 		F34F56012016DB6D00E45226 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		F357C2DE1F35622900963A35 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F357C2DF1F35622900963A35 /* outline_user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = outline_user.json; sourceTree = "<group>"; };
@@ -187,6 +186,7 @@
 		F375B3141F65ACA5002F5538 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3837F811FEE1F0A00EC67DB /* bouncy_mapmaker.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bouncy_mapmaker.json; sourceTree = "<group>"; };
 		F3938E2C1F6A45A3006634E2 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		F396339420179FBB00DC765E /* BottomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomVC.swift; sourceTree = "<group>"; };
 		F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAPIAdapter.swift; sourceTree = "<group>"; };
 		F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
 		F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFABMenuController.swift; sourceTree = "<group>"; };
@@ -372,7 +372,6 @@
 				F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */,
 				3B71C4FE1EE6836800746DEE /* AddNameVC.swift */,
 				F34F56012016DB6D00E45226 /* MainVC.swift */,
-				F34F55FE2016DB1600E45226 /* BottomVC.swift */,
 				3B1EC3021EFC915700182029 /* LoginVC.swift */,
 				3B0FC4041F2043FE00ED88C6 /* SellVC.swift */,
 				3B2673C72012823400519397 /* SellVC+.swift */,
@@ -396,6 +395,7 @@
 				5F00B2BD2001FB7400749398 /* SplashViewController.swift */,
 				5FD263A22003104D004B1978 /* CustomTableViewCell.swift */,
 				5F1F8DA62003F17200E20AB0 /* OnboardingVCViewController.swift */,
+				F396339420179FBB00DC765E /* BottomVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -889,8 +889,8 @@
 				F3E55F7B1F30033E003D3338 /* TapScreenToCloseKeyboardViewController.swift in Sources */,
 				5F00B2BE2001FB7400749398 /* SplashViewController.swift in Sources */,
 				F34F56022016DB6E00E45226 /* MainVC.swift in Sources */,
-				F34F55FF2016DB1600E45226 /* BottomVC.swift in Sources */,
 				F33C83921F6B8220003157B7 /* endSignUpVC.swift in Sources */,
+				F396339520179FBB00DC765E /* BottomVC.swift in Sources */,
 				F3CA7AF21FEB43F800862F7A /* AppTabsController.swift in Sources */,
 				F30136F21F2CF3590023828A /* RootPageViewController.swift in Sources */,
 				3B71C4FD1EE6836800746DEE /* AppDelegate.swift in Sources */,
