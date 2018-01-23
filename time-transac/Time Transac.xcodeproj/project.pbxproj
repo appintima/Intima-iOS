@@ -71,7 +71,6 @@
 		F375B3131F64F05C002F5538 /* 911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F375B3121F64F05C002F5538 /* 911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf */; };
 		F375B3151F65ACA5002F5538 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F375B3141F65ACA5002F5538 /* GoogleService-Info.plist */; };
 		F3837F821FEE1F0A00EC67DB /* bouncy_mapmaker.json in Resources */ = {isa = PBXBuildFile; fileRef = F3837F811FEE1F0A00EC67DB /* bouncy_mapmaker.json */; };
-		F38FA81F2016EC09007EBC3C /* MapboxMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FA81E2016EC09007EBC3C /* MapboxMap.swift */; };
 		F3938E2D1F6A45A3006634E2 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3938E2C1F6A45A3006634E2 /* GradientView.swift */; };
 		F3A2006A1FF32824005F7286 /* CustomAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */; };
 		F3CA7AF21FEB43F800862F7A /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */; };
@@ -187,7 +186,6 @@
 		F375B3121F64F05C002F5538 /* 911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "911Fonts.com_CenturyGothicRegular__-_911fonts.com_fonts_mhpY.ttf"; sourceTree = "<group>"; };
 		F375B3141F65ACA5002F5538 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3837F811FEE1F0A00EC67DB /* bouncy_mapmaker.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bouncy_mapmaker.json; sourceTree = "<group>"; };
-		F38FA81E2016EC09007EBC3C /* MapboxMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapboxMap.swift; sourceTree = "<group>"; };
 		F3938E2C1F6A45A3006634E2 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAPIAdapter.swift; sourceTree = "<group>"; };
 		F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
@@ -419,7 +417,6 @@
 				F3CA7CDC1FEC95DC00862F7A /* CustomAnnotationView.swift */,
 				5F24F46120086CCF005AD28A /* UIWindowTransitions.swift */,
 				3BF4EC9E200ABAE500F19287 /* CustomMGLAnnotation.swift */,
-				F38FA81E2016EC09007EBC3C /* MapboxMap.swift */,
 			);
 			name = CustomViewControllers;
 			sourceTree = "<group>";
@@ -858,7 +855,6 @@
 				F35EE16F1F8D3F38007C08E7 /* PopUpJobViewVC.swift in Sources */,
 				F3DD81F91FC3BD35000826F8 /* AppSnackbarController.swift in Sources */,
 				F3A2006A1FF32824005F7286 /* CustomAPIAdapter.swift in Sources */,
-				F38FA81F2016EC09007EBC3C /* MapboxMap.swift in Sources */,
 				F33034521FEF80F3004C9C30 /* PaymentContextFooterView.swift in Sources */,
 				F3D9ED141F76EA9D00332237 /* CustomUIButton.swift in Sources */,
 				5F1F8DA72003F17200E20AB0 /* OnboardingVCViewController.swift in Sources */,
