@@ -19,9 +19,13 @@ import Stripe
 import SHSearchBar
 import Kingfisher
 import NotificationBannerSwift
+import ISHPullUp
 
-class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, STPPaymentContextDelegate, SHSearchBarDelegate {
+
+class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, STPPaymentContextDelegate, SHSearchBarDelegate, ISHPullUpContentDelegate {
+
     
+    @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var scheduleJob: TextField!
     @IBOutlet weak var submitJobButton: RaisedButton!
     @IBOutlet weak var jobDetailsView: UIView!
@@ -87,7 +91,11 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
         preparePostJobButton()
         useCurrentLocations()
         prepareJobForm()
-        
+        if #available(iOS 11.0, *) {
+            MapView.preservesSuperviewLayoutMargins = false
+        } else {
+            MapView.preservesSuperviewLayoutMargins = true
+        }
         self.prepareSearchBar()
         self.prepareBannerLeftView()
 
@@ -529,6 +537,22 @@ extension SellVC {
         jobTitleTF.text = ""
         jobDetailsTF.text = ""
     }
+    
+    func pullUpViewController(_ pullUpViewController: ISHPullUpViewController, update edgeInsets: UIEdgeInsets, forContentViewController contentVC: UIViewController) {
+        
+        if #available(iOS 11.0, *) {
+            additionalSafeAreaInsets = edgeInsets
+            rootView.layoutMargins = .zero
+        } else {
+            // update edgeInsets
+            rootView.layoutMargins = edgeInsets
+        }
+        
+        // call layoutIfNeeded right away to participate in animations
+        // this method may be called from within animation blocks
+        rootView.layoutIfNeeded()
+    }
+    
     
 }
 

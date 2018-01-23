@@ -109,6 +109,19 @@ open class TabsController: TransitionController {
     /// The TabBar used to switch between view controllers.
     @IBInspectable
     open let tabBar = TabBar()
+    
+    
+    /// A Boolean that indicates if the swipe feature is enabled..
+    open var isSwipeEnabled = false {
+        didSet {
+            guard isSwipeEnabled else {
+                removeSwipeGesture()
+                return
+            }
+            
+            prepareSwipeGesture()
+        }
+    }
 
     /// A delegation reference.
     open weak var delegate: TabsControllerDelegate?
@@ -175,7 +188,9 @@ open class TabsController: TransitionController {
         super.prepare()
         view.backgroundColor = .white
         view.contentScaleFactor = Screen.scale
-
+        
+        isSwipeEnabled = true
+        
         prepareTabBar()
         prepareTabItems()
         prepareSelectedIndexViewController()
@@ -262,6 +277,38 @@ fileprivate extension TabsController {
         tabBar.tabItems = tabItems
         tabBar.selectedTabItem = tabItems[selectedIndex]
     }
+    
+    /// Prepare Swipe Gesture.
+    func prepareSwipeGesture() {
+        removeSwipeGesture()
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture(gesture:)))
+        swipeRight.direction = .right
+        view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture(gesture:)))
+        swipeLeft.direction = .left
+        view.addGestureRecognizer(swipeLeft)
+    }
+}
+
+fileprivate extension TabsController {
+    /// Remove Swipe Gesture.
+    func removeSwipeGesture() {
+        guard let v = view.gestureRecognizers else {
+            return
+        }
+        
+        for gesture in v {
+            guard let recognizer = gesture as? UISwipeGestureRecognizer else {
+                continue
+            }
+            
+            if .left == recognizer.direction || .right == recognizer.direction {
+                view.removeGestureRecognizer(recognizer)
+            }
+        }
+    }
 }
 
 fileprivate extension TabsController {
@@ -311,6 +358,28 @@ fileprivate extension TabsController {
     /// Layout the rootViewController.
     func layoutRootViewController() {
         rootViewController.view.frame = container.bounds
+    }
+}
+
+fileprivate extension TabsController {
+    /**
+     Handles the swipe gesture.
+     - Parameter gesture: A UIGestureRecognizer.
+     */
+    @objc
+    func handleSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case .right:
+                guard (selectedIndex - 1) >= 0 else { return }
+                select(at: selectedIndex - 1)
+            case .left:
+                guard (selectedIndex + 1) < viewControllers.count else { return }
+                select(at: selectedIndex + 1)
+            default:
+                break
+            }
+        }
     }
 }
 
