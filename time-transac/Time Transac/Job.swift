@@ -29,30 +29,47 @@ class Job{
     var jobTakerID: String!
     var jobOwnerEmailHash: String!
     var jobOwnerFullName: String!
-    var jobOwnerRating: Float!
+    var jobOwnerRating: Float?
     var ref: DatabaseReference!
-    let latitude: Double!
-    let longitude: Double!
+    var latitude: Double!
+    var longitude: Double!
     
 
 
 
 
-    init(snapshot: DataSnapshot) {
-        self.jobID = snapshot.key
-        let jobValues = snapshot.value as! [String: AnyObject]
+    init?(snapshot: DataSnapshot) {
+        guard !snapshot.key.isEmpty,
+            let jobValues = snapshot.value as? [String:AnyObject],
+            let latitude = jobValues["latitude"] as? Double,
+            let longitude = jobValues["longitude"] as? Double,
+            let occupied = jobValues["isOccupied"] as? Bool,
+            let completed = jobValues["isCompleted"] as? Bool,
+            let title = jobValues["JobTitle"] as? String,
+            let description = jobValues["JobDescription"] as? String,
+            let jobOwnerEmailHash = jobValues["JobOwner"] as? String,
+            let jobOwnerFullName = jobValues["Full Name"] as? String,
+            let wage_per_hour = jobValues["Price"] as? String,
+            let maxTime = jobValues["Time"] as? String
+        else{return nil}
+            
+        
+        
+        
         self.ref = snapshot.ref
-        latitude = jobValues["latitude"] as! Double
-        longitude = jobValues["longitude"] as! Double
+        self.jobID = snapshot.key
+        self.latitude = latitude
+        self.longitude = longitude
         
-        self.occupied = jobValues["isOccupied"] as! Bool
+        self.occupied = occupied
+        self.completed = completed
         
-        self.title = jobValues["JobTitle"] as! String
-        self.description = jobValues["JobDescription"] as! String
-        self.jobOwnerEmailHash = jobValues["JobOwner"] as! String
-        self.jobOwnerFullName = jobValues["Full Name"] as! String
-        self.wage_per_hour = Double(jobValues["Price"] as! String)!
-        self.maxTime = Double(jobValues["Time"] as! String)!
+        self.title = title
+        self.description = description
+        self.jobOwnerEmailHash = jobOwnerEmailHash
+        self.jobOwnerFullName = jobOwnerFullName
+        self.wage_per_hour = Double(wage_per_hour)!
+        self.maxTime = Double(maxTime)!
         self.location = CLLocation(latitude: latitude, longitude: longitude)
 
     }
