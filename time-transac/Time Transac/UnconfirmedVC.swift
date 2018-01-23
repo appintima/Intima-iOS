@@ -51,13 +51,13 @@ class UnconfirmedVC: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedJob = unconfirmedLst[indexPath.row]
-        self.service.getApplicants(job: self.selectedJob) { (applicantsDict) in
-            self.applicantsEHashDict = applicantsDict
-            self.performSegue(withIdentifier: "goToApplicants", sender: nil)
-        }
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        selectedJob = unconfirmedLst[indexPath.row]
+//        self.service.getApplicants(job: self.selectedJob) { (applicantsDict) in
+//            self.applicantsEHashDict = applicantsDict
+//            self.performSegue(withIdentifier: "goToApplicants", sender: nil)
+//        }
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToApplicants"{

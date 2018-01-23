@@ -65,13 +65,13 @@ class ApplicantsVC: UITableViewController {
         return 156
     }
    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let eHash = applicantsEHashArr[indexPath.row]
-        service.getApplicantProfile(emailHash: eHash) { (applicantInfo) in
-            self.clickedApplicantInfo = applicantInfo
-            self.performSegue(withIdentifier: "goToProfile", sender: nil)
-        }
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let eHash = applicantsEHashArr[indexPath.row]
+//        service.getApplicantProfile(emailHash: eHash) { (applicantInfo) in
+//            self.clickedApplicantInfo = applicantInfo
+//            self.performSegue(withIdentifier: "goToProfile", sender: nil)
+//        }
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToProfile"{

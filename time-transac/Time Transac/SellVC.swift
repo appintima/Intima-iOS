@@ -102,12 +102,12 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
 
     @IBAction func buttonPressedForProfile(_ sender: UIButton) {
       
-        service.getApplicantProfile(emailHash: self.applicantEHash) { (userInfo) in
-            if userInfo != nil{
-                self.applicantInfo = userInfo
-                self.performSegue(withIdentifier: "goToProfileToCancel", sender: nil)
-            }
-        }
+//        service.getApplicantProfile(emailHash: self.applicantEHash) { (userInfo) in
+//            if userInfo != nil{
+//                self.applicantInfo = userInfo
+//                self.performSegue(withIdentifier: "goToProfileToCancel", sender: nil)
+//            }
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -137,60 +137,45 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         
-        service.checkLatestPostAcceptedExist { (bool) in
-            if !(bool){
-                self.latestAccepted = nil
-                self.applicantEHash = nil
-            }
-        }
-        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
 
         self.prepareMap()
-        
-        service.getUserLatestAccepted { (job, applicantEHash) in
-            if job != nil{
-                self.latestAccepted = job
-                self.applicantEHash = applicantEHash
-                
-            }
-        }
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        service.jobsRef.removeAllObservers()
-        service.userRef.removeAllObservers()
+
     }
     
 
     //When the postJob red button is pressed
     @IBAction func postJobPressed(_ sender: Any) {
     
-        self.service.checkUserLastPost { (bool) in
-            if !bool{
+//        self.service.checkUserLastPost { (bool) in
+//            if !bool{
                 self.postJobButton.isHidden = true
                 self.jobDetailsConstraint.constant = 77
                 UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
-                
-            }else{
-                
-                let title = "You Already posted a task"
-                let message = ""
-                // Create the dialog
-    
-                let popup = PopupDialog(title: title, message: message)
-                // Create buttons
-                let buttonOne = CancelButton(title: "Cancel") {
-                    print("Job Cancelled")
-                }
-                popup.addButton(buttonOne)
-                self.present(popup, animated: true, completion: nil)
-            }
-        }
+//
+//            }else{
+//
+//                let title = "You Already posted a task"
+//                let message = ""
+//                // Create the dialog
+//
+//                let popup = PopupDialog(title: title, message: message)
+//                // Create buttons
+//                let buttonOne = CancelButton(title: "Cancel") {
+//                    print("Job Cancelled")
+//                }
+//                popup.addButton(buttonOne)
+//                self.present(popup, animated: true, completion: nil)
+//            }
+//        }
  
     }
     
@@ -435,7 +420,7 @@ extension SellVC {
         let continueButton = DefaultButton(title: "Continue", dismissOnTap: true) {
             
             //Attempt to charge a payment
-            self.submitJobButton.isHidden = false
+            self.submitJobButton.isHidden = true
             //LoadingAnimation initialize and play
             MyAPIClient.sharedClient.completeCharge(amount: priceForStripe, completion: { charge_id in
                 //If no error when paying
@@ -449,12 +434,17 @@ extension SellVC {
                     self.resetTextFields()
                     self.prepareBannerForPost()
                     print("Sucessfully posted job")
-                    self.submitJobButton.isHidden = true
+                    self.submitJobButton.isHidden = false
+                    
+                    return
                 }
                 //If error when paying
                 else{
                     let errorPopup = PopupDialog(title: "Error processing payment.", message:"Your payment method has failed, or none has been added. Please check your payment methods by tapping on the menu, and selecting payment methods.")
-                    self.present(errorPopup, animated: true)
+                    self.present(errorPopup, animated: true, completion: {
+                        self.submitJobButton.isHidden = false
+                    })
+                    return
                 }
             })
         }
@@ -463,6 +453,18 @@ extension SellVC {
             print("Job cancelled")
         }
         popup.addButtons([continueButton,cancelButton])
+        return popup
+    }
+    
+    
+    func goToStartPopup() -> PopupDialog{
+        let title = "Congrats!!! You accepted a task. Begin Task?"
+        let popup = PopupDialog(title: title, message: "")
+        let goButton = DefaultButton(title: "Begin!") {
+            self.performSegue(withIdentifier: "goToStartJob", sender: nil)
+        }
+        
+        popup.addButton(goButton)
         return popup
     }
     
@@ -492,7 +494,7 @@ extension SellVC {
         let buttonTwo = DefaultButton(title: "Accept job", dismissOnTap: true) {
             self.service.acceptPressed(job: job, user: Auth.auth().currentUser!) { (deviceToken) in
                 let title = "Intima"
-                let body = "Your Job Has Been Accepted By \(Auth.auth().currentUser?.displayName ?? "someone")"
+                let body = "Your Job Has Been Accepted By \(Auth.auth().currentUser?.displayName)" ?? "someone"
                 let device = deviceToken
                 var headers: HTTPHeaders = HTTPHeaders()
                 
@@ -501,11 +503,13 @@ extension SellVC {
                 let notification = ["to":"\(device)", "notification":["body":body, "title":title, "badge":1, "sound":"default"]] as [String : Any]
                 
                 Alamofire.request(AppDelegate.NOTIFICATION_URL as URLConvertible, method: .post as HTTPMethod, parameters: notification, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { (response) in
+                    
                     if let err = response.error{
-                        //Error sending notifications
+                        print(err.localizedDescription)
                     }else{
                         self.performSegue(withIdentifier: "goToStartJob", sender: nil)
                     }
+
                 })
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "acceptedNotification"), object: nil)
                 
