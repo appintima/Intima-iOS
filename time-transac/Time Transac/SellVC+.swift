@@ -45,35 +45,29 @@ extension SellVC: Constrainable{
     
     //Prepares the map by adding annotations for jobs from firebase, and setting the mapview.
     @objc func prepareMap(){
-        
-        service.removedJobFromFirebase { (removedJob) in
-            if !(self.allAnnotations.isEmpty){
-                self.MapView.removeAnnotation(self.allAnnotations[removedJob.jobID]!)
-                self.allAnnotations[removedJob.jobID] = nil
-            }
+        if let allAnnos = self.MapView.annotations{//remove all annotations before loading new ones(refresh)
+            self.MapView.removeAnnotations(allAnnos)
         }
-        
-        service.getJobFromFirebase { annotationDict  in
-            self.allAnnotations = annotationDict
-            self.pointAnnotations = Array(annotationDict.values)
-            self.MapView.addAnnotations(self.pointAnnotations)
-            //            self.allAvailableJobs = newJobs
-            self.MapView.addAnnotations(self.pointAnnotations)
-        }//end of closure
-        
-        service.removeAcceptedJobsFromMap { (job) in
-            
-            self.MapView.removeAnnotation(self.allAnnotations[job.jobID]!)
-        }
-        
-        let hash = HelperFunctions().MD5(string: (Auth.auth().currentUser?.email)!)
-        let ref = Database.database().reference().child("Users/\(hash)")
-        service.userRefHandle = ref.observe(.value, with: { (snapshot) in
-            let val = snapshot.value as! [String:AnyObject]
-            if (val["LatestPostAccepted"] != nil){
+        service.checkUncompletedJobs { (code) in
+            if code == 1{
                 self.performSegue(withIdentifier: "goToStartJob", sender: nil)
             }
-        })
+        }
+        
+        service.getJobsFromFirebase(MapView: self.MapView) { annotationDict  in
+            print(annotationDict)
+            self.allAnnotations = annotationDict
+        }//end of closure
+        
+        
+        service.removeAcceptedJobsFromMap { (job) in
+            if let task = job{
+                if let anno = self.allAnnotations[task.jobID]{
+                    self.MapView.removeAnnotation(anno)
+                }
+            }
+        }
+        
     }
     
     

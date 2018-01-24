@@ -56,6 +56,11 @@
 		F33034521FEF80F3004C9C30 /* PaymentContextFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */; };
 		F33C83921F6B8220003157B7 /* endSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C83911F6B8220003157B7 /* endSignUpVC.swift */; };
 		F34760D21F32A726001C24A5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34760D11F32A726001C24A5 /* Launch Screen.storyboard */; };
+		F34F56022016DB6E00E45226 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F56012016DB6D00E45226 /* MainVC.swift */; };
+		F355FE582018245C00A7F258 /* StartJobNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F355FE572018245C00A7F258 /* StartJobNavigationVC.swift */; };
+		F355FE5A201824D800A7F258 /* OnJobNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F355FE59201824D800A7F258 /* OnJobNavigationVC.swift */; };
+		F355FE5D2018277500A7F258 /* WaypointConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F355FE5C2018277500A7F258 /* WaypointConfirmationViewController.swift */; };
+		F355FE602018278200A7F258 /* MGLMapView+CustomAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F355FE5F2018278200A7F258 /* MGLMapView+CustomAdditions.m */; };
 		F357C2E21F35622900963A35 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F357C2DE1F35622900963A35 /* loading.json */; };
 		F357C2E31F35622900963A35 /* outline_user.json in Resources */ = {isa = PBXBuildFile; fileRef = F357C2DF1F35622900963A35 /* outline_user.json */; };
 		F357C2E41F35622900963A35 /* simple_outline_lock_.json in Resources */ = {isa = PBXBuildFile; fileRef = F357C2E01F35622900963A35 /* simple_outline_lock_.json */; };
@@ -74,6 +79,7 @@
 		F375B3151F65ACA5002F5538 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F375B3141F65ACA5002F5538 /* GoogleService-Info.plist */; };
 		F3837F821FEE1F0A00EC67DB /* bouncy_mapmaker.json in Resources */ = {isa = PBXBuildFile; fileRef = F3837F811FEE1F0A00EC67DB /* bouncy_mapmaker.json */; };
 		F3938E2D1F6A45A3006634E2 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3938E2C1F6A45A3006634E2 /* GradientView.swift */; };
+		F396339520179FBB00DC765E /* BottomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F396339420179FBB00DC765E /* BottomVC.swift */; };
 		F3A2006A1FF32824005F7286 /* CustomAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */; };
 		F3CA7AF21FEB43F800862F7A /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */; };
 		F3CA7AF61FEB5DD900862F7A /* AppFABMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */; };
@@ -173,6 +179,12 @@
 		F33034501FEF80F2004C9C30 /* PaymentContextFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentContextFooterView.swift; sourceTree = "<group>"; };
 		F33C83911F6B8220003157B7 /* endSignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = endSignUpVC.swift; sourceTree = "<group>"; };
 		F34760D11F32A726001C24A5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F34F56012016DB6D00E45226 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		F355FE572018245C00A7F258 /* StartJobNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartJobNavigationVC.swift; sourceTree = "<group>"; };
+		F355FE59201824D800A7F258 /* OnJobNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnJobNavigationVC.swift; sourceTree = "<group>"; };
+		F355FE5C2018277500A7F258 /* WaypointConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaypointConfirmationViewController.swift; path = "../../../../Downloads/mapbox-navigation-ios-master/Examples/Swift/WaypointConfirmationViewController.swift"; sourceTree = "<group>"; };
+		F355FE5E2018278200A7F258 /* MGLMapView+CustomAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MGLMapView+CustomAdditions.h"; path = "../../../../Downloads/mapbox-navigation-ios-master/Examples/Swift/MGLMapView+CustomAdditions.h"; sourceTree = "<group>"; };
+		F355FE5F2018278200A7F258 /* MGLMapView+CustomAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MGLMapView+CustomAdditions.m"; path = "../../../../Downloads/mapbox-navigation-ios-master/Examples/Swift/MGLMapView+CustomAdditions.m"; sourceTree = "<group>"; };
 		F357C2DE1F35622900963A35 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F357C2DF1F35622900963A35 /* outline_user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = outline_user.json; sourceTree = "<group>"; };
 		F357C2E01F35622900963A35 /* simple_outline_lock_.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_outline_lock_.json; sourceTree = "<group>"; };
@@ -191,6 +203,7 @@
 		F375B3141F65ACA5002F5538 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3837F811FEE1F0A00EC67DB /* bouncy_mapmaker.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bouncy_mapmaker.json; sourceTree = "<group>"; };
 		F3938E2C1F6A45A3006634E2 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		F396339420179FBB00DC765E /* BottomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomVC.swift; sourceTree = "<group>"; };
 		F3A200691FF32824005F7286 /* CustomAPIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAPIAdapter.swift; sourceTree = "<group>"; };
 		F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
 		F3CA7AF51FEB5DD900862F7A /* AppFABMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFABMenuController.swift; sourceTree = "<group>"; };
@@ -379,6 +392,7 @@
 				F3DD81F81FC3BD34000826F8 /* AppSnackbarController.swift */,
 				F3CA7AF11FEB43F800862F7A /* AppTabsController.swift */,
 				3B71C4FE1EE6836800746DEE /* AddNameVC.swift */,
+				F34F56012016DB6D00E45226 /* MainVC.swift */,
 				3B1EC3021EFC915700182029 /* LoginVC.swift */,
 				3B0FC4041F2043FE00ED88C6 /* SellVC.swift */,
 				3B2673C72012823400519397 /* SellVC+.swift */,
@@ -402,6 +416,8 @@
 				5F00B2BD2001FB7400749398 /* SplashViewController.swift */,
 				5FD263A22003104D004B1978 /* CustomTableViewCell.swift */,
 				5F1F8DA62003F17200E20AB0 /* OnboardingVCViewController.swift */,
+				F396339420179FBB00DC765E /* BottomVC.swift */,
+				F355FE5B201824F100A7F258 /* StartJob */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -425,6 +441,18 @@
 				3BF4EC9E200ABAE500F19287 /* CustomMGLAnnotation.swift */,
 			);
 			name = CustomViewControllers;
+			sourceTree = "<group>";
+		};
+		F355FE5B201824F100A7F258 /* StartJob */ = {
+			isa = PBXGroup;
+			children = (
+				F355FE572018245C00A7F258 /* StartJobNavigationVC.swift */,
+				F355FE59201824D800A7F258 /* OnJobNavigationVC.swift */,
+				F355FE5C2018277500A7F258 /* WaypointConfirmationViewController.swift */,
+				F355FE5E2018278200A7F258 /* MGLMapView+CustomAdditions.h */,
+				F355FE5F2018278200A7F258 /* MGLMapView+CustomAdditions.m */,
+			);
+			name = StartJob;
 			sourceTree = "<group>";
 		};
 		F3E55F771F2FF028003D3338 /* Fonts */ = {
@@ -728,12 +756,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
+				"${BUILT_PRODUCTS_DIR}/ISHPullUp/ISHPullUp.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
@@ -767,12 +797,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISHPullUp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
@@ -868,8 +900,10 @@
 				F33034511FEF80F3004C9C30 /* SettingsViewController.swift in Sources */,
 				3B71C4FF1EE6836800746DEE /* AddNameVC.swift in Sources */,
 				3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */,
+				F355FE5D2018277500A7F258 /* WaypointConfirmationViewController.swift in Sources */,
 				3B6B190A1FA4C3D700DC9134 /* UnconfirmedVC.swift in Sources */,
 				3B71C5B81EF1ED9700746DEE /* Job.swift in Sources */,
+				F355FE5A201824D800A7F258 /* OnJobNavigationVC.swift in Sources */,
 				3B4DE41F1FFC7304006F7F83 /* AppError.swift in Sources */,
 				3BF4EC9F200ABAE500F19287 /* CustomMGLAnnotation.swift in Sources */,
 				F3138B5C1FE6B3A300E690AB /* ProfilePicture.swift in Sources */,
@@ -887,6 +921,7 @@
 				F35EE16B1F8355AC007C08E7 /* customShadowView.swift in Sources */,
 				3B0FC4051F2043FE00ED88C6 /* SellVC.swift in Sources */,
 				3B1EC3011EFC888A00182029 /* ServiceCalls.swift in Sources */,
+				F355FE582018245C00A7F258 /* StartJobNavigationVC.swift in Sources */,
 				3B0FC4081F2477AC00ED88C6 /* LocationManager.swift in Sources */,
 				F3CA7AF61FEB5DD900862F7A /* AppFABMenuController.swift in Sources */,
 				F3D9ED221F77016300332237 /* AnnotationViewVC.swift in Sources */,
@@ -894,13 +929,16 @@
 				3B71C5BC1EF35D8300746DEE /* AllJobs.swift in Sources */,
 				F3E55F7B1F30033E003D3338 /* TapScreenToCloseKeyboardViewController.swift in Sources */,
 				5F00B2BE2001FB7400749398 /* SplashViewController.swift in Sources */,
+				F34F56022016DB6E00E45226 /* MainVC.swift in Sources */,
 				F33C83921F6B8220003157B7 /* endSignUpVC.swift in Sources */,
+				F396339520179FBB00DC765E /* BottomVC.swift in Sources */,
 				F3CA7AF21FEB43F800862F7A /* AppTabsController.swift in Sources */,
 				F30136F21F2CF3590023828A /* RootPageViewController.swift in Sources */,
 				3B71C4FD1EE6836800746DEE /* AppDelegate.swift in Sources */,
 				F3938E2D1F6A45A3006634E2 /* GradientView.swift in Sources */,
 				5FD263A32003104D004B1978 /* CustomTableViewCell.swift in Sources */,
 				3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */,
+				F355FE602018278200A7F258 /* MGLMapView+CustomAdditions.m in Sources */,
 				F3110CD41F3A7AF900BACAE9 /* ApplicationTabsController.swift in Sources */,
 				F3619A241F3793EB00FCA94B /* CustomAnimationHandler.swift in Sources */,
 			);
