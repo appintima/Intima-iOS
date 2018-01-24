@@ -50,7 +50,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     var dbRef: DatabaseReference!
     var pointAnnotations : [CustomMGLAnnotation] = []
     var allAvailableJobs: [Job] = []
-
+    var acceptedJob: Job!
     let service = ServiceCalls()
     var menuShowing = false
     var hamburgerAnimation: LOTAnimationView!
@@ -123,6 +123,12 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
             if let dest = segue.destination as? ConfirmProfilePageVC{
                 dest.applicantInfo = self.applicantInfo
                 
+            }
+        }
+        
+        if segue.identifier == "goToStartJob"{
+            if let dest = segue.destination as? StartJobNavigation{
+                dest.job = self.acceptedJob
             }
         }
         
@@ -465,17 +471,6 @@ extension SellVC {
     }
     
     
-    func goToStartPopup() -> PopupDialog{
-        let title = "Congrats!!! You accepted a task. Begin Task?"
-        let popup = PopupDialog(title: title, message: "")
-        let goButton = DefaultButton(title: "Begin!") {
-            self.performSegue(withIdentifier: "goToStartJob", sender: nil)
-        }
-        
-        popup.addButton(goButton)
-        return popup
-    }
-    
     func prepareBannerForAccept(){
         
         let banner = NotificationBanner(title: "Accepted", subtitle: "Awaiting confirmation from job owner", leftView: postedJobAnimation, style: .success)
@@ -505,7 +500,7 @@ extension SellVC {
                 let body = "Your Job Has Been Accepted By \(Auth.auth().currentUser?.displayName)" ?? "someone"
                 let device = deviceToken
                 var headers: HTTPHeaders = HTTPHeaders()
-                
+                self.acceptedJob = job
                 headers = ["Content-Type":"application/json", "Authorization":"key=\(AppDelegate.SERVERKEY)"]
                 
                 let notification = ["to":"\(device)", "notification":["body":body, "title":title, "badge":1, "sound":"default"]] as [String : Any]

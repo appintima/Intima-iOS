@@ -52,10 +52,6 @@ extension SellVC: Constrainable{
             if code == 1{
                 self.performSegue(withIdentifier: "goToStartJob", sender: nil)
             }
-            else if code == 2{
-                let popup = self.goToStartPopup()   // might want to change popup text later on
-                print("Someone Accepted Your Job")
-            }
         }
         
         service.getJobsFromFirebase(MapView: self.MapView) { annotationDict  in
@@ -66,7 +62,9 @@ extension SellVC: Constrainable{
         
         service.removeAcceptedJobsFromMap { (job) in
             if let task = job{
-                self.MapView.removeAnnotation(self.allAnnotations[task.jobID]!)
+                if let anno = self.allAnnotations[task.jobID]{
+                    self.MapView.removeAnnotation(anno)
+                }
             }
         }
         
