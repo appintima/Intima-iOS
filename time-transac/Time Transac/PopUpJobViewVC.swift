@@ -12,7 +12,6 @@ import MapKit
 import Firebase
 import Alamofire
 import Material
-import GoogleMaps
 
 
 protocol MapMarkerDelegate: class {
