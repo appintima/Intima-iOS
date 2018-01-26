@@ -13,6 +13,7 @@ import UserNotifications
 import FBSDKCoreKit
 import Stripe
 import RevealingSplashView
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate{
@@ -33,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FirebaseApp.configure()
         STPPaymentConfiguration.shared().publishableKey = "pk_test_K45gbx2IXkVSg4pfmoq9SIa9"
         STPPaymentConfiguration.shared().appleMerchantIdentifier = "merchant.online.intima"
-        
+        GMSServices.provideAPIKey("AIzaSyBM8ecC5_BUOBFO4X4jAXWu-HbPetcDh9w")
         
 
         if (Auth.auth().currentUser != nil && (Auth.auth().currentUser?.isEmailVerified)!){

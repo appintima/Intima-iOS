@@ -76,7 +76,7 @@ PODS:
   - ISHPullUp (1.0.6)
   - Kingfisher (4.6.1)
   - leveldb-library (1.20)
-  - lottie-ios (2.1.5)
+  - lottie-ios (2.5.0)
   - Mapbox-iOS-SDK (3.7.3)
   - MapboxCoreNavigation (0.13.0):
     - MapboxDirections.swift (~> 0.16.0)
@@ -172,7 +172,7 @@ SPEC CHECKSUMS:
   ISHPullUp: 0ce08aeef21a034ab883b22c5810015853dda6f8
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  lottie-ios: 836cdbba92f62f3c6a00e37a4ce485321fe317cf
+  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   Mapbox-iOS-SDK: 5304bd9605babe6da9050ea4cb23c1671420b737
   MapboxCoreNavigation: 3c964ad1854179dc619b4cceb5f85f428b68fe14
   MapboxDirections.swift: 168cc83745b188d792c5482bfb0653c233d1455c

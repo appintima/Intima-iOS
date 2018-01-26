@@ -12,11 +12,16 @@ import MapKit
 import Firebase
 import Alamofire
 import Material
+import GoogleMaps
 
+
+protocol MapMarkerDelegate: class {
+    func didTapInfoButton(data: NSDictionary)
+}
 
 class PopUpJobViewVC: UIView, CLLocationManagerDelegate {
     
-    @IBOutlet weak var hireButton: FlatButton!
+    @IBOutlet weak var hireButton: RaisedButton!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var rating: UIView!
     

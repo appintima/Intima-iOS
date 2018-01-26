@@ -338,7 +338,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set up your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="AwO-4u-Egc">
-                                        <rect key="frame" x="56.5" y="85" width="262" height="37"/>
+                                        <rect key="frame" x="57" y="85" width="262" height="37"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -677,7 +677,7 @@
                                         <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ch8-Xi-6PT" customClass="RaisedButton" customModule="Material">
-                                                <rect key="frame" x="152.5" y="570" width="70" height="70"/>
+                                                <rect key="frame" x="152.5" y="447" width="70" height="70"/>
                                                 <color key="backgroundColor" red="1" green="0.50962010619999998" blue="0.44240797749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="ML0-kB-neE"/>
@@ -721,7 +721,16 @@
                                             <constraint firstAttribute="bottom" secondItem="Ch8-Xi-6PT" secondAttribute="bottom" constant="150" id="OFe-3T-1Yv"/>
                                             <constraint firstItem="Ch8-Xi-6PT" firstAttribute="centerX" secondItem="5dL-Q9-XdQ" secondAttribute="centerX" id="dOc-YW-CoV"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/srikanthsrnvs/cjbjmw0b80pjn2sl9nw8bo83u"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6r-89-Nvt">
+                                        <rect key="frame" x="164" y="176" width="46" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.88225442170000001" green="0.319435209" blue="0.25485315920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1010,7 +1019,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hh4-LM-Bpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-702" y="-101"/>
+            <point key="canvasLocation" x="-703.20000000000005" y="-101.19940029985008"/>
         </scene>
         <!--Start JobVC-->
         <scene sceneID="hOh-jR-tEO">
@@ -1730,6 +1739,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/srikanthsrnvs/cjbjmw0b80pjn2sl9nw8bo83u"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="CYb-DM-FWO" appends="YES" id="uUe-Iw-4F9"/>
                                 </connections>
@@ -1787,22 +1799,6 @@
             </objects>
             <point key="canvasLocation" x="1962" y="-510"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="bHj-TS-fsO">
-            <objects>
-                <navigationController id="Bqc-ux-nFj" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2ag-Dx-ilu">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="gIW-QR-Jyc" kind="relationship" relationship="rootViewController" id="BQ2-oD-yJW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qra-fk-V6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1006" y="-510"/>
-        </scene>
         <!--On Job Navigation-->
         <scene sceneID="ccV-zb-ESN">
             <objects>
@@ -1818,6 +1814,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWj-M7-GMR" customClass="MGLMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/srikanthsrnvs/cjbjmw0b80pjn2sl9nw8bo83u"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0v-Wd-C7o">
                                 <rect key="frame" x="158" y="587" width="60" height="60"/>
@@ -1995,7 +1994,4 @@
         <image name="emptyProfilePicture" width="64" height="64"/>
         <image name="facebookButton" width="512" height="512"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="CpH-hp-e2g"/>
-    </inferredMetricsTieBreakers>
 </document>
