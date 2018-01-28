@@ -154,7 +154,7 @@ class ServiceCalls{
 
         userAcceptedRef.child(job.jobID).updateChildValues(jobDict)
         
-        jobsRef.child(job.jobID).updateChildValues(["isOccupied":true])
+        jobsRef.child(job.jobID).updateChildValues(["isOccupied":true, "isAcceptedBy": self.helper.MD5(string: user.email!)])
         
         
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in

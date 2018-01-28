@@ -109,13 +109,7 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
 
     @IBAction func buttonPressedForProfile(_ sender: UIButton) {
-      
-//        service.getApplicantProfile(emailHash: self.applicantEHash) { (userInfo) in
-//            if userInfo != nil{
-//                self.applicantInfo = userInfo
-//                self.performSegue(withIdentifier: "goToProfileToCancel", sender: nil)
-//            }
-//        }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -155,7 +149,6 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
         self.prepareMap()
 
     }
@@ -168,28 +161,9 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
 
     //When the postJob red button is pressed
     @IBAction func postJobPressed(_ sender: Any) {
-    
-//        self.service.checkUserLastPost { (bool) in
-//            if !bool{
-                self.postJobButton.isHidden = true
-                self.jobDetailsConstraint.constant = 77
-                UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
-//
-//            }else{
-//
-//                let title = "You Already posted a task"
-//                let message = ""
-//                // Create the dialog
-//
-//                let popup = PopupDialog(title: title, message: message)
-//                // Create buttons
-//                let buttonOne = CancelButton(title: "Cancel") {
-//                    print("Job Cancelled")
-//                }
-//                popup.addButton(buttonOne)
-//                self.present(popup, animated: true, completion: nil)
-//            }
-//        }
+        self.postJobButton.isHidden = true
+        self.jobDetailsConstraint.constant = 77
+        UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
  
     }
     
@@ -209,24 +183,19 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     }
     
     //When submit is pressed after the job price form
-    @IBAction func submitJob(_ sender: Any) {
+    @IBAction func submitJob(_ sender: Any) {//Check
         
         if (CLLocationManager.locationServicesEnabled()){
             if (pricePerHour.text == "" || numberOfHoursTF.text == "" || jobTitleTF.text == "" ||
                 jobDetailsTF.text == ""){
-                
-                print("Empty fields, please check again")
                 return
             }
-                
             else{   // add job things to firebase
-                
                 let popup = preparePopupForJobPosting(wage: pricePerHour.text!, time: numberOfHoursTF.text!)
                 self.present(popup, animated: true, completion: nil)
             }
             
-        }
-        else{
+        }else{
             let locationServicesPopup = PopupDialog(title: "Error", message: "Please enable location services to allow us to determine the location for your job")
             self.present(locationServicesPopup, animated: true)
             print("Location not enabled")
@@ -237,10 +206,11 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
     //When you cancel the details, the view is animated here
     @IBAction func cancelDetailsPressed(_ sender: Any) {
-        self.resetTextFields()
+        
         jobDetailsConstraint.constant = 800
         UIView.animate(withDuration: 1, animations: {self.view.layoutIfNeeded()})
         postJobButton.isHidden = false
+        self.resetTextFields()
     }
     
     //When you cancel price by pressing back, the view is animated here
@@ -282,22 +252,47 @@ class SellVC: UIViewController,  MGLMapViewDelegate, CLLocationManagerDelegate, 
     
     
     //Search feature to filter jobs by title, needs additional work to be used properly
-    func searchBarDidEndEditing(_ searchBar: SHSearchBar) {
-        let searchText = searchBar.text
-        if !(searchText?.isEmpty)!{
-            for j in allAvailableJobs {
-                if (j.title.lowercased().range(of: searchText!.lowercased()) != nil) {
+//    func searchBarDidEndEditing(_ searchBar: SHSearchBar) {
+//        let searchText = searchBar.text
+//        if !(searchText?.isEmpty)!{
+//            for j in allAvailableJobs {
+//                if (j.title.lowercased().range(of: searchText!.lowercased()) != nil) {
+//
+//                    let point = CustomMGLAnnotation()
+//                    point.coordinate = j.location.coordinate
+//                    point.title = j.title
+//                    point.subtitle = ("$"+"\(j.wage_per_hour)"+"/Hour")
+//                    filteredJobs.append(point)
+//                }
+//            }
+//            print("Runs code")
+//            self.MapView.removeAnnotations(pointAnnotations)
+//            self.MapView.addAnnotations(filteredJobs)
+//        }
+//    }
+    
+    func searchBar(_ searchBar: SHSearchBar, textDidChange text: String) {
+        if searchBar.text!.isEmpty{
+            if self.MapView.annotations == nil{
+                let annArr = Array(self.allAnnotations.values)
+                self.MapView.addAnnotations(annArr)
+            }
+        }
+        else{
+            let allannos = self.MapView.annotations
+            if allannos != nil{
+                self.MapView.removeAnnotations(allannos!)
+            }
+            var searchAnnos:[CustomMGLAnnotation] = []
+            let annArr = Array(self.allAnnotations.values)
 
-                    let point = CustomMGLAnnotation()
-                    point.coordinate = j.location.coordinate
-                    point.title = j.title
-                    point.subtitle = ("$"+"\(j.wage_per_hour)"+"/Hour")
-                    filteredJobs.append(point)
+            for anno in annArr{
+                if (anno.title?.lowercased().range(of: searchBar.text!.lowercased()) != nil){
+                    searchAnnos.append(anno)
                 }
             }
-            print("Runs code")
-            self.MapView.removeAnnotations(pointAnnotations)
-            self.MapView.addAnnotations(filteredJobs)
+            self.MapView.addAnnotations(searchAnnos)
+        
         }
     }
     

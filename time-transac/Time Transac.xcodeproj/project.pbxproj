@@ -12,6 +12,7 @@
 		3B0FC4081F2477AC00ED88C6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FC4071F2477AB00ED88C6 /* LocationManager.swift */; };
 		3B0FC40B1F247F7B00ED88C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0FC40A1F247F7B00ED88C6 /* MapKit.framework */; };
 		3B0FC40D1F24804300ED88C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */; };
+		3B1AF9CC201CF815009F272C /* IntimaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1AF9CB201CF815009F272C /* IntimaUser.swift */; };
 		3B1EC3011EFC888A00182029 /* ServiceCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3001EFC888A00182029 /* ServiceCalls.swift */; };
 		3B1EC3031EFC915700182029 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1EC3021EFC915700182029 /* LoginVC.swift */; };
 		3B2673C82012823400519397 /* SellVC+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2673C72012823400519397 /* SellVC+.swift */; };
@@ -122,6 +123,7 @@
 		3B0FC4071F2477AB00ED88C6 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3B0FC40A1F247F7B00ED88C6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3B0FC40C1F24804300ED88C6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3B1AF9CB201CF815009F272C /* IntimaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimaUser.swift; sourceTree = "<group>"; };
 		3B1EC3001EFC888A00182029 /* ServiceCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCalls.swift; sourceTree = "<group>"; };
 		3B1EC3021EFC915700182029 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		3B2673C72012823400519397 /* SellVC+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SellVC+.swift"; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				F30C07DC1FF9AA56009FC572 /* HelperFunctions.swift */,
 				3B4DE41E1FFC7303006F7F83 /* AppError.swift */,
 				5F06A848201951BF00EF138B /* MapStyle.json */,
+				3B1AF9CB201CF815009F272C /* IntimaUser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				3B71C4FD1EE6836800746DEE /* AppDelegate.swift in Sources */,
 				F3938E2D1F6A45A3006634E2 /* GradientView.swift in Sources */,
 				5FD263A32003104D004B1978 /* CustomTableViewCell.swift in Sources */,
+				3B1AF9CC201CF815009F272C /* IntimaUser.swift in Sources */,
 				3B4DE41D1FFB4C33006F7F83 /* ApplicantsVC.swift in Sources */,
 				F3110CD41F3A7AF900BACAE9 /* ApplicationTabsController.swift in Sources */,
 				F3619A241F3793EB00FCA94B /* CustomAnimationHandler.swift in Sources */,

@@ -137,6 +137,9 @@ extension SellVC: Constrainable{
     }
     
     
+    func getPlacemark(selectedAnnotation: CustomMGLAnnotation, completion: @escaping ()->()){
+        
+    }
     
     
 }
